@@ -1,21 +1,12 @@
 # Decision Log
 
-## YYYY-MM-DD — Initial setup
+Add one dated section per decision.
+Use the "Decision Log" section in `TEMPLATES.md` for the full entry structure.
 
-### Context
+## YYYY-MM-DD — Decision title
+
+### Summary
 TBD
 
-### Decision
-TBD
-
-### Why
-TBD
-
-### Tradeoffs
-TBD
-
-### Implications
-TBD
-
-### Revisit when
+### Follow-ups
 TBD

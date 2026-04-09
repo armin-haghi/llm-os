@@ -1,27 +1,18 @@
 # Current Milestone
 
-## Milestone name
+Keep this as the current snapshot only.
+Use the "Milestone Plan" section in `TEMPLATES.md` if you need the full structure.
+
+## Name
 TBD
 
 ## Objective
 TBD
 
-## Scope
+## Status
 TBD
 
-## Non-goals
-TBD
-
-## Success criteria
-TBD
-
-## Dependencies
-TBD
-
-## Risks
-TBD
-
-## Latest status
+## Risks or blockers
 TBD
 
 ## Next steps

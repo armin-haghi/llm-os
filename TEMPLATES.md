@@ -1,6 +1,8 @@
 # Document Templates
 
-Standard templates for each artifact type in the workflow.
+Canonical templates for each artifact type in the workflow.
+The files under `project-scaffold/docs/` are intentionally slimmer starter stubs.
+Use this file when you want the full structure for a document.
 
 ---
 

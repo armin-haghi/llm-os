@@ -1,21 +1,12 @@
 # Active Review
 
-## What is being proposed
+Keep this review request narrowly scoped to the current proposal.
+Use the "Review Request" section in `TEMPLATES.md` if you need the full structure.
+
+## Proposal
 TBD
 
-## Why now
-TBD
-
-## Summary of the plan
-TBD
-
-## Key tradeoffs
-TBD
-
-## Key assumptions
-TBD
-
-## Risks and concerns
+## Tradeoffs and risks
 TBD
 
 ## Open questions
