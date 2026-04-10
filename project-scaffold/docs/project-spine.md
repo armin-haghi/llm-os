@@ -1,33 +1,18 @@
 # Project Spine
 
-## What this project is
-TBD
+Keep this file short and current.
+Use the "Project Spine" section in `TEMPLATES.md` if you need the full structure.
 
-## Why it matters
-TBD
-
-## Who it is for
+## Summary
 TBD
 
 ## Current goal
 TBD
 
-## Success criteria
+## Constraints
 TBD
 
-## Non-negotiable constraints
-TBD
-
-## Current architecture or operating model
-TBD
-
-## Key decisions so far
-TBD
-
-## Current workstreams
-TBD
-
-## Top open questions
+## Open questions
 TBD
 
 ## Canonical docs

@@ -1,25 +1,22 @@
 # Status Update
 
+Use this for the latest concise update.
+Use the "Status Update" section in `TEMPLATES.md` if you need the full structure.
+
 ## Date
 TBD
 
-## Current milestone
+## Milestone
 TBD
 
-## Overall status
+## Status
 TBD
 
-## What changed since last update
+## Changes
 TBD
 
-## Current blockers
-TBD
-
-## Decisions made
+## Blockers or risks
 TBD
 
 ## Next steps
-TBD
-
-## Needs from others
 TBD

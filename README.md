@@ -3,7 +3,7 @@
 A repo-ready operating model tailored to this stack:
 
 - **OpenClaw**: idea expansion, exploratory branching, rough option generation
-- **ChatGPT**: synthesis, review, restructuring, comparison, artifact drafting
+- **Claude / ChatGPT**: synthesis, review, restructuring, comparison, artifact drafting
 - **Claude Code / Codex**: implementation planning and code changes
 - **Notion**: milestone planning, status, collaboration, comments
 - **GitHub**: canonical codebase, technical docs, issues, pull requests
@@ -48,12 +48,23 @@ Write back one of:
 
 ## What this package includes
 
-- `principles/`: the operating model and reading/write-back rules
-- `instructions/`: stack-specific instructions for ChatGPT, OpenClaw, Claude Code, and Codex
-- `templates/`: markdown templates for project spine, milestone plans, handoffs, reviews, decisions, status updates
-- `notion/`: suggested Notion database schema and page structure
-- `github/`: suggested GitHub issue and PR conventions
-- `project-scaffold/`: a per-project folder structure to copy into a real repo
+- `principles/operating-model.md`: source-of-truth rules, context budget, routing, and write-back rules
+- `INSTRUCTIONS.md`: stack-specific instructions for OpenClaw, ChatGPT, Claude Code / Codex, and lightweight task roles
+- `SETUP.md`: suggested Notion database schema and GitHub conventions
+- `TEMPLATES.md`: canonical markdown templates for project docs
+- `ASSISTANT.md`: single assistant-facing entrypoint designed to be shared as one link
+- `project-scaffold/`: a slim per-project folder structure to copy into a real repo
+
+## Quick Start With ChatGPT or Claude
+
+If you want an assistant to help you apply this system, start by sharing `ASSISTANT.md`.
+
+- Best case: paste only a link to `ASSISTANT.md`
+- If useful, add one short line of context such as:
+  - `Use this operating model for my new project:`
+  - `Use this as a lightweight overlay for my existing project:`
+  - `Work in this repo using this operating model:`
+- `ASSISTANT.md` is written to handle new projects, existing projects, and ongoing sessions
 
 ## Default reading policy by tool
 
