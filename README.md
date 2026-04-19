@@ -53,6 +53,7 @@ Write back one of:
 - `SETUP.md`: suggested Notion database schema and GitHub conventions
 - `TEMPLATES.md`: canonical markdown templates for project docs
 - `ASSISTANT.md`: single assistant-facing entrypoint designed to be shared as one link
+- `skills/llm-os-session/`: agent skill for running lightweight llm-os sessions from canonical context
 - `project-scaffold/`: a slim per-project folder structure to copy into a real repo
 
 ## Quick Start With ChatGPT or Claude

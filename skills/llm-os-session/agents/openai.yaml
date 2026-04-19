@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM OS Session"
+  short_description: "Run lightweight llm-os sessions from repo docs."
+  default_prompt: "Use llm-os-session to run this project session from the smallest sufficient canonical context."
