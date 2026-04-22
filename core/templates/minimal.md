@@ -23,7 +23,7 @@
 ## docs/open-questions.md
 - Question: unresolved decision or uncertainty
 - Why it matters: what changes if this is answered differently
-- Who should resolve it: build agent, review agent, or human
+- Who should resolve it: specific agent contract or human
 - Current default assumption: temporary working assumption in use now
 - Decide by: date, milestone gate, or review checkpoint
 

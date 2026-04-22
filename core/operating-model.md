@@ -11,10 +11,11 @@ durable project memory.
 - llm-os: reusable operating model, skills, templates
 - Entry points: interfaces only, not source of truth
 
-## Roles
-- Build agent
-- Review agent
-- Human
+## Agent contracts
+- Agent contracts are narrowly-scoped task executors.
+- A contract is selected because the task matches it, not because a stable
+  team-member role exists.
+- The human remains explicit as the decision endpoint for unresolved judgment.
 
 ## Stages
 1. Opportunity framing
@@ -37,12 +38,24 @@ durable project memory.
 - Milestone: bounded outcome within a stage
 - Task: concrete execution step that advances the milestone
 - Lane: recurring cross-stage operating function
+- Agent contract: task-oriented execution boundary with explicit inputs,
+  outputs, and escalation conditions
 
 Rules:
 - a project has one active stage at a time
 - a milestone belongs to one primary stage
 - tasks should advance acceptance criteria or reduce blocking uncertainty
 - lanes can operate inside any stage or milestone without becoming the stage
+- agent contracts should stay narrow and task-specific
+- the human is the decision endpoint when default assumptions stop being safe
+
+Relationship summary:
+- stage = lifecycle location
+- milestone = bounded outcome inside the active stage
+- task = concrete move that advances the milestone
+- lane = recurring control function that can operate across stages
+- agent contract = the narrowly-scoped executor used for a specific task
+- human = the decision endpoint when execution reaches unresolved judgment
 
 ## Serious session rule
 A serious session should:
@@ -60,20 +73,20 @@ canonical project docs when clarity or outcomes improve.
 
 This operating model is informed by several adjacent approaches, but does not fully adopt any one of them.
 
-- **Specialist agent / role-based systems**  
-  Influence on explicit roles and mode selection.  
-  In this repo, that shows up as `Build agent`, `Review agent`, and `Human`.
+- **Specialist agent / role-based systems**
+  Influence on explicit execution boundaries and mode selection.
+  In this repo, that shows up as narrow `agent contracts` plus explicit human escalation.
 
-- **Shaping-first product methods**  
-  Influence on bounded milestones, scope discipline, and reducing ambiguity before execution.  
+- **Shaping-first product methods**
+  Influence on bounded milestones, scope discipline, and reducing ambiguity before execution.
   In this repo, that shows up as the distinction between `stage`, `milestone`, and `task`.
 
-- **Working-backwards / customer-value framing**  
-  Influence on clarifying user value and commercial logic before build.  
+- **Working-backwards / customer-value framing**
+  Influence on clarifying user value and commercial logic before build.
   In this repo, that shows up most strongly in `Opportunity framing`, `Solution shaping`, and the `Commercial lane`.
 
-- **Handbook-first / operating-system-style documentation**  
-  Influence on durable written context, explicit operating rules, and treating chat as scratch space unless promoted.  
+- **Handbook-first / operating-system-style documentation**
+  Influence on durable written context, explicit operating rules, and treating chat as scratch space unless promoted.
   In this repo, that shows up in canonical docs, write-back expectations, and change policy.
 
 ## Non-goals

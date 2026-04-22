@@ -6,4 +6,4 @@ history log.
 
 | Question | Why it matters | Who should resolve it | Current default assumption | Decide by |
 | --- | --- | --- | --- | --- |
-| [Decision still needed] | [What this changes or blocks] | Human / Build agent / Review agent | [Temporary assumption in use right now] | [Date, milestone gate, or review checkpoint] |
+| [Decision still needed] | [What this changes or blocks] | [Relevant agent contract or Human] | [Temporary assumption in use right now] | [Date, milestone gate, or review checkpoint] |

@@ -5,7 +5,7 @@ truth.
 
 ## Read order
 1. `core/operating-model.md`
-2. `core/role-contracts.md`
+2. `core/agent-contracts.md`
 3. `core/change-policy.md`
 4. `core/templates/minimal.md`
 
@@ -18,6 +18,7 @@ truth.
 ## Required behavior
 - keep context minimal and prefer canonical docs over chat history
 - use canonical project docs as the durable working surface
+- invoke the narrow agent contract that matches the task instead of assuming a broad role
 - improve milestone clarity while doing the work
 - end with explicit write-back targets or completed write-backs
 - escalate only unresolved human decisions

@@ -2,7 +2,7 @@
 
 Read these first:
 1. `core/operating-model.md`
-2. `core/role-contracts.md`
+2. `core/agent-contracts.md`
 3. `core/change-policy.md`
 4. `core/templates/minimal.md`
 

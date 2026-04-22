@@ -5,8 +5,8 @@ It keeps execution anchored to one active stage, one current milestone, and
 durable write-back in canonical project docs instead of chat.
 
 ## Canonical files
-- `core/operating-model.md`: roles, stages, lanes, and the serious session rule
-- `core/role-contracts.md`: responsibilities and failure boundaries by role
+- `core/operating-model.md`: stages, lanes, agent contracts, and the serious session rule
+- `core/agent-contracts.md`: task-oriented contract definitions and human escalation boundaries
 - `core/change-policy.md`: how local patterns become operating standards
 - `core/templates/minimal.md`: minimum shape for canonical project docs
 

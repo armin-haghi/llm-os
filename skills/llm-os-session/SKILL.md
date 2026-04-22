@@ -7,7 +7,7 @@ description: Start or continue serious work using the canonical llm-os core.
 
 Read first:
 1. `core/operating-model.md`
-2. `core/role-contracts.md`
+2. `core/agent-contracts.md`
 3. `core/change-policy.md`
 4. `core/templates/minimal.md`
 
@@ -25,6 +25,7 @@ Read first:
 
 ## Rules
 - use minimal context and prefer canonical docs over chat memory
+- invoke the narrow agent contract that matches the task
 - improve milestone clarity while working
 - do the intended work before expanding scope
 - end with explicit write-back targets or completed write-backs

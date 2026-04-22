@@ -8,7 +8,7 @@ reconstruct context.
 - Project: canonical project name
 - Current stage: one of the canonical stages
 - Active milestone: exact milestone from `docs/current-milestone.md`
-- Session owner: build agent, review agent, or human
+- Session contract: relevant agent contract or Human
 - Last updated: `YYYY-MM-DD`
 
 ## Project summary
