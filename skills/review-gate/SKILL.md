@@ -1,6 +1,6 @@
 ---
 name: review-gate
-description: Review milestone output and decide pass / conditional pass / fail.
+description: Review milestone output and produce a durable pass / conditional pass / fail result.
 ---
 
 # Review Gate
@@ -16,7 +16,7 @@ Write back:
 
 Check:
 - acceptance criteria
-- evidence
+- evidence quality and coverage
 - unresolved assumptions
 - risks
 - required human decisions

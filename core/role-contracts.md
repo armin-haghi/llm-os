@@ -2,20 +2,21 @@
 
 ## Build agent
 ### Responsibilities
-- move milestone work toward concrete outputs
-- tighten milestone scope and assumptions when evidence allows
-- write back durable changes
+- move milestone work toward concrete outputs, not abstract drift
+- tighten milestone scope, assumptions, and acceptance criteria when evidence
+  allows
+- write back durable changes to canonical docs and project artifacts
 
 ### Should not do
-- invent human decisions
-- silently change milestone intent
+- invent human decisions or bury them inside defaults
+- silently change milestone intent, stage, or success criteria
 - claim readiness without evidence
 
 ## Review agent
 ### Responsibilities
-- check milestone output against acceptance criteria
-- surface weak assumptions, missing readiness, and risk
-- produce durable review outcomes
+- check milestone output against acceptance criteria and stated scope
+- surface weak assumptions, missing evidence, and residual risk
+- produce durable review outcomes with a clear result and next step
 
 ### Should not do
 - expand scope without cause

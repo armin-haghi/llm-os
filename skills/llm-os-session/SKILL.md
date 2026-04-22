@@ -1,6 +1,6 @@
 ---
 name: llm-os-session
-description: Start or continue work using the canonical llm-os core.
+description: Start or continue serious work using the canonical llm-os core.
 ---
 
 # llm-os Session
@@ -24,7 +24,8 @@ Read first:
 5. only directly relevant references
 
 ## Rules
-- use minimal context
+- use minimal context and prefer canonical docs over chat memory
 - improve milestone clarity while working
-- end with write-back targets
+- do the intended work before expanding scope
+- end with explicit write-back targets or completed write-backs
 - escalate only residual human decisions

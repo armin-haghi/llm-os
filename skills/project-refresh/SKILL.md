@@ -1,6 +1,6 @@
 ---
 name: project-refresh
-description: Refresh one project's canonical context and tighten milestone clarity.
+description: Refresh canonical project context and tighten milestone clarity.
 ---
 
 # Project Refresh
@@ -13,9 +13,9 @@ Read:
 
 Do:
 - check stage and milestone clarity
-- detect stale or contradictory context
-- tighten milestone scope and assumptions
-- convert vague ambiguity into explicit questions
+- detect stale, contradictory, or missing context
+- tighten milestone scope, assumptions, and acceptance criteria
+- convert vague ambiguity into explicit open questions or defaults
 
 Write back:
 - `docs/current-milestone.md`

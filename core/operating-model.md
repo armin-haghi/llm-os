@@ -2,6 +2,8 @@
 
 ## Purpose
 `llm-os` is the reusable operating standard for agent-driven product work.
+It keeps project execution grounded in a clear stage, a bounded milestone, and
+durable project memory.
 
 ## Canonical homes
 - Notion: portfolio state, ownership, blockers, priorities, human decisions
@@ -31,16 +33,16 @@
 - Human decision lane
 
 ## Working units
-- Stage: lifecycle context
+- Stage: lifecycle context for the project right now
 - Milestone: bounded outcome within a stage
-- Task: concrete execution step
+- Task: concrete execution step that advances the milestone
 - Lane: recurring cross-stage operating function
 
 Rules:
-- a project has one active stage
+- a project has one active stage at a time
 - a milestone belongs to one primary stage
-- tasks move the active milestone forward
-- lanes can operate inside any stage or milestone
+- tasks should advance acceptance criteria or reduce blocking uncertainty
+- lanes can operate inside any stage or milestone without becoming the stage
 
 ## Serious session rule
 A serious session should:
@@ -51,4 +53,5 @@ A serious session should:
 5. escalate only residual human decisions
 
 ## Write-back expectation
-A serious session is not complete until durable changes are written back to canonical project docs.
+A serious session is not complete until durable changes are written back to
+canonical project docs when clarity or outcomes improve.

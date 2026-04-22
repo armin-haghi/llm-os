@@ -1,19 +1,21 @@
 # llm-os
 
-A clean operating system for agent-driven product work.
+`llm-os` is the reusable operating standard for agent-driven product work.
+It keeps execution anchored to one active stage, one current milestone, and
+durable write-back in canonical project docs instead of chat.
 
 ## Canonical files
-- `core/operating-model.md`
-- `core/role-contracts.md`
-- `core/change-policy.md`
-- `core/templates/minimal.md`
+- `core/operating-model.md`: roles, stages, lanes, and the serious session rule
+- `core/role-contracts.md`: responsibilities and failure boundaries by role
+- `core/change-policy.md`: how local patterns become operating standards
+- `core/templates/minimal.md`: minimum shape for canonical project docs
 
 ## Canonical project docs
-- `docs/project-spine.md`
-- `docs/current-milestone.md`
-- `docs/open-questions.md`
-- `docs/session-brief.md`
-- `docs/review-report.md`
+- `docs/project-spine.md`: stable project definition and success frame
+- `docs/current-milestone.md`: active milestone, scope, and acceptance criteria
+- `docs/open-questions.md`: unresolved decisions with owners and defaults
+- `docs/session-brief.md`: fastest durable reload point for the next session
+- `docs/review-report.md`: latest review outcome and required human decisions
 
 ## Core rule
 A serious session should:
