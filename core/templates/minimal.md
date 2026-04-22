@@ -1,62 +1,46 @@
-# Minimal Templates (Canonical)
+# Minimal Templates
 
-Use these as the default templates. Expand only when the task needs more structure.
+## docs/project-spine.md
+- What
+- Why
+- Who
+- Constraints
+- Success criteria
+- Current milestone
+- Canonical links
 
-## `docs/project-spine.md`
+## docs/current-milestone.md
+- Snapshot
+- Why this milestone matters
+- In scope
+- Out of scope
+- Acceptance criteria
+- Dependencies
+- Blockers
+- Open questions to clarify during active sessions
 
-```md
-# Project Spine
-## What
-## Why
-## Who
-## Constraints
-## Success criteria
-## Current milestone
-## Canonical links
-```
+## docs/open-questions.md
+- Question
+- Why it matters
+- Who should resolve it
+- Current default assumption
+- Decide by
 
-## `docs/current-milestone.md`
+## docs/session-brief.md
+- Snapshot
+- Project summary
+- Next action
+- Blocking question
+- Latest decisions
+- Current risks
+- Expected output from this session
 
-```md
-# Current Milestone
-## Objective
-## Scope
-## Acceptance criteria
-## Risks / blockers
-## Next actions
-## Links (Notion, issues, PRs)
-```
-
-## `docs/handoffs/active-build.md`
-
-```md
-# Active Build Handoff
-## Objective
-## Required context
-## Files to change
-## Acceptance criteria
-## Tests / validation
-## Open questions
-```
-
-## `docs/reviews/active-review.md`
-
-```md
-# Active Review
-## What is being reviewed
-## Proposal summary
-## Risks / tradeoffs
-## Questions to resolve
-## Recommended decision
-```
-
-## `docs/status-update.md`
-
-```md
-# Status Update
-## Date
-## Current state
-## What changed
-## Blockers
-## Next steps
-```
+## docs/review-report.md
+- Snapshot
+- Summary
+- Result
+- Evidence checked
+- Unresolved assumptions
+- Risks
+- Required human decisions
+- Recommended next step

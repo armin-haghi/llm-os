@@ -1,30 +1,24 @@
-# llm-os — Minimal Core First
+# llm-os
 
-This repository now uses a **minimal core** model.
+A clean operating system for agent-driven product work.
 
-## Canonical operating model
-Use these files as the single source of truth:
+## Canonical files
 - `core/operating-model.md`
 - `core/role-contracts.md`
 - `core/change-policy.md`
 - `core/templates/minimal.md`
 
-Everything else should either:
-1) apply the core to a specific workflow, or
-2) serve as a compatibility/migration shim.
+## Canonical project docs
+- `docs/project-spine.md`
+- `docs/current-milestone.md`
+- `docs/open-questions.md`
+- `docs/session-brief.md`
+- `docs/review-report.md`
 
-## Entry surfaces
-- `ASSISTANT.md` — assistant-facing boot contract
-- `skills/llm-os-session/SKILL.md` — session orchestration skill for agents
-- `AGENTS.md` — root coding-agent anchor for this repo
-
-## Migration stance
-Older documents are retained only to ease adoption and transition.
-They must not define a competing operating model.
-
-## Practical default
-When in doubt:
-1. read the core files
-2. choose one role contract
-3. execute one scoped task
-4. promote outcomes using `core/change-policy.md`
+## Core rule
+A serious session should:
+1. load current context
+2. do the intended work
+3. reduce milestone uncertainty where possible
+4. update canonical docs when clarity improves
+5. escalate only residual human decisions

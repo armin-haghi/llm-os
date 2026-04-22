@@ -1,28 +1,33 @@
-# LLM-OS Minimal Core — Role Contracts
+# Role Contracts
 
-This file is canonical.
+## Build agent
+### Responsibilities
+- move milestone work toward concrete outputs
+- tighten milestone scope and assumptions when evidence allows
+- write back durable changes
 
-## Explorer contract
-- Expand options, constraints, and unknowns.
-- Stay above implementation detail unless asked for handoff-ready output.
-- End with recommended write-back target.
+### Should not do
+- invent human decisions
+- silently change milestone intent
+- claim readiness without evidence
 
-## Reviewer contract
-- Challenge assumptions and complexity.
-- Compare tradeoffs and risks.
-- Produce concise, decision-shaping feedback.
+## Review agent
+### Responsibilities
+- check milestone output against acceptance criteria
+- surface weak assumptions, missing readiness, and risk
+- produce durable review outcomes
 
-## Builder contract
-- Work from active handoff + canonical technical context.
-- Prefer explicit, testable file-level changes.
-- If required context is missing, state the gap instead of inventing product decisions.
+### Should not do
+- expand scope without cause
+- treat missing evidence as success
+- hide risks behind optimism
 
-## Tracker contract
-- Update milestone status, ownership, blockers, and next steps.
-- Reflect confirmed decisions into durable artifacts.
-- Keep Notion/GitHub/repo docs aligned.
+## Human
+### Responsibilities
+- resolve priorities, tradeoffs, and business decisions
+- accept or reject material risk
+- decide when to advance, pause, pivot, or stop
 
-## Shared contract for all roles
-- Keep context lean.
-- Prefer linking over duplicating.
-- Promote durable outcomes through the change policy.
+### Should not do
+- act as manual sync glue
+- keep project memory only in chat

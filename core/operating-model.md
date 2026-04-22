@@ -1,36 +1,54 @@
-# LLM-OS Minimal Core — Operating Model
+# Operating Model
 
-This file is canonical.
+## Purpose
+`llm-os` is the reusable operating standard for agent-driven product work.
 
-## Source of truth order
-1. `core/operating-model.md`
-2. `core/role-contracts.md`
-3. `core/change-policy.md`
-4. `core/templates/minimal.md`
-5. Project-local durable docs (for example `docs/project-spine.md`, `docs/current-milestone.md`, `docs/decision-log.md`)
+## Canonical homes
+- Notion: portfolio state, ownership, blockers, priorities, human decisions
+- Project repo: code and project-specific durable context
+- llm-os: reusable operating model, skills, templates
+- Entry points: interfaces only, not source of truth
 
-If guidance conflicts, follow the highest item in this list.
+## Roles
+- Build agent
+- Review agent
+- Human
 
-## System boundaries
-- **Notion**: milestone planning, ownership, status, blockers, and collaboration.
-- **GitHub**: code, technical docs, issues, pull requests, and execution history.
-- **Repo docs**: durable implementation-ready context.
-- **Chat sessions**: scratch space unless promoted per the change policy.
+## Stages
+1. Opportunity framing
+2. Solution shaping
+3. Prototype
+4. MVP build
+5. Pilot / connected MVP
+6. Operational hardening
+7. Commercialization
+8. Live iteration
 
-## Default context budget
-Read the smallest sufficient context:
-1. project entry doc (`docs/START_HERE.md` when present)
-2. stable context (`docs/project-spine.md`)
-3. one active doc (`docs/current-milestone.md` or `docs/handoffs/active-build.md` or `docs/reviews/active-review.md`)
-4. only directly relevant references
+## Lanes
+- Review lane
+- Freshness lane
+- Commercial lane
+- Human decision lane
 
-Do not load archives or broad history unless blocked.
+## Working units
+- Stage: lifecycle context
+- Milestone: bounded outcome within a stage
+- Task: concrete execution step
+- Lane: recurring cross-stage operating function
 
-## Routing by intent
-- **Explore**: generate options and risks; output a review artifact.
-- **Plan**: shape milestone scope and acceptance criteria.
-- **Build**: execute against an active handoff and repo truth.
-- **Track**: update status and decisions in durable systems.
+Rules:
+- a project has one active stage
+- a milestone belongs to one primary stage
+- tasks move the active milestone forward
+- lanes can operate inside any stage or milestone
 
-## Non-goal
-This model does not treat long chat transcripts as durable project memory.
+## Serious session rule
+A serious session should:
+1. load current context
+2. do the intended work
+3. reduce milestone uncertainty where possible
+4. update canonical docs when clarity improves
+5. escalate only residual human decisions
+
+## Write-back expectation
+A serious session is not complete until durable changes are written back to canonical project docs.
