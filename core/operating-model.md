@@ -55,3 +55,34 @@ A serious session should:
 ## Write-back expectation
 A serious session is not complete until durable changes are written back to
 canonical project docs when clarity or outcomes improve.
+
+## Reference influences
+
+This operating model is informed by several adjacent approaches, but does not fully adopt any one of them.
+
+- **Specialist agent / role-based systems**  
+  Influence on explicit roles and mode selection.  
+  In this repo, that shows up as `Build agent`, `Review agent`, and `Human`.
+
+- **Shaping-first product methods**  
+  Influence on bounded milestones, scope discipline, and reducing ambiguity before execution.  
+  In this repo, that shows up as the distinction between `stage`, `milestone`, and `task`.
+
+- **Working-backwards / customer-value framing**  
+  Influence on clarifying user value and commercial logic before build.  
+  In this repo, that shows up most strongly in `Opportunity framing`, `Solution shaping`, and the `Commercial lane`.
+
+- **Handbook-first / operating-system-style documentation**  
+  Influence on durable written context, explicit operating rules, and treating chat as scratch space unless promoted.  
+  In this repo, that shows up in canonical docs, write-back expectations, and change policy.
+
+## Non-goals
+
+This operating model is not:
+- a generic company operating system
+- a full agile methodology
+- a backlog-heavy task management framework
+- a coding-only assistant setup
+- a chat transcript archive
+
+It is a lightweight operating standard for agent-driven product work with durable context, bounded milestones, and explicit human decision routing.
