@@ -40,6 +40,7 @@ Determine one mode before proceeding:
 - `new-project`: initialize the canonical docs and first milestone
 - `existing-project`: load current docs, align context to the canonical surface, then execute
 - `ongoing-session`: reload only the active milestone context and the smallest relevant references
+- `operating-model-update`: change llm-os itself, using the core files and change policy as the primary context
 
 If unclear, ask one short clarification question.
 
