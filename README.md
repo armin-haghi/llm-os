@@ -31,9 +31,14 @@ durable write-back in canonical project docs instead of chat.
 `llm-os` now self-hosts this same project-doc surface in its own top-level
 `docs/` directory.
 
-## Deeper repo docs
-- `docs/doc-surface-decision.md`: current repo boundary between `core/`, `templates/`, `docs/`, and `docs/background/`
-- `docs/framework-comparison.md`: deeper reference on what `llm-os` borrows from adjacent approaches and what it rejects
+If a target repo uses a different live project-doc location, that override
+should be declared in the target repo's local `AGENTS.md`, and local repo
+instructions should override the llm-os default.
+
+## llm-os Docs
+- `llm-os-docs/doc-surface-decision.md`: current repo boundary between `core/`, `templates/`, `docs/`, and `llm-os-docs/`
+- `llm-os-docs/framework-comparison.md`: deeper reference on what `llm-os` borrows from adjacent approaches and what it rejects
+- `llm-os-docs/background/`: historical notes, assessments, and time-scoped design material
 
 ## Core rule
 A serious session should:

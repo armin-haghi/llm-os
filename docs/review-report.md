@@ -13,7 +13,8 @@ Use this doc for the latest milestone review outcome for `llm-os`.
 ## Summary
 Reviewed the first-cut operating surface after the template split, new core
 playbook and boundary files, lightweight human-input skills, freshness model,
-decisions log, and top-level docs cleanup.
+decisions log, top-level docs cleanup, and the split between live project docs
+and llm-os explanatory material.
 
 The repo is materially more consistent and now self-hosts its own project docs
 instead of leaving them as placeholders. The core model is coherent enough to
@@ -35,7 +36,8 @@ to earlier structure.
 - `templates/*`
 - `skills/*`
 - top-level `docs/*.md`
-- current background notes under `docs/background/`
+- `llm-os-docs/*`
+- current background notes under `llm-os-docs/background/`
 
 ## Unresolved assumptions
 - that the current first-cut surface will hold up cleanly when used on a real
@@ -46,8 +48,8 @@ to earlier structure.
 ## Risks
 - older assessment and delta notes still reference pre-cleanup structure and
   could confuse a reader who mistakes them for canonical source
-- `docs/` still carries some tension between being live project state for this
-  repo and being deeper clarification for the operating model more generally
+- target-repo override behavior is now defined, but has not yet been exercised
+  through a real consuming repo that deviates from the default `docs/` surface
 - the repo has not yet been validated through a first real project using the
   current surface end to end
 

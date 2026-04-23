@@ -1,6 +1,9 @@
 # Next slices
 
 This file tracks the next meaningful additions to `llm-os`.
+
+Historical note: file paths or assumptions inside this note may reflect older
+repo structure when a slice was first proposed.
 It is not a full backlog. It exists to keep future slices visible without turning
 the operating model into a second project-management system.
 

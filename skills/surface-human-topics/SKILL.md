@@ -21,8 +21,9 @@ Read only the smallest sufficient project context:
    unclear
 
 Do not load broad context by default.
-Do not load `docs/background/` unless the topic explicitly depends on design or
-operating-model reference material.
+Do not load broad background material unless the topic explicitly depends on
+design or operating-model reference material.
+In `llm-os`, that means `llm-os-docs/background/`.
 
 ## What to surface
 

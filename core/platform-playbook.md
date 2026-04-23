@@ -27,9 +27,10 @@ It exists to answer:
 
 For normal serious project work:
 1. `AGENTS.md`
-2. the smallest relevant agent-operable surface outside `docs/`
-3. only then directly relevant docs in `docs/` when deeper clarification is
-   needed
+2. the live project-doc surface, which defaults to `docs/` unless the local
+   repo explicitly overrides it
+3. only then directly relevant llm-os-specific reference docs when deeper
+   clarification is needed
 4. only then explicitly referenced background material
 
 Read only if needed:
@@ -38,12 +39,12 @@ Read only if needed:
 - `docs/review-report.md`
 
 Do not load by default:
-- `docs/background/`
+- `llm-os-docs/background/`
 
 Default bias:
-- agent actions should route through `AGENTS.md`, `core/`, `skills/`, and
-  `templates/`
-- `docs/` should not be the default action surface
+- agent actions should route through `AGENTS.md`, `core/`, `skills/`,
+  `templates/`, and the live project-doc surface
+- `llm-os-docs/` should not be the default action surface
 
 ## When to use additional context
 
@@ -56,7 +57,7 @@ Typical examples:
   affect the task
 - load `docs/review-report.md` when continuing after review or preparing a new
   review
-- load `docs/background/` only for design, comparison, operating-model
+- load `llm-os-docs/background/` only for design, comparison, operating-model
   evolution, or explicitly referenced context
 
 Use `core/freshness-model.md` when deciding whether current project context is
@@ -64,6 +65,10 @@ safe to execute from or needs refresh first.
 
 Use `core/decisions.md` only when a load-bearing operating-model decision is
 relevant to the task or when you are updating the operating model itself.
+
+If a target repo uses a non-default live project-doc location, its local
+`AGENTS.md` should declare that explicitly. Local repo instructions override
+llm-os defaults.
 
 ## Write-back expectations
 
@@ -97,7 +102,7 @@ and directly relevant project docs.
 
 Across tools:
 - prefer the smallest sufficient context
-- keep `docs/background/` out of the default execution path
+- keep `llm-os-docs/background/` out of the default execution path
 - select the narrowest agent contract that matches the job
 - treat routing as internal lifecycle guidance, not a separate mode system
 - write back durable context before closing serious work
@@ -144,8 +149,9 @@ Do not load all templates by default.
 
 Treat the repo shape as:
 - `templates/` for operational templates
-- `docs/` for live llm-os project state plus deeper repo clarification
-- `docs/background/` for non-default reference material
+- `docs/` for live llm-os project state
+- `llm-os-docs/` for llm-os-specific deeper clarification
+- `llm-os-docs/background/` for non-default reference material
 
 Historical background notes may still mention earlier structure. Treat them as
 time-scoped analysis unless explicitly refreshed.

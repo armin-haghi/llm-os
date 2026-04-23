@@ -1,8 +1,8 @@
 # Repo Alignment Assessment
 
-Historical note: this assessment was written before the later self-hosting
-cleanup of the top-level `docs/` surface. It may reference issues that have
-since been resolved.
+Historical note: this assessment was written before later cleanup passes. It
+may reference issues that have since been resolved, and file paths inside it may
+reflect older repo structure.
 
 Date: 2026-04-24
 

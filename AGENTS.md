@@ -10,7 +10,7 @@ Read these first when entering or modifying the operating model itself:
 4. `core/platform-playbook.md` when practical read paths, write-back behavior, or escalation behavior matter
 5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
 6. `templates/README.md` only when changing the template layer or initializing project docs
-7. `docs/doc-surface-decision.md` when changing repo structure or read paths
+7. `llm-os-docs/doc-surface-decision.md` when changing repo structure or read paths
 
 ## Read paths
 
@@ -27,7 +27,7 @@ Read:
 4. `core/platform-playbook.md` when platform behavior, write-back rules, or escalation patterns are part of the task
 5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
 6. `templates/README.md` only when template setup or template changes are part of the task
-7. `docs/doc-surface-decision.md` only if repo structure, read paths, or doc boundaries are being changed
+7. `llm-os-docs/doc-surface-decision.md` only if repo structure, read paths, or doc boundaries are being changed
 
 ### Session path
 Use for serious project work.
@@ -43,8 +43,18 @@ Read only if needed:
 6. other directly relevant docs in `docs/`
 
 Do not load by default:
-- anything in `docs/background/` unless it is explicitly referenced for design,
+- anything in `llm-os-docs/background/` unless it is explicitly referenced for design,
   comparison, or operating-model work
+
+Default assumption:
+- the live project-doc surface is `docs/`
+
+Override rule:
+- if a target repo uses a different live project-doc location, its local
+  `AGENTS.md` must declare that explicitly
+- any other target-repo overrides from llm-os defaults should also be declared
+  locally
+- local repo instructions override llm-os defaults
 
 ## Modes
 Determine one mode before proceeding:
@@ -74,8 +84,8 @@ actually reaches them.
 - prefer canonical docs over chat history
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while doing the work
-- keep agent-action surfaces outside `docs/` by default
-- keep `docs/background/` out of the default working context
+- treat `docs/` as the live project-doc surface by default unless the local repo overrides it
+- keep `llm-os-docs/background/` out of the default working context
 - end with explicit write-back targets or completed write-backs
 - escalate only residual human decisions
 

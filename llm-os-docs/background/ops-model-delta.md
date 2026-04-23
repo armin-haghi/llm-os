@@ -1,7 +1,8 @@
 Historical note: this delta note captures proposed changes from an earlier
 design pass. Many of these items have since been integrated into the live
-operating surface. Use `AGENTS.md`, `core/platform-playbook.md`, and the live
-`core/` files as the current source of truth.
+operating surface. File paths inside it may reflect older repo structure. Use
+`AGENTS.md`, `core/platform-playbook.md`, and the live `core/` files as the
+current source of truth.
 
 ## Δ Operating Model Enhancements (vNext Additions)
 

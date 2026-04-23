@@ -1,7 +1,8 @@
 # Assessment Comparison & Next Steps
 
 Historical note: this comparison was written during the first-cut cleanup and
-may reference decisions or inconsistencies that were later resolved.
+may reference decisions or inconsistencies that were later resolved. File paths
+inside it may reflect older repo structure.
 
 **Date:** 2026-04-24  
 **Documents compared:**

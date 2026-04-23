@@ -22,8 +22,9 @@ and most important live question inside that milestone.
 external-skills boundary, freshness model, decisions log, and lightweight human
 input skills.
 
-This cleanup pass is turning the repo’s own `docs/` surface into live llm-os
-project state and checking the full repo for remaining inconsistencies.
+This cleanup pass is separating the live project-doc surface from llm-os
+explanatory material, moving deeper repo notes into `llm-os-docs/`, and
+checking the full repo for remaining inconsistencies.
 
 The main remaining risk is not missing theory. It is transitional or historical
 documentation that still points at older structure.
@@ -38,13 +39,16 @@ core first-cut cleanup is materially complete?
 
 ## Latest decisions
 - `templates/` is the canonical reusable artifact layer.
-- `docs/` is for repo documentation and deeper clarification.
-- `docs/background/` is non-default reference material.
-- agent-action surfaces should stay outside `docs/` by default.
+- `docs/` is the live project-doc surface by default.
+- `llm-os-docs/` is llm-os-specific explanation and deeper repo
+  documentation.
+- `llm-os-docs/background/` is non-default reference material.
+- local repo instructions can override llm-os defaults and should declare those
+  overrides explicitly.
 - llm-os should now self-host its own project docs instead of leaving the
   top-level `docs/*.md` files as placeholders.
-- framework comparison belongs in `docs/` as deeper clarification, not in
-  `docs/background/`.
+- framework comparison belongs in `llm-os-docs/`, not in the live project-doc
+  surface.
 
 ## Current risks
 - historical background docs still contain time-scoped analysis that can be
@@ -54,6 +58,6 @@ core first-cut cleanup is materially complete?
   validation before assuming the model is settled
 
 ## Expected output from this session
-A repo cleanup pass that instantiates the top-level project docs, a current
+A repo cleanup pass that finishes the `llm-os-docs/` split, a current
 consistency review in `docs/review-report.md`, and an explicit list of residual
 gaps that remain after cleanup.
