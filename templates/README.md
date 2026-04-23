@@ -5,6 +5,7 @@ that adopt `llm-os`.
 
 Use the smallest sufficient template:
 - `templates/AGENTS.md`
+- `templates/CLAUDE.md`
 - `templates/project-spine.md`
 - `templates/current-milestone.md`
 - `templates/open-questions.md`
@@ -28,6 +29,9 @@ Typical initialization or retrofit path for a consuming repo:
 In a consuming repo, matching filenames between `templates/` and `docs/` are
 intentional. `templates/` defines the reusable shape; `docs/` holds the live
 project state.
+
+If a repo uses `CLAUDE.md`, keep it as a thin compatibility shim derived from
+`AGENTS.md`. Do not turn it into a second operating surface.
 
 `llm-os` itself uses a repo-local override and keeps its own live project docs
 under `llm-os-docs/project/`.

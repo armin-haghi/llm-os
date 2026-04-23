@@ -16,6 +16,7 @@ durable write-back in canonical project docs instead of chat.
 
 ## Canonical templates
 - `templates/AGENTS.md`: starter entrypoint for a consuming repo
+- `templates/CLAUDE.md`: minimal Claude compatibility shim derived from `AGENTS.md`
 - `templates/project-spine.md`: stable project definition and success frame
 - `templates/current-milestone.md`: active milestone, scope, and acceptance criteria
 - `templates/open-questions.md`: unresolved decisions with owners and defaults
@@ -52,6 +53,10 @@ should fall back to the canonical `llm-os` defaults rather than inventing repo
 behavior ad hoc. In practice, that means consulting the canonical `llm-os`
 `AGENTS.md`, `core/platform-playbook.md`, and only the directly relevant
 `core/` guidance.
+
+If a tool-specific compatibility file such as `CLAUDE.md` exists, it should be
+treated as a thin shim derived from `AGENTS.md`, not as a second source of
+truth.
 
 `llm-os` itself uses that override.
 Its live project-doc surface lives under `llm-os-docs/project/` so `docs/`
