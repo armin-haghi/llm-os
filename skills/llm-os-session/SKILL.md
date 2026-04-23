@@ -47,6 +47,7 @@ Apply it inside the selected mode:
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while working
 - do the intended work before expanding scope
+- keep agent-action surfaces outside `docs/` by default
 - keep `docs/background/` out of the default working context
 - end with explicit write-back targets or completed write-backs
 - escalate only residual human decisions

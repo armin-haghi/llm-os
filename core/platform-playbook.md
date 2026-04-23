@@ -25,10 +25,10 @@ It exists to answer:
 
 For normal serious project work:
 1. `AGENTS.md`
-2. `docs/session-brief.md`
-3. `docs/current-milestone.md`
-4. only then directly relevant docs in `docs/`
-5. only then explicitly referenced background material
+2. the smallest relevant agent-operable surface outside `docs/`
+3. only then directly relevant docs in `docs/` when deeper clarification is
+   needed
+4. only then explicitly referenced background material
 
 Read only if needed:
 - `docs/project-spine.md`
@@ -37,6 +37,11 @@ Read only if needed:
 
 Do not load by default:
 - `docs/background/`
+
+Default bias:
+- agent actions should route through `AGENTS.md`, `core/`, `skills/`, and
+  `templates/`
+- `docs/` should not be the default action surface
 
 ## When to use additional context
 
@@ -112,7 +117,7 @@ as transitional placeholders while the repo surface is being normalized.
 
 Treat the target shape as:
 - `templates/` for operational templates
-- `docs/` for canonical repo documentation
+- `docs/` for canonical repo documentation and deeper clarification
 - `docs/background/` for non-default reference material
 
 Complete repo self-hosting cleanup after the first-cut surface is stable.

@@ -72,6 +72,7 @@ actually reaches them.
 - prefer canonical docs over chat history
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while doing the work
+- keep agent-action surfaces outside `docs/` by default
 - keep `docs/background/` out of the default working context
 - end with explicit write-back targets or completed write-backs
 - escalate only residual human decisions

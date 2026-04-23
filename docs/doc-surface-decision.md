@@ -17,6 +17,16 @@ Use four layers:
 - `docs/background/`: non-canonical reference material, assessments, design
   notes, comparisons, and future-slice thinking
 
+Agent-operable surfaces should live outside `docs/`.
+In normal use, agents should act through:
+- `AGENTS.md`
+- `core/`
+- `skills/`
+- `templates/`
+
+Use `docs/` only when deeper clarification is needed or when working on the
+operating model itself.
+
 ## Read-path rule
 
 Default read paths must not load `docs/background/` unless it is explicitly
@@ -27,7 +37,8 @@ In normal use:
 - `AGENTS.md` is the operating entrypoint
 - `core/` defines the model
 - `templates/` provides the reusable working artifacts
-- `docs/` is supporting documentation when the entry surface is not enough
+- `docs/` is supporting documentation when the entry surface is not enough or
+  when operating-model clarification is needed
 
 `docs/background/` is reference-only and excluded from default execution
 context.
@@ -35,6 +46,8 @@ context.
 ## Implications
 
 - The canonical project-doc templates now live in `templates/`.
+- `docs/` should not be the normal home for agent actions or default
+  operational workflows.
 - `docs/` should stop pretending to be both live operational artifacts and repo
   explanation at the same time.
 - `docs/background/` should keep materials like:
