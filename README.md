@@ -8,9 +8,16 @@ durable write-back in canonical project docs instead of chat.
 - `core/operating-model.md`: stages, lanes, agent contracts, and the serious session rule
 - `core/agent-contracts.md`: task-oriented contract definitions and human escalation boundaries
 - `core/change-policy.md`: how local patterns become operating standards
-- `core/templates/minimal.md`: minimum shape for canonical project docs
+- `templates/README.md`: template-layer overview
 
-## Canonical project docs
+## Canonical templates
+- `templates/project-spine.md`: stable project definition and success frame
+- `templates/current-milestone.md`: active milestone, scope, and acceptance criteria
+- `templates/open-questions.md`: unresolved decisions with owners and defaults
+- `templates/session-brief.md`: fastest durable reload point for the next session
+- `templates/review-report.md`: latest review outcome and required human decisions
+
+## Expected project docs in a consuming repo
 - `docs/project-spine.md`: stable project definition and success frame
 - `docs/current-milestone.md`: active milestone, scope, and acceptance criteria
 - `docs/open-questions.md`: unresolved decisions with owners and defaults
