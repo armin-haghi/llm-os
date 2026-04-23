@@ -8,8 +8,9 @@ Read these first when entering or modifying the operating model itself:
 2. `core/agent-contracts.md`
 3. `core/change-policy.md` only when changing llm-os
 4. `core/platform-playbook.md` when practical read paths, write-back behavior, or escalation behavior matter
-5. `templates/README.md` only when changing the template layer or initializing project docs
-6. `docs/doc-surface-decision.md` when changing repo structure or read paths
+5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
+6. `templates/README.md` only when changing the template layer or initializing project docs
+7. `docs/doc-surface-decision.md` when changing repo structure or read paths
 
 ## Read paths
 
@@ -24,8 +25,9 @@ Read:
 2. `core/agent-contracts.md`
 3. `core/change-policy.md` only if the operating model is being changed
 4. `core/platform-playbook.md` when platform behavior, write-back rules, or escalation patterns are part of the task
-5. `templates/README.md` only when template setup or template changes are part of the task
-6. `docs/doc-surface-decision.md` only if repo structure, read paths, or doc boundaries are being changed
+5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
+6. `templates/README.md` only when template setup or template changes are part of the task
+7. `docs/doc-surface-decision.md` only if repo structure, read paths, or doc boundaries are being changed
 
 ### Session path
 Use for serious project work.

@@ -10,8 +10,9 @@ Read first:
 2. `core/agent-contracts.md`
 3. `core/change-policy.md` only when changing llm-os
 4. `core/platform-playbook.md` when practical read paths, write-back rules, or escalation behavior matter
-5. `templates/README.md` only when changing the template layer or initializing project docs
-6. `docs/doc-surface-decision.md` only when changing repo structure, read paths, or doc boundaries
+5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
+6. `templates/README.md` only when changing the template layer or initializing project docs
+7. `docs/doc-surface-decision.md` only when changing repo structure, read paths, or doc boundaries
 
 ## Modes
 - new-project

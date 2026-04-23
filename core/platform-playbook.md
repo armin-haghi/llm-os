@@ -62,6 +62,9 @@ Typical examples:
 Use `core/freshness-model.md` when deciding whether current project context is
 safe to execute from or needs refresh first.
 
+Use `core/decisions.md` only when a load-bearing operating-model decision is
+relevant to the task or when you are updating the operating model itself.
+
 ## Write-back expectations
 
 A serious session should leave durable state behind when clarity or outcome

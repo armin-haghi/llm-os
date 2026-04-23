@@ -10,6 +10,7 @@ durable write-back in canonical project docs instead of chat.
 - `core/change-policy.md`: how local patterns become operating standards
 - `core/external-skills.md`: boundary between core operating skills and capability-specific skills
 - `core/freshness-model.md`: rules for detecting stale project context and deciding when refresh is needed
+- `core/decisions.md`: short record of load-bearing operating-model decisions
 - `core/platform-playbook.md`: practical read-path, write-back, and escalation guidance across tools
 - `templates/README.md`: template-layer overview
 
