@@ -85,6 +85,38 @@ A slice should move into active work only when its trigger is true.
     - next action
     - commercial signal
 
+## Operating Model Delta
+
+### Slice: Add routing layer
+- status: now
+- why it matters: introduces consistent execution flow without adding agent complexity
+- trigger to do it: AGENTS.md update or ambiguity in how to proceed within a mode
+- notes: add `Think → Plan → Build → Review → Ship → Reflect`; map implicitly to existing modes (no new agents or files)
+
+---
+
+### Slice: Add `operating-model-update` mode
+- status: now
+- why it matters: prevents accidental changes to the operating model during execution
+- trigger to do it: any change to AGENTS.md, ASSISTANT.md, templates, or workflow rules
+- notes: must include reason, impact, affected files; follow with consistency check
+
+---
+
+### Slice: Enforce default read path
+- status: now
+- why it matters: keeps context small and predictable across tools
+- trigger to do it: agent loads more than milestone + task + decisions
+- notes: explicitly exclude `/background` unless referenced
+
+---
+
+### Slice: Add lightweight guardrails
+- status: now
+- why it matters: reduces common failure modes (scope creep, overengineering)
+- trigger to do it: execution touches multiple files or unclear requirements
+- notes: smallest viable change, no unrelated edits, escalate to Plan if unclear
+
 ---
 
 ## Next
@@ -195,6 +227,48 @@ A slice should move into active work only when its trigger is true.
     - evidence-based review
     - testing expectations by milestone
     - hardening expectations around environments, secrets, observability
+
+---
+
+## Borrowing From Other Models
+
+### Slice: Add background comparison docs
+- status: next
+- why it matters: enables structured borrowing without polluting execution context
+- trigger to do it: first need to reference BMAD, gstack, or other frameworks
+- notes: create `/background/frameworks/{bmad.md, gstack.md, comparison.md}`
+
+---
+
+### Slice: Borrow adaptive planning from BMAD
+- status: next
+- why it matters: avoids under/over-planning depending on task complexity
+- trigger to do it: tasks exceed single-session execution or involve dependencies
+- notes: scale planning depth; do not introduce roles or workflows
+
+---
+
+### Slice: Borrow execution verbs from gstack
+- status: next
+- why it matters: improves clarity in execution and quality control
+- trigger to do it: repeated need for explicit review/qa/ship steps
+- notes: map to existing lifecycle (Review/Ship/Reflect); no command system
+
+---
+
+### Slice: Add execution flags (`[careful]`, `[freeze]`)
+- status: later
+- why it matters: provides lightweight control for high-risk or scope-sensitive work
+- trigger to do it: large diffs, risky changes, or scope drift observed
+- notes: optional annotations, not enforced system behavior
+
+---
+
+### Slice: Add tool compatibility outputs
+- status: later
+- why it matters: ensures consistent behavior across OpenClaw, Codex, Claude
+- trigger to do it: need to run same workflow across multiple tools
+- notes: generate `CLAUDE.md`, Codex instructions, skills; must be derived from AGENTS.md only
 
 ---
 
