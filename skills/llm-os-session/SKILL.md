@@ -20,6 +20,13 @@ Read first:
 - ongoing-session
 - operating-model-update
 
+For `new-project`, use `skills/repo-initialize/SKILL.md` to initialize the repo
+surface or retrofit an existing repo before treating it as normal project work.
+
+`existing-project` can also mean a project that already exists but is not yet
+following the `llm-os` rules cleanly, as long as the current docs are usable
+enough to align and continue without a full initialization pass.
+
 ## Default read order
 1. `llm-os-docs/project/session-brief.md`
 2. `llm-os-docs/project/current-milestone.md`
@@ -51,7 +58,7 @@ Routing is an internal lifecycle, not a separate mode set:
 `Think -> Plan -> Build -> Review -> Ship -> Reflect`
 
 Apply it inside the selected mode:
-- `new-project`: Think -> Plan
+- `new-project`: Think -> Plan, then audit the repo, create only the missing canonical docs from `templates/`, and fill the minimum working content
 - `existing-project`: Think -> Plan, then execute
 - `ongoing-session`: Think -> Build, with Review / Ship / Reflect only when needed
 - `operating-model-update`: Think -> Plan -> Build -> Review, then run a consistency check across affected surfaces

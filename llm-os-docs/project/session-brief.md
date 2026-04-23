@@ -14,16 +14,16 @@
 external-skills boundary, freshness model, decisions log, and lightweight human
 input skills.
 
-This cleanup pass is separating the live project-doc surface from llm-os
-explanatory material, moving deeper repo notes into `llm-os-docs/`, and
-checking the full repo for remaining inconsistencies.
+This cleanup pass has separated the live project-doc surface from llm-os
+explanatory material, moved deeper repo notes into `llm-os-docs/`, and added a
+concrete repo-initialization path for consuming repos.
 
 The main remaining risk is not missing theory. It is transitional or historical
 documentation that still points at older structure.
 
 ## Next action
-Close out the cleanup milestone, then define the first real-project validation
-milestone and target repo.
+Use the new repo-initialization workflow on a real consuming repo, then define
+the first real-project validation milestone against that target.
 
 ## Blocking question
 How aggressively should historical background analysis be rewritten now that the
@@ -41,6 +41,8 @@ core first-cut cleanup is materially complete?
   overrides explicitly.
 - framework comparison belongs in `llm-os-docs/`, not in the live project-doc
   surface.
+- `templates/AGENTS.md` plus `skills/repo-initialize/SKILL.md` are now the
+  bootstrap path for bringing a consuming repo into the working model.
 
 ## Current risks
 - historical background docs still contain time-scoped analysis that can be
@@ -51,5 +53,6 @@ core first-cut cleanup is materially complete?
 
 ## Expected output from this session
 A repo cleanup pass that removes duplicate guidance between `templates/`,
-the consuming-repo `docs/` convention, and `llm-os-docs/`, plus a clearer next
-step for real-project validation.
+the consuming-repo `docs/` convention, and `llm-os-docs/`, plus a concrete
+repo-initialization workflow and a clearer next step for real-project
+validation.

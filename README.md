@@ -15,11 +15,22 @@ durable write-back in canonical project docs instead of chat.
 - `templates/README.md`: template-layer overview
 
 ## Canonical templates
+- `templates/AGENTS.md`: starter entrypoint for a consuming repo
 - `templates/project-spine.md`: stable project definition and success frame
 - `templates/current-milestone.md`: active milestone, scope, and acceptance criteria
 - `templates/open-questions.md`: unresolved decisions with owners and defaults
 - `templates/session-brief.md`: fastest durable reload point for the next session
 - `templates/review-report.md`: latest review outcome and required human decisions
+
+## Initialize or Retrofit a Consuming Repo
+Use the starter surfaces in this order:
+1. audit the repo's current entry surfaces and project docs
+2. keep `docs/` as the default live project-doc surface, or declare a repo-local override in `AGENTS.md`
+3. create only the missing canonical artifacts
+4. create `project-overview.yaml`
+5. fill the minimum working content before treating the repo as initialized
+
+Use `skills/repo-initialize/SKILL.md` when you want the concrete initialization workflow.
 
 ## Expected project docs in a consuming repo
 - `docs/project-spine.md`: stable project definition and success frame

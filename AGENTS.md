@@ -61,8 +61,8 @@ Override rule:
 
 ## Modes
 Determine one mode before proceeding:
-- `new-project`: initialize the canonical docs and first milestone
-- `existing-project`: load current docs, align context to the canonical surface, then execute
+- `new-project`: initialize or retrofit root `AGENTS.md`, the canonical docs, `project-overview.yaml`, and the first milestone
+- `existing-project`: load current docs, align context to the canonical surface, then execute; this can include a project that already exists but is not yet following the `llm-os` rules cleanly
 - `ongoing-session`: reload only the active milestone context and the smallest relevant references
 - `operating-model-update`: change llm-os itself, using the core files and change policy as the primary context
 
@@ -74,7 +74,7 @@ Routing is an internal lifecycle, not a second mode system:
 `Think -> Plan -> Build -> Review -> Ship -> Reflect`
 
 Apply it inside the selected mode:
-- `new-project`: Think -> Plan
+- `new-project`: Think -> Plan, then audit the repo, create only the missing canonical docs from `templates/`, and fill the minimum working content
 - `existing-project`: Think -> Plan, then execute against the canonical surface
 - `ongoing-session`: Think -> Build, with Review / Ship / Reflect only when the work calls for them
 - `operating-model-update`: Think -> Plan -> Build -> Review, followed by a consistency check across entry surfaces
