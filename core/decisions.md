@@ -73,3 +73,17 @@ Keep entries short and durable.
   `llm-os-docs/project/`, while historical analysis stays in
   `llm-os-docs/background/` unless promoted
 - Supersedes: none
+
+### 2026-04-24 - Notion may be the pre-repo ideation surface
+- Status: active
+- Decision: before a repo exists, one canonical Notion page may serve as the
+  live ideation and review surface; once a repo exists and active build starts,
+  the repo becomes the execution source of truth and Notion becomes the
+  summary, review, and feedback surface
+- Why it matters: early-stage work often needs comments and lightweight review
+  before a repo exists, but stale Notion pages become harmful when they compete
+  with repo docs during build
+- Implication: pre-repo skills may write to one canonical Notion page; after
+  repo creation, durable execution state should move into repo docs and Notion
+  should stop acting as a second build surface
+- Supersedes: none

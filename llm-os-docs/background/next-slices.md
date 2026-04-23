@@ -91,7 +91,7 @@ A slice should move into active work only when its trigger is true.
 - status: later
 - why it matters: turns stages into executable capabilities
 - trigger to do it: repeated manual stage work across projects
-- notes: opportunity-frame, solution-shape, prototype, mvp-build, pilot-connect, operational-harden, commercialize, live-iterate
+- notes: opportunity-frame, solution-shape, prototype, mvp-build, pilot-connect, operational-harden, commercialize, live-iterate; early-stage external candidates may exist first and should only be promoted after reuse proves they reduce confusion
 
 ---
 

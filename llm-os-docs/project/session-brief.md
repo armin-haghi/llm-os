@@ -16,7 +16,9 @@ input skills.
 
 This cleanup pass has separated the live project-doc surface from llm-os
 explanatory material, moved deeper repo notes into `llm-os-docs/`, and added a
-concrete repo-initialization path for consuming repos.
+concrete repo-initialization path for consuming repos. It now also defines a
+lightweight pre-repo Notion ideation surface and wires the early-stage skills
+to support `Notion-first` before a repo exists.
 
 The main remaining risk is not missing theory. It is transitional or historical
 documentation that still points at older structure.
@@ -43,6 +45,9 @@ core first-cut cleanup is materially complete?
   surface.
 - `templates/AGENTS.md` plus `skills/repo-initialize/SKILL.md` are now the
   bootstrap path for bringing a consuming repo into the working model.
+- before a repo exists, one canonical Notion page may be the live ideation and
+  review surface; after repo creation, the repo becomes the execution source of
+  truth and Notion becomes the summary and feedback surface.
 
 ## Current risks
 - historical background docs still contain time-scoped analysis that can be

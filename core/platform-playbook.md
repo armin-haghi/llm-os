@@ -79,6 +79,9 @@ llm-os defaults.
 A serious session should leave durable state behind when clarity or outcome
 improves.
 
+Before a repo exists, one canonical Notion concept page may act as the live
+ideation and review surface.
+
 Common write-back targets:
 - `docs/current-milestone.md` when scope, acceptance, blockers, or defaults get
   clearer
@@ -86,6 +89,16 @@ Common write-back targets:
   changes
 - `docs/open-questions.md` when a real unresolved decision is surfaced
 - `docs/review-report.md` when a milestone is being reviewed
+
+When using Notion before repo creation:
+- keep one canonical page per concept
+- keep status, stage, freshness, last reviewed, and next decision current
+- use comments there for early review and critique
+
+Once a repo exists and active build begins:
+- the repo becomes the execution source of truth
+- Notion becomes the summary, review, and feedback surface
+- avoid keeping a second competing execution doc in Notion
 
 Avoid using chat as the only place where important context lives.
 

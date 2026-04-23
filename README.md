@@ -67,6 +67,7 @@ stays reserved for the consuming-repo convention.
 ## Additional Repo Docs
 - `llm-os-docs/doc-surface-decision.md`: explains the boundary between `core/`, `templates/`, default consuming-repo `docs/`, this repo's `llm-os-docs/project/`, and deeper explanatory docs
 - `llm-os-docs/framework-comparison.md`: reference on what `llm-os` borrows from adjacent approaches and what it rejects
+- `llm-os-docs/notion-first-ideation.md`: lightweight pre-repo Notion workflow for ideation, comments, and repo handoff
 - `llm-os-docs/background/`: historical notes, assessments, and time-scoped design material
 
 ## Core rule

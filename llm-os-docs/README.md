@@ -21,4 +21,5 @@ Main files:
 - `llm-os-docs/project/`
 - `llm-os-docs/doc-surface-decision.md`
 - `llm-os-docs/framework-comparison.md`
+- `llm-os-docs/notion-first-ideation.md`
 - `llm-os-docs/background/`
