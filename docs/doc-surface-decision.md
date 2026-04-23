@@ -60,6 +60,6 @@ context.
 
 ## Remaining follow-on work
 
-1. Decide how the top-level files in `docs/` should evolve now that the
-   canonical templates live in `templates/`.
+1. Keep historical background notes clearly time-scoped when they mention
+   pre-cleanup structure.
 2. Keep entry surfaces and read-path rules aligned with the new split.

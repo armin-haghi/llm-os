@@ -1,5 +1,8 @@
 # Assessment Comparison & Next Steps
 
+Historical note: this comparison was written during the first-cut cleanup and
+may reference decisions or inconsistencies that were later resolved.
+
 **Date:** 2026-04-24  
 **Documents compared:**
 - `repo-alignment-assessment.md` (existing, diagnostic)

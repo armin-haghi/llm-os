@@ -1,54 +1,78 @@
 # Current Milestone
 
-Use this doc to define the one milestone the team is actively trying to
-complete. Keep it specific enough that build and review can operate against the
-same target.
+Use this doc to define the one milestone `llm-os` is actively trying to
+complete.
 
 This is the broader multi-session target, not the current session plan.
 Use `docs/session-brief.md` for the immediate slice of work being taken against
 this milestone.
 
 ## Snapshot
-- Project: canonical project name
-- Stage: one of the canonical stages
-- Milestone: bounded outcome, not a theme
-- Owner: role or person accountable for driving it
-- Status: `planned`, `active`, `blocked`, `at risk`, or `ready for review`
-- Last updated: `YYYY-MM-DD`
+- Project: `llm-os`
+- Stage: `Prototype`
+- Milestone: stabilize the first-cut operating surface and self-host the repo
+  docs cleanly
+- Owner: human maintainer with agent support
+- Status: `active`
+- Last updated: `2026-04-24`
 
 ## Why this milestone matters
-Explain what uncertainty or value this milestone resolves now.
-- State what gets unlocked if it succeeds.
-- State why later work should wait for this outcome.
+This milestone converts the repo from a strong conceptual core plus
+transitional scaffolding into a coherent operating surface that can be used and
+stress-tested on a real project.
+
+If it succeeds:
+- the repo’s own project docs stop acting like placeholders
+- the first-cut operating model becomes internally consistent enough to test in
+  real use
+- remaining work becomes a bounded next-slice problem instead of general repo
+  drift
+
+Later work should largely wait for this because adding more slices on top of an
+unclean base would hide the real gaps.
 
 ## In scope
-List the outputs, flows, or proofs this milestone must deliver.
-- Keep only work needed for acceptance.
-- Prefer outcomes over implementation checklists.
+- finish the first-cut core surfaces that were still missing or implied
+- convert top-level `docs/*.md` from template placeholders into live llm-os
+  project docs
+- keep `templates/` as the canonical reusable template layer
+- place deeper repo clarification docs in the right tier
+- run a consistency check and record residual gaps durably
 
 ## Out of scope
-Name tempting work that should not be pulled in.
-- Include polish, scale work, or adjacent features that can wait.
-- Use this section to protect the milestone boundary.
+- Notion control-tower design
+- concurrency rules implementation
+- stage-skill expansion
+- machine-readable schemas beyond the minimum project overview input
+- tool compatibility outputs
+- broad historical rewrites of every background note
 
 ## Acceptance criteria
-Write the checks that determine whether the milestone is done.
-- Make each criterion observable.
-- Include evidence requirements when review depends on them.
+- the core operating layer includes the platform playbook, external-skills
+  boundary, freshness model, and decisions log
+- the lightweight human-input and human-topic skills exist and match the core
+  model
+- `templates/` is clearly canonical for reusable artifacts
+- top-level `docs/*.md` contain live llm-os project state rather than template
+  instructions
+- deeper clarification docs are separated from background/reference docs
+- `docs/review-report.md` records a current consistency review with explicit
+  residual gaps
 
 ## Dependencies
-List external inputs required to complete or review the milestone.
-- People, approvals, environments, APIs, data, or suppliers.
-- Separate true dependencies from nice-to-haves.
+- human decisions about doc-surface boundaries and cleanup sequencing
+- time to reconcile the first-cut operating surface against older background
+  notes
+- willingness to leave some historical docs marked as historical instead of
+  rewriting all of them immediately
 
 ## Blockers
-Capture current blockers only.
-- State what is blocked.
-- State the next action or owner if known.
-- Remove resolved blockers instead of leaving history here.
+- none currently
+- residual risk remains around older background notes that still mention
+  pre-cleanup structure
 
 ## Open questions to clarify during active sessions
-List questions that active work might answer without waiting for a full
-decision.
-- Move larger unresolved decisions to `docs/open-questions.md`.
-- Delete section contents when the milestone is clear and unblocked.
+- how aggressively should historical background analysis be rewritten now that
+  the first-cut cleanup is materially complete?
+- after this milestone closes, should the next validation step be a real
+  project onboarding pass before more core expansion?

@@ -139,12 +139,13 @@ Do not load all templates by default.
 
 ## Current repo note
 
-During the current first-cut cleanup, some top-level files in `docs/` still act
-as transitional placeholders while the repo surface is being normalized.
+`llm-os` now self-hosts its own live project docs under `docs/` while keeping
+`templates/` as the canonical reusable artifact layer.
 
-Treat the target shape as:
+Treat the repo shape as:
 - `templates/` for operational templates
-- `docs/` for canonical repo documentation and deeper clarification
+- `docs/` for live llm-os project state plus deeper repo clarification
 - `docs/background/` for non-default reference material
 
-Complete repo self-hosting cleanup after the first-cut surface is stable.
+Historical background notes may still mention earlier structure. Treat them as
+time-scoped analysis unless explicitly refreshed.

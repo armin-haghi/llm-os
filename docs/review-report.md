@@ -1,51 +1,64 @@
 # Review Report
 
-Use this doc for the latest milestone review outcome. It should tell a human
-whether the milestone is ready to advance and why.
+Use this doc for the latest milestone review outcome for `llm-os`.
 
 ## Snapshot
-- Project: canonical project name
-- Stage: one of the canonical stages
-- Milestone: milestone under review
-- Reviewer: review agent or named reviewer
-- Date: `YYYY-MM-DD`
+- Project: `llm-os`
+- Stage: `Prototype`
+- Milestone: stabilize the first-cut operating surface and self-host the repo
+  docs cleanly
+- Reviewer: Codex consistency pass
+- Date: `2026-04-24`
 
 ## Summary
-State the outcome in a short paragraph.
-- What was reviewed.
-- What is ready.
-- What is not yet convincing.
+Reviewed the first-cut operating surface after the template split, new core
+playbook and boundary files, lightweight human-input skills, freshness model,
+decisions log, and top-level docs cleanup.
+
+The repo is materially more consistent and now self-hosts its own project docs
+instead of leaving them as placeholders. The core model is coherent enough to
+continue, but some historical background notes still contain stale references
+to earlier structure.
 
 ## Result
-Use a clear review result.
-- `pass` when acceptance criteria are met with evidence.
-- `conditional pass` when the milestone is materially ready but specific
-  follow-ups remain.
-- `fail` when evidence is missing or the milestone misses scope.
+`conditional pass`
 
 ## Evidence checked
-List the concrete evidence used in review.
-- Tests, demos, docs, screenshots, metrics, logs, customer feedback, or code
-  diff.
-- Prefer direct evidence over secondary claims.
+- `AGENTS.md`
+- `README.md`
+- `core/operating-model.md`
+- `core/agent-contracts.md`
+- `core/platform-playbook.md`
+- `core/external-skills.md`
+- `core/freshness-model.md`
+- `core/decisions.md`
+- `templates/*`
+- `skills/*`
+- top-level `docs/*.md`
+- current background notes under `docs/background/`
 
 ## Unresolved assumptions
-Capture assumptions that review could not verify.
-- State why each assumption still matters.
-- Promote real decisions to `docs/open-questions.md` if needed.
+- that the current first-cut surface will hold up cleanly when used on a real
+  external project rather than only inside this repo
+- that leaving some historical background notes as explicitly time-scoped is
+  sufficient, rather than rewriting all of them immediately
 
 ## Risks
-List the risks that remain after review.
-- Separate acceptable risk from release-blocking risk in the wording.
-- Keep the list tied to milestone outcome.
+- older assessment and delta notes still reference pre-cleanup structure and
+  could confuse a reader who mistakes them for canonical source
+- `docs/` still carries some tension between being live project state for this
+  repo and being deeper clarification for the operating model more generally
+- the repo has not yet been validated through a first real project using the
+  current surface end to end
 
 ## Required human decisions
-List only decisions a human must make.
-- Prioritization, scope tradeoff, launch judgment, commercial choice, or risk
-  acceptance.
-- Write `None` when no human decision is required.
+- whether to spend another pass reconciling historical background notes now, or
+  leave them clearly marked as historical and move to real-project validation
+- whether the next milestone should prioritize validation on a real project
+  before more core expansion
 
 ## Recommended next step
-State the next best move after review.
-- Advance, revise, gather evidence, or pause.
-- Name the first action, not just the general direction.
+Treat the first-cut operating surface as conditionally ready, then either:
+1. do one bounded historical-doc cleanup pass, or
+2. validate the surface on a real project and use that to drive the next
+   milestone

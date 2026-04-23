@@ -55,3 +55,13 @@ Keep entries short and durable.
 - Implication: new operational behaviors should avoid making `docs/` the
   primary control plane unless the repo explicitly requires it
 - Supersedes: none
+
+### 2026-04-24 - llm-os self-hosts project state in docs
+- Status: active
+- Decision: this repo now uses top-level `docs/*.md` as live llm-os project
+  state while `templates/` remains the canonical reusable template layer
+- Why it matters: the repo should follow its own operating model instead of
+  leaving the project-doc surface as placeholder text
+- Implication: top-level `docs/*.md` should contain current llm-os project
+  state, while historical analysis stays in `docs/background/` unless promoted
+- Supersedes: none

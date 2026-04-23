@@ -1,44 +1,63 @@
 # Project Spine
 
-Use this doc as the stable project definition. Keep it short enough to reload
-at the start of a serious session.
+Use this doc as the stable project definition for `llm-os`. Keep it short
+enough to reload at the start of a serious session.
 
 ## What
-State the product, system, or workflow being built in one sentence.
-- Name the primary artifact.
-- Name the user or operator it serves.
-- Name the boundary if the project is easy to over-expand.
+`llm-os` is a reusable operating standard for agent-driven product work that
+gives humans and agents a bounded lifecycle model, durable project memory, and
+small-context execution rules across tools.
 
 ## Why
-Record why this project exists now.
-- Tie it to a business, operational, or learning outcome.
-- Avoid generic ambition statements.
+It exists to reduce chat drift and make serious project work durable,
+reviewable, and reusable instead of reconstructed from scratch in each tool.
+
+Right now the immediate need is to turn the first-cut operating model into a
+coherent self-hosting repo surface that can support a first real project
+without re-deciding the basics every session.
 
 ## Who
-List the people or groups that matter to execution.
-- Primary user or customer.
-- Economic buyer or approving stakeholder if relevant.
-- Internal owner for delivery.
+- Primary users: humans operating serious project work with coding agents and
+  chat-style tools
+- Operators: the repo maintainer and any agent working inside the `llm-os`
+  operating surface
+- Internal owner: the maintainer shaping the operating model and deciding which
+  patterns become core
 
 ## Constraints
-Capture the real limits that should shape decisions.
-- Platform, compliance, latency, budget, staffing, data, or timeline
-  constraints.
-- Existing commitments that the milestone cannot violate.
+- Must stay lightweight and avoid turning into a full PM framework
+- Must preserve the human as the decision endpoint
+- Must keep core operating behavior separate from capability-specific logic
+- Must work across multiple entry points without fragmenting the model
+- Must minimize default context load
+- Must clean up the repo’s own self-hosting surface without reopening every
+  earlier design decision
 
 ## Success criteria
-Define the conditions that justify continuing the project.
-- Prefer observable outcomes over activity.
-- Include commercial or operational proof when relevant.
+- A first real project can be onboarded without major ambiguity about read
+  paths, write-back, template usage, or agent/human boundaries
+- The repo’s own `docs/` surface reflects live project state instead of
+  placeholder templates
+- Core files, skills, templates, and project docs stay internally consistent
+- Remaining gaps are explicit and bounded to future slices rather than hidden in
+  drift
 
 ## Current milestone
-Point to the active milestone and its role in the larger stage.
-- Name the current stage.
-- Reference `docs/current-milestone.md`.
-- State what becomes clearer if the milestone succeeds.
+- Current stage: `Prototype`
+- Active milestone: see `docs/current-milestone.md`
+- If this milestone succeeds, the first-cut operating surface should be stable
+  enough to validate on a real project instead of continuing as repo-only
+  theory
 
 ## Canonical links
-List only durable sources of truth.
-- Project repo, deployed surface, spec, dashboards, data sources, or customer
-  notes.
-- The five canonical project docs.
+- Repo root
+- `AGENTS.md`
+- `README.md`
+- `core/operating-model.md`
+- `core/agent-contracts.md`
+- `core/platform-playbook.md`
+- `core/decisions.md`
+- `docs/current-milestone.md`
+- `docs/open-questions.md`
+- `docs/session-brief.md`
+- `docs/review-report.md`

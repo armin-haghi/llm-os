@@ -1,5 +1,9 @@
 # llm-os Alignment Assessment
 
+Historical note: this assessment was written before the later self-hosting
+cleanup of the top-level `docs/` surface. It may reference issues that have
+since been resolved.
+
 **Date:** 2026-04-24  
 **Scope:** Current state vs. documented vision and next-slices roadmap  
 **Context:** Pre-first-project assessment; framework is in "now/next" transition phase

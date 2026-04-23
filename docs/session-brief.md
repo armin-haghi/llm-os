@@ -1,8 +1,7 @@
 # Session Brief
 
-Use this doc to reload the current working context in a few minutes. Update it
-at the end of a serious session when the next session would otherwise have to
-reconstruct context.
+Use this doc to reload the current working context for `llm-os` in a few
+minutes.
 
 This doc does not replace `docs/current-milestone.md`.
 Use the milestone doc for the broader multi-session target and acceptance
@@ -10,40 +9,51 @@ boundary. Use the session brief for the immediate slice of work, next action,
 and most important live question inside that milestone.
 
 ## Snapshot
-- Project: canonical project name
-- Current stage: one of the canonical stages
-- Active milestone: exact milestone from `docs/current-milestone.md`
-- Session contract: relevant agent contract or Human
-- Last updated: `YYYY-MM-DD`
+- Project: `llm-os`
+- Current stage: `Prototype`
+- Active milestone: stabilize the first-cut operating surface and self-host the
+  repo docs cleanly
+- Session contract: `project-refresh` plus `operating-model-update` when core
+  files or operating surfaces are being changed
+- Last updated: `2026-04-24`
 
 ## Project summary
-State the project and current milestone in three to five lines.
-- What is being built.
-- What the active milestone is trying to prove.
-- What is currently most true about progress or risk.
+`llm-os` now has the core first-cut pieces in place: template split, playbook,
+external-skills boundary, freshness model, decisions log, and lightweight human
+input skills.
+
+This cleanup pass is turning the repo’s own `docs/` surface into live llm-os
+project state and checking the full repo for remaining inconsistencies.
+
+The main remaining risk is not missing theory. It is transitional or historical
+documentation that still points at older structure.
 
 ## Next action
-Write the first concrete action the next serious session should take.
-- Prefer a command, doc update, test, review step, or decision path.
-- Keep it small enough that someone can start immediately.
+Run the consistency review after the docs cleanup, then decide whether to
+validate llm-os on a real project before taking on more core slices.
 
 ## Blocking question
-Record the single most important blocking question for the next session.
-- Write `None` if work can proceed.
-- If the question needs human input, mirror it in `docs/open-questions.md`.
+How aggressively should historical background analysis be rewritten now that the
+core first-cut cleanup is materially complete?
 
 ## Latest decisions
-Capture only the decisions that materially changed the work.
-- Include the decision and its immediate consequence.
-- Avoid chat-style narration.
+- `templates/` is the canonical reusable artifact layer.
+- `docs/` is for repo documentation and deeper clarification.
+- `docs/background/` is non-default reference material.
+- agent-action surfaces should stay outside `docs/` by default.
+- llm-os should now self-host its own project docs instead of leaving the
+  top-level `docs/*.md` files as placeholders.
+- framework comparison belongs in `docs/` as deeper clarification, not in
+  `docs/background/`.
 
 ## Current risks
-List the risks that can change milestone outcome or review result.
-- Scope risk, evidence risk, dependency risk, commercial risk, or freshness
-  risk.
-- Remove risks that no longer matter.
+- historical background docs still contain time-scoped analysis that can be
+  mistaken for live source of truth
+- some older references still point at pre-split structure
+- the repo now has a stronger first cut, but it still needs real-project
+  validation before assuming the model is settled
 
 ## Expected output from this session
-State what durable change, artifact, or decision this session should produce.
-- Prefer reviewable outputs.
-- If the session is exploratory, name the uncertainty it should reduce.
+A repo cleanup pass that instantiates the top-level project docs, a current
+consistency review in `docs/review-report.md`, and an explicit list of residual
+gaps that remain after cleanup.

@@ -24,72 +24,13 @@ A slice should move into active work only when its trigger is true.
 ---
 
 ## Now
-
-### Replace broad roles with agent contracts
-- status: now
-- why it matters: broad roles are the wrong abstraction; the system should use narrowly scoped task agents with the human as decision endpoint
-- trigger to do it: before next core cleanup pass
-- notes: replace `core/role-contracts.md` with `core/agent-contracts.md`; keep stages and lanes unchanged
-
----
-
-### Cheap OpenClaw input skill
-- status: now
-- why it matters: enables lightweight conversational input without pulling full execution context
-- trigger to do it: before using OpenClaw as primary control surface
-- notes: `capture-human-input`; writes to correct durable artifact; escalates model only when needed
-
----
-
-### Human-topic surfacing skill
-- status: now
-- why it matters: ensures decision-worthy and uncertain items are surfaced to the human
-- trigger to do it: before running multiple active projects in parallel
-- notes: `surface-human-topics`; include project, stage, milestone, recommendation, uncertainty, risks, explicit question, default next step
-
----
-
-### Platform playbook
-- status: now
-- why it matters: provides a single practical guide across tools without bloating README
-- trigger to do it: before onboarding first real project
-- notes: `core/platform-playbook.md`; define tool usage, read order, write-back expectations, escalation points
-
----
-
-### Minimum project overview input format
-- status: now
-- why it matters: enables reliable project overview refresh
-- trigger to do it: before running portfolio refresh in practice
-- notes: fields = project, stage, active milestone, freshness, blocker, next action, commercial signal
+- no new `now` items currently
+- the first-cut operating surface is materially in place
+- use the active milestone docs for the current cleanup and validation pass
 
 ---
 
 ## Operating Model Delta
-
-### Add routing layer
-- status: now
-- why it matters: introduces consistent execution flow without adding agents
-- trigger to do it: ambiguity inside a mode or AGENTS.md update
-- notes: `Think → Plan → Build → Review → Ship → Reflect`; implicit within modes
-
----
-
-### Add `operating-model-update` mode
-- status: now
-- why it matters: isolates changes to the operating model from execution work
-- trigger to do it: any change to AGENTS.md, ASSISTANT.md, templates, or workflow rules
-- notes: require reason, impact, affected files; follow with consistency check
-
----
-
-### Enforce default read path
-- status: now
-- why it matters: keeps context minimal and predictable
-- trigger to do it: agent attempts to load broader context
-- notes: only AGENTS.md → milestone → task/plan → decisions; exclude `/background` unless explicitly referenced
-
----
 
 ### Add lightweight guardrails
 - status: now
@@ -114,38 +55,6 @@ A slice should move into active work only when its trigger is true.
 - why it matters: ensures parallel work does not fragment execution
 - trigger to do it: multiple concurrent workstreams in one project
 - notes: one active stage, one primary milestone; parallel work only within same milestone
-
----
-
-### External skills boundary
-- status: next
-- why it matters: prevents core from absorbing capability-specific logic
-- trigger to do it: before adding first non-core capability
-- notes: `core/external-skills.md`; core = operating model improvement, external = capability-specific
-
----
-
-### Freshness model
-- status: next
-- why it matters: prevents drift in project artifacts
-- trigger to do it: docs begin to diverge from reality
-- notes: define stale criteria and refresh rules
-
----
-
-### Decisions doc
-- status: next
-- why it matters: keeps load-bearing decisions durable and discoverable
-- trigger to do it: operating model evolves beyond small edits
-- notes: `core/decisions.md`; keep short and focused
-
----
-
-### Add background framework docs
-- status: next
-- why it matters: enables structured borrowing without polluting execution context
-- trigger to do it: need to reference external frameworks
-- notes: `/background/frameworks/{bmad.md, gstack.md, comparison.md}`
 
 ---
 

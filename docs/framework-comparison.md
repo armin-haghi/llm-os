@@ -2,7 +2,8 @@
 
 Purpose: compare external approaches as reference material for `llm-os`.
 
-This file belongs in `/background` and is not loaded by default.
+This file is deeper repo documentation, not part of the default read path.
+Use it when framework borrowing choices need explicit comparison.
 
 | Approach | Best idea to borrow | Risk for `llm-os` | Fit |
 |---|---|---|---|

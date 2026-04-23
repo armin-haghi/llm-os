@@ -28,6 +28,13 @@ durable write-back in canonical project docs instead of chat.
 - `docs/session-brief.md`: fastest durable reload point for the next session
 - `docs/review-report.md`: latest review outcome and required human decisions
 
+`llm-os` now self-hosts this same project-doc surface in its own top-level
+`docs/` directory.
+
+## Deeper repo docs
+- `docs/doc-surface-decision.md`: current repo boundary between `core/`, `templates/`, `docs/`, and `docs/background/`
+- `docs/framework-comparison.md`: deeper reference on what `llm-os` borrows from adjacent approaches and what it rejects
+
 ## Core rule
 A serious session should:
 1. load current context
