@@ -77,6 +77,14 @@ A slice should move into active work only when its trigger is true.
 
 ---
 
+### Model right-sizing with safe escalation
+- status: next
+- why it matters: routes each task to the smallest adequate model by default, keeping cost and latency low while ensuring high-complexity work gets appropriate capability
+- trigger to do it: after first real project onboarding to validate where the boundaries actually are
+- notes: smaller models handle capture, formatting, summarization, classification, simple transformations; must escalate (not guess) when exceeding capability; escalation triggers: unclear instructions, missing context, low confidence, high-risk changes, need for synthesis/planning/judgment; stronger models handle planning, synthesis, architecture, critical review, final decisions
+
+---
+
 ## Later
 
 ### Stage skills expansion
