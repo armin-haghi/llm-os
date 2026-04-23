@@ -21,6 +21,7 @@ durable write-back in canonical project docs instead of chat.
 - `templates/open-questions.md`: unresolved decisions with owners and defaults
 - `templates/session-brief.md`: fastest durable reload point for the next session
 - `templates/review-report.md`: latest review outcome and required human decisions
+- `templates/project-overview.yaml`: minimum project overview input for cross-project status
 
 ## Initialize or Retrofit a Consuming Repo
 Use the starter surfaces in this order:

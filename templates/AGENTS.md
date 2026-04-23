@@ -15,7 +15,7 @@ Read only if needed:
 
 ## Modes
 Determine one mode before proceeding:
-- `new-project`: initialize this repo's operating surface and first milestone
+- `new-project`: initialize or retrofit this repo's operating surface, `project-overview.yaml`, and first milestone
 - `existing-project`: load current docs, align context, then execute; this can include a repo that already exists but is not yet following the `llm-os` rules cleanly
 - `ongoing-session`: reload only the active milestone context and the smallest relevant references
 
@@ -27,7 +27,7 @@ Routing is an internal lifecycle:
 `Think -> Plan -> Build -> Review -> Ship -> Reflect`
 
 Apply it inside the selected mode:
-- `new-project`: Think -> Plan, then initialize the repo docs and first milestone
+- `new-project`: Think -> Plan, then audit the repo, create only the missing canonical docs, and fill the minimum working content
 - `existing-project`: Think -> Plan, then execute against the live project-doc surface
 - `ongoing-session`: Think -> Build, with Review / Ship / Reflect only when needed
 
