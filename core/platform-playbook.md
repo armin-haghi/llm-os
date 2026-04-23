@@ -97,6 +97,15 @@ Across tools:
 Entry points may differ in interface, but they should not define different
 operating behavior.
 
+## Lightweight human input
+
+Use `skills/capture-human-input/SKILL.md` when a human wants to add a small
+decision, correction, blocker, or next action without reloading the full
+project surface.
+
+The skill should write to the smallest correct durable artifact rather than
+triggering a broad refresh by default.
+
 ## Templates
 
 Use `templates/` as the canonical template layer.
