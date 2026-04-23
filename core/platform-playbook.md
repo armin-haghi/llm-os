@@ -106,6 +106,10 @@ project surface.
 The skill should write to the smallest correct durable artifact rather than
 triggering a broad refresh by default.
 
+Use `skills/surface-human-topics/SKILL.md` when one project's active context
+contains decision-worthy uncertainty or risk that should be packaged cleanly
+for the human.
+
 ## Templates
 
 Use `templates/` as the canonical template layer.
