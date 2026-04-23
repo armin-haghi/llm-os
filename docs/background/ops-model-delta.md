@@ -14,6 +14,7 @@ Usage guidance:
 - Do not create separate agents per step
 - Do not persist each step unless needed
 - Apply implicitly during execution
+- Applies consistently across all entry points (OpenClaw, Codex, Claude, repo edits, Notion), not tied to any single interface
 
 ---
 
@@ -39,7 +40,7 @@ Rules:
 Refine existing logic:
 
 ```text
-1. AGENTS.md / ASSISTANT.md
+1. AGENTS.md
 2. Active milestone
 3. Current task / plan
 4. Relevant decision entries
@@ -48,6 +49,7 @@ Refine existing logic:
 
 Explicit rule:
 - `/background` MUST NOT be loaded unless explicitly referenced
+- when operating outside repo (e.g. Notion), equivalent minimal context should be used
 
 ---
 
@@ -74,6 +76,9 @@ Modes remain unchanged, but must internally follow:
 | existing-project | Think → Plan |
 | new-project | Think → Plan |
 
+Notes:
+- mapping applies conceptually even if the entry point does not explicitly expose ‘modes’
+
 ---
 
 ### Δ6. Background Folder Behavior
@@ -89,6 +94,7 @@ Rules:
 - Never loaded by default
 - Only accessed when explicitly required
 - Not part of execution context
+- Applies only to repo-based context; equivalent ‘non-default reference material’ should be treated similarly in other tools
 
 ---
 
@@ -105,5 +111,6 @@ NOT:
 All borrowings must:
 - reduce complexity OR
 - improve execution quality
+- not introduce tool-specific coupling or expand default context
 
 Otherwise: reject
