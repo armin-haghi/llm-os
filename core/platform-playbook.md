@@ -6,7 +6,8 @@ entry points and tools.
 It is not the operating model itself.
 Use `core/operating-model.md` for the model, `core/agent-contracts.md` for
 execution boundaries, `core/external-skills.md` for capability boundary rules,
-and `templates/` for reusable project artifacts.
+`core/freshness-model.md` for stale-context rules, and `templates/` for
+reusable project artifacts.
 
 ## Purpose
 
@@ -58,6 +59,9 @@ Typical examples:
 - load `docs/background/` only for design, comparison, operating-model
   evolution, or explicitly referenced context
 
+Use `core/freshness-model.md` when deciding whether current project context is
+safe to execute from or needs refresh first.
+
 ## Write-back expectations
 
 A serious session should leave durable state behind when clarity or outcome
@@ -100,6 +104,9 @@ operating behavior.
 
 Use `core/external-skills.md` when deciding whether a new skill belongs in the
 core operating layer or should remain capability-specific.
+
+Use `project-refresh` when the active project context is stale, unknown, or
+contradictory by the rules in `core/freshness-model.md`.
 
 ## Lightweight human input
 
