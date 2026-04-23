@@ -38,16 +38,16 @@ instructions should override the llm-os default.
 Its live project-doc surface lives under `llm-os-docs/project/` so `docs/`
 stays reserved for the consuming-repo convention.
 
-## Current llm-os Project Docs
-- `llm-os-docs/project/project-spine.md`: live llm-os project definition
-- `llm-os-docs/project/current-milestone.md`: active llm-os milestone
-- `llm-os-docs/project/open-questions.md`: unresolved llm-os decisions
-- `llm-os-docs/project/session-brief.md`: fastest durable reload point for the next llm-os session
-- `llm-os-docs/project/review-report.md`: latest llm-os review outcome
+## This Repo's Live Project Docs
+- `llm-os-docs/project/project-spine.md`: live project definition for this repo
+- `llm-os-docs/project/current-milestone.md`: active milestone for this repo
+- `llm-os-docs/project/open-questions.md`: unresolved project questions and decisions
+- `llm-os-docs/project/session-brief.md`: fastest durable reload point for the next session in this repo
+- `llm-os-docs/project/review-report.md`: latest review outcome for this repo
 
-## llm-os Docs
-- `llm-os-docs/doc-surface-decision.md`: current repo boundary between `core/`, `templates/`, default consuming-repo `docs/`, `llm-os-docs/project/`, and explanatory `llm-os-docs/`
-- `llm-os-docs/framework-comparison.md`: deeper reference on what `llm-os` borrows from adjacent approaches and what it rejects
+## Additional Repo Docs
+- `llm-os-docs/doc-surface-decision.md`: explains the boundary between `core/`, `templates/`, default consuming-repo `docs/`, this repo's `llm-os-docs/project/`, and deeper explanatory docs
+- `llm-os-docs/framework-comparison.md`: reference on what `llm-os` borrows from adjacent approaches and what it rejects
 - `llm-os-docs/background/`: historical notes, assessments, and time-scoped design material
 
 ## Core rule
