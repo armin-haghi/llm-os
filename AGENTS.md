@@ -30,7 +30,7 @@ Read:
 7. `llm-os-docs/doc-surface-decision.md` only if repo structure, read paths, or doc boundaries are being changed
 
 ### Session path
-Use for serious project work.
+Use for serious work on `llm-os` itself.
 
 Read:
 1. `llm-os-docs/project/session-brief.md`
@@ -40,7 +40,7 @@ Read only if needed:
 3. `llm-os-docs/project/project-spine.md`
 4. `llm-os-docs/project/open-questions.md`
 5. `llm-os-docs/project/review-report.md`
-6. other directly relevant docs in `llm-os-docs/`
+6. other directly relevant docs in `llm-os-docs/` only when the `project/` docs are not enough or deeper llm-os-specific clarification is needed
 
 Do not load by default:
 - anything in `llm-os-docs/background/` unless it is explicitly referenced for design,
@@ -58,6 +58,8 @@ Override rule:
 - any other target-repo overrides from llm-os defaults should also be declared
   locally
 - local repo instructions override llm-os defaults
+- if local repo instructions are missing or ambiguous, fall back to the
+  canonical `llm-os` defaults before inventing local behavior
 
 ## Modes
 Determine one mode before proceeding:

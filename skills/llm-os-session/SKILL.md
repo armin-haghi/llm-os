@@ -28,12 +28,12 @@ following the `llm-os` rules cleanly, as long as the current docs are usable
 enough to align and continue without a full initialization pass.
 
 ## Default read order
-1. `llm-os-docs/project/session-brief.md`
-2. `llm-os-docs/project/current-milestone.md`
-3. `llm-os-docs/project/project-spine.md` only if needed
-4. `llm-os-docs/project/open-questions.md` only if needed
-5. `llm-os-docs/project/review-report.md` only if needed
-6. only directly relevant docs in `llm-os-docs/`
+1. the local repo's `AGENTS.md`
+2. the repo's live project-doc surface
+3. `project-spine.md` on the live project-doc surface only if needed
+4. `open-questions.md` on the live project-doc surface only if needed
+5. `review-report.md` on the live project-doc surface only if needed
+6. only then directly relevant llm-os-specific docs when the local repo surface is not enough
 
 Do not load by default:
 - anything in `llm-os-docs/background/` unless it is explicitly referenced for design,
@@ -51,6 +51,9 @@ Override rule:
 - any other target-repo overrides from llm-os defaults should also be declared
   locally
 - local repo instructions override llm-os defaults
+- if local repo instructions are missing or ambiguous, fall back to the
+  canonical `llm-os` defaults by reading `AGENTS.md`, `core/platform-playbook.md`,
+  and only the directly relevant `core/` docs before inventing local behavior
 
 ## Routing
 Routing is an internal lifecycle, not a separate mode set:
@@ -68,7 +71,8 @@ Apply it inside the selected mode:
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while working
 - do the intended work before expanding scope
-- treat `llm-os-docs/project/` as this repo's live project-doc surface
+- treat `llm-os-docs/project/` as the live project-doc surface only when the
+  repo you are working in is `llm-os` itself
 - treat `docs/` as the default live project-doc surface only for consuming repos unless the local repo overrides it
 - keep `llm-os-docs/background/` out of the default working context
 - end with explicit write-back targets or completed write-backs

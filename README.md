@@ -26,10 +26,11 @@ durable write-back in canonical project docs instead of chat.
 ## Initialize or Retrofit a Consuming Repo
 Use the starter surfaces in this order:
 1. audit the repo's current entry surfaces and project docs
-2. keep `docs/` as the default live project-doc surface, or declare a repo-local override in `AGENTS.md`
-3. create only the missing canonical artifacts
-4. create `project-overview.yaml`
-5. fill the minimum working content before treating the repo as initialized
+2. create root `AGENTS.md` if missing
+3. keep `docs/` as the default live project-doc surface, or declare a repo-local override in `AGENTS.md`
+4. create only the missing canonical artifacts
+5. create `project-overview.yaml`
+6. fill the minimum working content before treating the repo as initialized
 
 Use `skills/repo-initialize/SKILL.md` when you want the concrete initialization workflow.
 
@@ -45,6 +46,12 @@ Use `skills/repo-initialize/SKILL.md` when you want the concrete initialization 
 If a target repo uses a different live project-doc location, that override
 should be declared in the target repo's local `AGENTS.md`, and local repo
 instructions should override the llm-os default.
+
+If a consuming repo's local instructions are missing or ambiguous, agents
+should fall back to the canonical `llm-os` defaults rather than inventing repo
+behavior ad hoc. In practice, that means consulting the canonical `llm-os`
+`AGENTS.md`, `core/platform-playbook.md`, and only the directly relevant
+`core/` guidance.
 
 `llm-os` itself uses that override.
 Its live project-doc surface lives under `llm-os-docs/project/` so `docs/`

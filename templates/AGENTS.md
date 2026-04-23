@@ -13,6 +13,12 @@ Read only if needed:
 4. `docs/open-questions.md`
 5. `docs/review-report.md`
 
+If this repo's local instructions or project docs are missing or ambiguous,
+fall back to the canonical `llm-os` defaults instead of inventing local
+behavior. In practice, that means consulting the canonical `llm-os`
+`AGENTS.md`, `core/platform-playbook.md`, and only the directly relevant
+`core/` guidance.
+
 ## Modes
 Determine one mode before proceeding:
 - `new-project`: initialize or retrofit this repo's operating surface, `project-overview.yaml`, and first milestone
@@ -35,6 +41,7 @@ Apply it inside the selected mode:
 - use the smallest sufficient context
 - prefer canonical docs over chat history
 - treat `docs/` as the live project-doc surface unless this repo declares a local override
+- if the local repo surface is unclear, fall back to `llm-os` defaults before guessing
 - keep important context in repo docs, not only in chat
 - improve milestone clarity while doing the work
 - end with explicit write-back targets or completed write-backs
