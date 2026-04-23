@@ -1,0 +1,118 @@
+# Platform Playbook
+
+This file provides the practical operating guidance for using `llm-os` across
+entry points and tools.
+
+It is not the operating model itself.
+Use `core/operating-model.md` for the model, `core/agent-contracts.md` for
+execution boundaries, and `templates/` for reusable project artifacts.
+
+## Purpose
+
+Use this playbook to keep behavior consistent across:
+- coding-agent entry points
+- chat-style entry points
+- repo-native work
+- future multi-tool surfaces
+
+It exists to answer:
+- what to read first
+- what to write back
+- when to escalate
+- how much context to load
+
+## Default read order
+
+For normal serious project work:
+1. `AGENTS.md`
+2. `docs/session-brief.md`
+3. `docs/current-milestone.md`
+4. only then directly relevant docs in `docs/`
+5. only then explicitly referenced background material
+
+Read only if needed:
+- `docs/project-spine.md`
+- `docs/open-questions.md`
+- `docs/review-report.md`
+
+Do not load by default:
+- `docs/background/`
+
+## When to use additional context
+
+Load more only when the current task requires it.
+
+Typical examples:
+- load `docs/project-spine.md` when milestone intent or project boundary is
+  unclear
+- load `docs/open-questions.md` when real decisions or unresolved assumptions
+  affect the task
+- load `docs/review-report.md` when continuing after review or preparing a new
+  review
+- load `docs/background/` only for design, comparison, operating-model
+  evolution, or explicitly referenced context
+
+## Write-back expectations
+
+A serious session should leave durable state behind when clarity or outcome
+improves.
+
+Common write-back targets:
+- `docs/current-milestone.md` when scope, acceptance, blockers, or defaults get
+  clearer
+- `docs/session-brief.md` when the next action, active risk, or working context
+  changes
+- `docs/open-questions.md` when a real unresolved decision is surfaced
+- `docs/review-report.md` when a milestone is being reviewed
+
+Avoid using chat as the only place where important context lives.
+
+## Escalation rules
+
+Escalate to the human when:
+- priority changes are required
+- tradeoffs cannot be resolved safely from current evidence
+- risk acceptance is needed
+- commercial judgment is required
+- a real decision endpoint has been reached
+
+Do not escalate just because context is incomplete.
+First try to reduce uncertainty through the active milestone, session brief,
+and directly relevant project docs.
+
+## Tool behavior
+
+Across tools:
+- prefer the smallest sufficient context
+- keep `docs/background/` out of the default execution path
+- select the narrowest agent contract that matches the job
+- treat routing as internal lifecycle guidance, not a separate mode system
+- write back durable context before closing serious work
+
+Entry points may differ in interface, but they should not define different
+operating behavior.
+
+## Templates
+
+Use `templates/` as the canonical template layer.
+
+Read only the template needed for the current task:
+- `templates/project-spine.md`
+- `templates/current-milestone.md`
+- `templates/open-questions.md`
+- `templates/session-brief.md`
+- `templates/review-report.md`
+
+Do not load all templates by default.
+
+## Current repo note
+
+During the current first-cut cleanup, some top-level files in `docs/` still act
+as transitional placeholders while the repo surface is being normalized.
+
+Treat the target shape as:
+- `templates/` for operational templates
+- `docs/` for canonical repo documentation
+- `docs/background/` for non-default reference material
+
+Complete repo self-hosting cleanup after the first-cut surface is stable.

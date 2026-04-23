@@ -18,6 +18,25 @@ Each contract should specify:
 - what it may not change
 - when it must escalate to the human
 
+## Contracts and skills
+
+Not every contract needs a standalone skill.
+
+Use a reusable skill when the contract represents a repeated execution pattern
+that benefits from a stable read path and write-back shape.
+
+It is acceptable for some contracts to remain invocation patterns rather than
+dedicated skills, especially when they are:
+- highly judgment-heavy
+- tightly coupled to a human decision endpoint
+- better expressed through the current session flow than through a separate
+  reusable scaffold
+
+In the current repo:
+- lane-oriented contracts are the main reusable skill candidates
+- human-interface contracts may remain contract definitions until repeated use
+  justifies a dedicated skill
+
 ## Lane-oriented contracts
 
 ### `project-refresh`
