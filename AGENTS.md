@@ -33,21 +33,24 @@ Read:
 Use for serious project work.
 
 Read:
-1. `docs/session-brief.md`
-2. `docs/current-milestone.md`
+1. `llm-os-docs/project/session-brief.md`
+2. `llm-os-docs/project/current-milestone.md`
 
 Read only if needed:
-3. `docs/project-spine.md`
-4. `docs/open-questions.md`
-5. `docs/review-report.md`
-6. other directly relevant docs in `docs/`
+3. `llm-os-docs/project/project-spine.md`
+4. `llm-os-docs/project/open-questions.md`
+5. `llm-os-docs/project/review-report.md`
+6. other directly relevant docs in `llm-os-docs/`
 
 Do not load by default:
 - anything in `llm-os-docs/background/` unless it is explicitly referenced for design,
   comparison, or operating-model work
 
-Default assumption:
+Default assumption for consuming repos:
 - the live project-doc surface is `docs/`
+
+Current repo override:
+- in `llm-os`, the live project-doc surface is `llm-os-docs/project/`
 
 Override rule:
 - if a target repo uses a different live project-doc location, its local
@@ -84,7 +87,8 @@ actually reaches them.
 - prefer canonical docs over chat history
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while doing the work
-- treat `docs/` as the live project-doc surface by default unless the local repo overrides it
+- treat `llm-os-docs/project/` as this repo's live project-doc surface
+- treat `docs/` as the default live project-doc surface only for consuming repos unless the local repo overrides it
 - keep `llm-os-docs/background/` out of the default working context
 - end with explicit write-back targets or completed write-backs
 - escalate only residual human decisions

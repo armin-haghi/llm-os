@@ -38,12 +38,15 @@ Keep entries short and durable.
 ### 2026-04-24 - Separate templates from repo docs
 - Status: active
 - Decision: `templates/` is the canonical template layer; `docs/` is the live
-  project-doc surface by default; `llm-os-docs/` is llm-os-specific explanation;
-  `llm-os-docs/background/` is non-default reference material
+  project-doc surface by default for consuming repos; `llm-os-docs/project/`
+  is the explicit live project-doc override for this repo; `llm-os-docs/` is
+  llm-os-specific explanation; `llm-os-docs/background/` is non-default
+  reference material
 - Why it matters: agents should not have to load explanatory repo material just
   to find operational templates or live project state
 - Implication: entry surfaces should point to `templates/` for reusable
-  artifacts, treat `docs/` as live project state by default, and keep
+  artifacts, treat `docs/` as the consuming-repo default, treat
+  `llm-os-docs/project/` as this repo's live project state, and keep
   `llm-os-docs/background/` out of the default path
 - Supersedes: none
 
@@ -58,13 +61,15 @@ Keep entries short and durable.
   assumptions when the repo states an explicit override
 - Supersedes: none
 
-### 2026-04-24 - llm-os self-hosts project state in docs
+### 2026-04-24 - llm-os uses an explicit local project-doc override
 - Status: active
-- Decision: this repo now uses top-level `docs/*.md` as live llm-os project
-  state while `templates/` remains the canonical reusable template layer
+- Decision: this repo keeps its live llm-os project state under
+  `llm-os-docs/project/*.md` while `docs/` remains the default consuming-repo
+  convention and `templates/` remains the canonical reusable template layer
 - Why it matters: the repo should follow its own operating model instead of
-  leaving the project-doc surface as placeholder text
-- Implication: top-level `docs/*.md` should contain current llm-os project
-  state, while historical analysis stays in `llm-os-docs/background/` unless
-  promoted
+  blurring the difference between template/default repo surfaces and llm-os
+  repo-specific documentation
+- Implication: `AGENTS.md` and repo-local read paths should point to
+  `llm-os-docs/project/`, while historical analysis stays in
+  `llm-os-docs/background/` unless promoted
 - Supersedes: none

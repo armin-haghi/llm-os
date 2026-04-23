@@ -5,11 +5,15 @@ description: Refresh canonical project context and tighten milestone clarity.
 
 # Project Refresh
 
+Use the repo's live project-doc surface.
+The default layout is `docs/`, but follow any repo-local override declared in
+`AGENTS.md`.
+
 Read:
-1. `docs/project-spine.md`
-2. `docs/current-milestone.md`
-3. `docs/open-questions.md`
-4. `docs/session-brief.md`
+1. `project-spine.md` on the live project-doc surface
+2. `current-milestone.md` on the live project-doc surface
+3. `open-questions.md` on the live project-doc surface
+4. `session-brief.md` on the live project-doc surface
 5. `core/freshness-model.md` only when freshness needs to be assessed explicitly
 
 Do:
@@ -20,6 +24,6 @@ Do:
 - convert vague ambiguity into explicit open questions or defaults
 
 Write back:
-- `docs/current-milestone.md`
-- `docs/open-questions.md`
-- `docs/session-brief.md`
+- `current-milestone.md` on the live project-doc surface
+- `open-questions.md` on the live project-doc surface
+- `session-brief.md` on the live project-doc surface

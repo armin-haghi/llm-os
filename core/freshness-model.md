@@ -12,6 +12,9 @@ Freshness is not a historical log.
 It is a practical check on whether the current durable context is still safe to
 use.
 
+Path examples below assume the default consuming-repo live project-doc surface
+under `docs/`. A repo-local override may relocate those artifacts.
+
 ## Freshness states
 
 - `current`: the active project context is specific enough and recent enough to

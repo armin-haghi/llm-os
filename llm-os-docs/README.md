@@ -1,23 +1,24 @@
 # llm-os Docs
 
-This directory contains llm-os-specific explanatory documentation, reference
-material, and historical notes.
+This directory contains:
+- the live llm-os project-doc surface under `llm-os-docs/project/`
+- llm-os-specific explanatory documentation
+- historical notes and reference material
 
-It is not the default action surface.
+Use `llm-os-docs/project/` for normal serious work on this repo.
 
-Use these files when:
+Use the other files here only when:
 - the operating model itself is being changed
 - deeper clarification is needed
 - framework borrowing needs explicit comparison
 - historical design context matters
 
-Default live project state still belongs in `docs/` unless a target repo's
-local `AGENTS.md` declares a different project-doc location.
-
-Any target-repo override from llm-os defaults should be declared locally in
-that repo's `AGENTS.md` or equivalent entry surface.
+Default operating rules, live project-doc defaults, and local override behavior
+are defined in `AGENTS.md`, `core/platform-playbook.md`, and
+`llm-os-docs/doc-surface-decision.md`.
 
 Main files:
+- `llm-os-docs/project/`
 - `llm-os-docs/doc-surface-decision.md`
 - `llm-os-docs/framework-comparison.md`
 - `llm-os-docs/background/`

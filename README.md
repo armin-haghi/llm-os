@@ -28,15 +28,25 @@ durable write-back in canonical project docs instead of chat.
 - `docs/session-brief.md`: fastest durable reload point for the next session
 - `docs/review-report.md`: latest review outcome and required human decisions
 
-`llm-os` now self-hosts this same project-doc surface in its own top-level
-`docs/` directory.
+`docs/` is the default live project-doc surface for consuming repos.
 
 If a target repo uses a different live project-doc location, that override
 should be declared in the target repo's local `AGENTS.md`, and local repo
 instructions should override the llm-os default.
 
+`llm-os` itself uses that override.
+Its live project-doc surface lives under `llm-os-docs/project/` so `docs/`
+stays reserved for the consuming-repo convention.
+
+## Current llm-os Project Docs
+- `llm-os-docs/project/project-spine.md`: live llm-os project definition
+- `llm-os-docs/project/current-milestone.md`: active llm-os milestone
+- `llm-os-docs/project/open-questions.md`: unresolved llm-os decisions
+- `llm-os-docs/project/session-brief.md`: fastest durable reload point for the next llm-os session
+- `llm-os-docs/project/review-report.md`: latest llm-os review outcome
+
 ## llm-os Docs
-- `llm-os-docs/doc-surface-decision.md`: current repo boundary between `core/`, `templates/`, `docs/`, and `llm-os-docs/`
+- `llm-os-docs/doc-surface-decision.md`: current repo boundary between `core/`, `templates/`, default consuming-repo `docs/`, `llm-os-docs/project/`, and explanatory `llm-os-docs/`
 - `llm-os-docs/framework-comparison.md`: deeper reference on what `llm-os` borrows from adjacent approaches and what it rejects
 - `llm-os-docs/background/`: historical notes, assessments, and time-scoped design material
 

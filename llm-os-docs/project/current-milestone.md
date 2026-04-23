@@ -1,12 +1,5 @@
 # Current Milestone
 
-Use this doc to define the one milestone `llm-os` is actively trying to
-complete.
-
-This is the broader multi-session target, not the current session plan.
-Use `docs/session-brief.md` for the immediate slice of work being taken against
-this milestone.
-
 ## Snapshot
 - Project: `llm-os`
 - Stage: `Prototype`
@@ -33,8 +26,8 @@ unclean base would hide the real gaps.
 
 ## In scope
 - finish the first-cut core surfaces that were still missing or implied
-- convert top-level `docs/*.md` from template placeholders into live llm-os
-  project docs
+- move live llm-os project docs into `llm-os-docs/project/` as an explicit
+  local override of the default consuming-repo `docs/` convention
 - keep `templates/` as the canonical reusable template layer
 - place deeper repo clarification docs in the right tier
 - run a consistency check and record residual gaps durably
@@ -53,11 +46,11 @@ unclean base would hide the real gaps.
 - the lightweight human-input and human-topic skills exist and match the core
   model
 - `templates/` is clearly canonical for reusable artifacts
-- top-level `docs/*.md` contain live llm-os project state rather than template
-  instructions
+- `llm-os-docs/project/*.md` contains live llm-os project state while `docs/`
+  remains reserved for the default consuming-repo convention
 - deeper clarification docs are separated from background/reference docs
-- `docs/review-report.md` records a current consistency review with explicit
-  residual gaps
+- `llm-os-docs/project/review-report.md` records a current consistency review
+  with explicit residual gaps
 
 ## Dependencies
 - human decisions about doc-surface boundaries and cleanup sequencing

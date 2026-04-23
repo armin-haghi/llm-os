@@ -7,6 +7,9 @@ The human is not treated as just another generic contract.
 The human is the decision endpoint for priorities, tradeoffs, risk acceptance,
 and unresolved judgment.
 
+Path examples below assume the default consuming-repo live project-doc surface
+under `docs/`. A repo-local override may relocate those artifacts.
+
 ## Contract shape
 
 Each contract should specify:

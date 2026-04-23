@@ -1,8 +1,5 @@
 # Project Spine
 
-Use this doc as the stable project definition for `llm-os`. Keep it short
-enough to reload at the start of a serious session.
-
 ## What
 `llm-os` is a reusable operating standard for agent-driven product work that
 gives humans and agents a bounded lifecycle model, durable project memory, and
@@ -36,15 +33,16 @@ without re-deciding the basics every session.
 ## Success criteria
 - A first real project can be onboarded without major ambiguity about read
   paths, write-back, template usage, or agent/human boundaries
-- The repo’s own `docs/` surface reflects live project state instead of
-  placeholder templates
+- The repo’s own live project-doc surface under `llm-os-docs/project/`
+  reflects current state cleanly without being confused with the consuming-repo
+  `docs/` convention
 - Core files, skills, templates, and project docs stay internally consistent
 - Remaining gaps are explicit and bounded to future slices rather than hidden in
   drift
 
 ## Current milestone
 - Current stage: `Prototype`
-- Active milestone: see `docs/current-milestone.md`
+- Active milestone: see `llm-os-docs/project/current-milestone.md`
 - If this milestone succeeds, the first-cut operating surface should be stable
   enough to validate on a real project instead of continuing as repo-only
   theory
@@ -57,7 +55,7 @@ without re-deciding the basics every session.
 - `core/agent-contracts.md`
 - `core/platform-playbook.md`
 - `core/decisions.md`
-- `docs/current-milestone.md`
-- `docs/open-questions.md`
-- `docs/session-brief.md`
-- `docs/review-report.md`
+- `llm-os-docs/project/current-milestone.md`
+- `llm-os-docs/project/open-questions.md`
+- `llm-os-docs/project/session-brief.md`
+- `llm-os-docs/project/review-report.md`

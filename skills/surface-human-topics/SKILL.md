@@ -13,11 +13,15 @@ It does not aggregate across multiple projects.
 
 ## Read order
 
+Use the repo's live project-doc surface.
+The default layout is `docs/`, but follow any repo-local override declared in
+`AGENTS.md`.
+
 Read only the smallest sufficient project context:
-1. `docs/session-brief.md`
-2. `docs/current-milestone.md`
-3. `docs/open-questions.md` only if needed
-4. `docs/project-spine.md` only if milestone intent or project boundary is
+1. `session-brief.md` on the live project-doc surface
+2. `current-milestone.md` on the live project-doc surface
+3. `open-questions.md` on the live project-doc surface only if needed
+4. `project-spine.md` on the live project-doc surface only if milestone intent or project boundary is
    unclear
 
 Do not load broad context by default.
@@ -53,11 +57,11 @@ Do not surface routine implementation details that can be handled locally.
 Write to the smallest correct durable artifact.
 
 Typical targets:
-- `docs/open-questions.md` when a real human decision or unresolved tradeoff
+- `open-questions.md` on the live project-doc surface when a real human decision or unresolved tradeoff
   needs an owner and default assumption
-- `docs/session-brief.md` when the topic mainly affects the current working
+- `session-brief.md` on the live project-doc surface when the topic mainly affects the current working
   context, next action, or immediate risk framing
-- `docs/current-milestone.md` only when the surfaced topic materially changes
+- `current-milestone.md` on the live project-doc surface only when the surfaced topic materially changes
   milestone scope, acceptance, dependency framing, or blocker wording
 
 Avoid duplicating the same surfaced topic across multiple artifacts unless the

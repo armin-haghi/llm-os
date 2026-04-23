@@ -1,7 +1,5 @@
 # Review Report
 
-Use this doc for the latest milestone review outcome for `llm-os`.
-
 ## Snapshot
 - Project: `llm-os`
 - Stage: `Prototype`
@@ -13,8 +11,8 @@ Use this doc for the latest milestone review outcome for `llm-os`.
 ## Summary
 Reviewed the first-cut operating surface after the template split, new core
 playbook and boundary files, lightweight human-input skills, freshness model,
-decisions log, top-level docs cleanup, and the split between live project docs
-and llm-os explanatory material.
+decisions log, local project-doc override cleanup, and the split between live
+project docs and llm-os explanatory material.
 
 The repo is materially more consistent and now self-hosts its own project docs
 instead of leaving them as placeholders. The core model is coherent enough to
@@ -35,7 +33,7 @@ to earlier structure.
 - `core/decisions.md`
 - `templates/*`
 - `skills/*`
-- top-level `docs/*.md`
+- `llm-os-docs/project/*.md`
 - `llm-os-docs/*`
 - current background notes under `llm-os-docs/background/`
 

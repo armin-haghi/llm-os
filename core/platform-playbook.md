@@ -23,6 +23,9 @@ It exists to answer:
 - when to escalate
 - how much context to load
 
+Path examples below assume the default consuming-repo layout under `docs/`
+unless a repo-local override says otherwise.
+
 ## Default read order
 
 For normal serious project work:
@@ -44,7 +47,8 @@ Do not load by default:
 Default bias:
 - agent actions should route through `AGENTS.md`, `core/`, `skills/`,
   `templates/`, and the live project-doc surface
-- `llm-os-docs/` should not be the default action surface
+- explanatory `llm-os-docs/` files outside a repo's declared project-doc
+  surface should not be the default action surface
 
 ## When to use additional context
 
@@ -144,12 +148,13 @@ Do not load all templates by default.
 
 ## Current repo note
 
-`llm-os` now self-hosts its own live project docs under `docs/` while keeping
-`templates/` as the canonical reusable artifact layer.
+`llm-os` now uses an explicit local override for its live project-doc surface
+while keeping `templates/` as the canonical reusable artifact layer.
 
 Treat the repo shape as:
 - `templates/` for operational templates
-- `docs/` for live llm-os project state
+- `docs/` for the default consuming-repo live project-doc convention
+- `llm-os-docs/project/` for live llm-os project state
 - `llm-os-docs/` for llm-os-specific deeper clarification
 - `llm-os-docs/background/` for non-default reference material
 

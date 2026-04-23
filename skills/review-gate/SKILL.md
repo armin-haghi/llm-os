@@ -5,14 +5,18 @@ description: Review milestone output and produce a durable pass / conditional pa
 
 # Review Gate
 
+Use the repo's live project-doc surface.
+The default layout is `docs/`, but follow any repo-local override declared in
+`AGENTS.md`.
+
 Read:
-1. `docs/current-milestone.md`
-2. `docs/session-brief.md`
+1. `current-milestone.md` on the live project-doc surface
+2. `session-brief.md` on the live project-doc surface
 3. the output being reviewed
 4. relevant evidence
 
 Write back:
-- `docs/review-report.md`
+- `review-report.md` on the live project-doc surface
 
 Check:
 - acceptance criteria
