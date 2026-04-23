@@ -8,6 +8,7 @@ durable write-back in canonical project docs instead of chat.
 - `core/operating-model.md`: stages, lanes, agent contracts, and the serious session rule
 - `core/agent-contracts.md`: task-oriented contract definitions and human escalation boundaries
 - `core/change-policy.md`: how local patterns become operating standards
+- `core/external-skills.md`: boundary between core operating skills and capability-specific skills
 - `core/platform-playbook.md`: practical read-path, write-back, and escalation guidance across tools
 - `templates/README.md`: template-layer overview
 

@@ -5,7 +5,8 @@ entry points and tools.
 
 It is not the operating model itself.
 Use `core/operating-model.md` for the model, `core/agent-contracts.md` for
-execution boundaries, and `templates/` for reusable project artifacts.
+execution boundaries, `core/external-skills.md` for capability boundary rules,
+and `templates/` for reusable project artifacts.
 
 ## Purpose
 
@@ -96,6 +97,9 @@ Across tools:
 
 Entry points may differ in interface, but they should not define different
 operating behavior.
+
+Use `core/external-skills.md` when deciding whether a new skill belongs in the
+core operating layer or should remain capability-specific.
 
 ## Lightweight human input
 
