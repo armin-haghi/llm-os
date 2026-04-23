@@ -1,0 +1,12 @@
+# Minimum project overview input for portfolio refresh and cross-project status.
+#
+# Use one file per project when preparing a portfolio-level refresh.
+# Keep values short and current.
+
+project: "[canonical project name]"
+stage: "[canonical active stage]"
+active_milestone: "[exact active milestone]"
+freshness: "[current|stale|unknown]"
+blocker: "[current blocker or none]"
+next_action: "[next concrete action]"
+commercial_signal: "[none|weak|moderate|strong]"
