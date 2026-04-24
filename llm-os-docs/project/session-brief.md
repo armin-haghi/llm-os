@@ -3,33 +3,36 @@
 ## Snapshot
 - Project: `llm-os`
 - Current stage: `Prototype`
-- Active milestone: stabilize the first-cut operating surface and self-host the
-  repo docs cleanly
+- Active milestone: define the first minimal control-tower layer across
+  projects
 - Session contract: `project-refresh` plus `operating-model-update` when core
   files or operating surfaces are being changed
-- Last updated: `2026-04-24`
+- Last updated: `2026-04-25`
 
 ## Project summary
 `llm-os` now has the core first-cut pieces in place: template split, playbook,
-external-skills boundary, freshness model, decisions log, and lightweight human
-input skills.
+external-skills boundary, freshness model, decisions log, lightweight human
+input skills, repo initialization, Notion-first ideation guidance, and thin
+Claude compatibility shims.
 
-This cleanup pass has separated the live project-doc surface from llm-os
-explanatory material, moved deeper repo notes into `llm-os-docs/`, and added a
-concrete repo-initialization path for consuming repos. It now also defines a
-lightweight pre-repo Notion ideation surface and wires the early-stage skills
-to support `Notion-first` before a repo exists.
+The repo-level stabilization and validation pass is accepted as complete enough
+to advance. The main remaining gap is not whether the current surface basically
+works. It is that there is still no strong, durable way to check whether
+llm-os intent was fully met in validation without relying on human judgment.
 
-The main remaining risk is not missing theory. It is transitional or historical
-documentation that still points at older structure.
+The next highest-value slice is therefore the control tower: a minimal
+cross-project visibility layer that helps with prioritization, stale-state
+handling, and human decisions without creating a second execution source of
+truth.
 
 ## Next action
-Use the new repo-initialization workflow on a real consuming repo, then define
-the first real-project validation milestone against that target.
+Define the minimum viable control-tower layer, then test it against current
+active projects without making Notion or portfolio tracking load-bearing for
+execution.
 
 ## Blocking question
-How aggressively should historical background analysis be rewritten now that the
-core first-cut cleanup is materially complete?
+What is the minimum useful control-tower shape that improves visibility without
+becoming a second PM system?
 
 ## Latest decisions
 - `templates/` is the canonical reusable artifact layer.
@@ -48,16 +51,20 @@ core first-cut cleanup is materially complete?
 - before a repo exists, one canonical Notion page may be the live ideation and
   review surface; after repo creation, the repo becomes the execution source of
   truth and Notion becomes the summary and feedback surface.
+- broad historical cleanup stays deferred until after the next bulk of work.
+- the current validation pass is accepted as complete enough for now even
+  though the checking method remains weak.
+- the next highest-value slice is the control tower.
 
 ## Current risks
+- there is still no durable, lightweight validation rubric for checking whether
+  llm-os intent was fully satisfied in practice
+- a control tower can easily become a second source of truth if the repo/Notion
+  boundary is not kept explicit
 - historical background docs still contain time-scoped analysis that can be
-  mistaken for live source of truth
-- some older references still point at pre-split structure
-- the repo now has a stronger first cut, but it still needs real-project
-  validation before assuming the model is settled
+  mistaken for live source of truth if they are pulled into default context
 
 ## Expected output from this session
-A repo cleanup pass that removes duplicate guidance between `templates/`,
-the consuming-repo `docs/` convention, and `llm-os-docs/`, plus a concrete
-repo-initialization workflow and a clearer next step for real-project
-validation.
+A minimal control-tower milestone definition with clear repo/Notion boundaries,
+minimum project inputs, freshness handling, and a follow-on plan for improving
+validation checking.

@@ -27,9 +27,10 @@ A slice should move into active work only when its trigger is true.
 ---
 
 ## Now
-- no new `now` items currently
-- the first-cut operating surface is materially in place
-- use the active milestone docs for the current cleanup and validation pass
+- the first-cut operating surface is materially in place and has been accepted
+  as complete enough to advance
+- the next active slice is the minimal control tower
+- use the active milestone docs for control-tower scope and boundary decisions
 
 ---
 
@@ -43,15 +44,18 @@ A slice should move into active work only when its trigger is true.
 
 ---
 
-## Next
-
 ### Notion control-tower schema and views
-- status: next
+- status: now
 - why it matters: provides cross-project visibility and prioritization
-- trigger to do it: 2–3 active projects require coordination
-- notes: define project fields and views (stage, stale, blocked, commercialization, human decision)
+- trigger to do it: current active work has moved past repo-surface
+  stabilization and needs a minimal portfolio layer
+- notes: keep the first slice minimal; track stage, freshness, blockers, next
+  decision, and canonical repo/docs link; do not make Notion the execution
+  source of truth
 
 ---
+
+## Next
 
 ### Concurrency rules
 - status: next
@@ -80,8 +84,20 @@ A slice should move into active work only when its trigger is true.
 ### Model right-sizing with safe escalation
 - status: next
 - why it matters: routes each task to the smallest adequate model by default, keeping cost and latency low while ensuring high-complexity work gets appropriate capability
-- trigger to do it: after first real project onboarding to validate where the boundaries actually are
+- trigger to do it: after the first control-tower slice and a stronger
+  validation/checking method exist
 - notes: smaller models handle capture, formatting, summarization, classification, simple transformations; must escalate (not guess) when exceeding capability; escalation triggers: unclear instructions, missing context, low confidence, high-risk changes, need for synthesis/planning/judgment; stronger models handle planning, synthesis, architecture, critical review, final decisions
+
+---
+
+### Validation/checking method
+- status: next
+- why it matters: gives future milestone reviews a more durable way to tell
+  whether llm-os intent was actually met in practice
+- trigger to do it: once control-tower work starts touching multiple active
+  projects or repeated validations become hard to compare
+- notes: keep it lightweight; likely a rubric or structured review checklist
+  rather than full automation
 
 ---
 
@@ -132,7 +148,8 @@ A slice should move into active work only when its trigger is true.
 - status: later
 - why it matters: ensures consistent behavior across tools
 - trigger to do it: workflows span multiple tools regularly
-- notes: generate CLAUDE.md, Codex instructions, skills from AGENTS.md only
+- notes: minimal Claude shim already exists; any broader compatibility outputs
+  should still be generated from `AGENTS.md` only
 
 ---
 

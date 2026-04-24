@@ -6,21 +6,23 @@
 - Milestone: stabilize the first-cut operating surface and self-host the repo
   docs cleanly
 - Reviewer: Codex consistency pass
-- Date: `2026-04-24`
+- Date: `2026-04-25`
 
 ## Summary
 Reviewed the first-cut operating surface after the template split, new core
 playbook and boundary files, lightweight human-input skills, freshness model,
-decisions log, local project-doc override cleanup, and the split between live
-project docs and llm-os explanatory material.
+decisions log, local project-doc override cleanup, early-stage Notion-first
+guidance, repo-initialization flow, and the compatibility/fallback entry
+surfaces.
 
 The repo is materially more consistent and now self-hosts its own project docs
-instead of leaving them as placeholders. The core model is coherent enough to
-continue, but some historical background notes still contain stale references
-to earlier structure.
+instead of leaving them as placeholders. A real validation pass was run and
+accepted as good enough for this milestone, even though the checking method is
+still too weak to claim high confidence that llm-os intent was fully met in a
+repeatable way.
 
 ## Result
-`conditional pass`
+`pass`
 
 ## Evidence checked
 - `AGENTS.md`
@@ -36,29 +38,26 @@ to earlier structure.
 - `llm-os-docs/project/*.md`
 - `llm-os-docs/*`
 - current background notes under `llm-os-docs/background/`
+- maintainer acceptance of a real validation pass against the current surface
 
 ## Unresolved assumptions
-- that the current first-cut surface will hold up cleanly when used on a real
-  external project rather than only inside this repo
 - that leaving some historical background notes as explicitly time-scoped is
   sufficient, rather than rewriting all of them immediately
+- that a mostly judgment-based validation pass is acceptable for this milestone
+  even without a stronger checking rubric
 
 ## Risks
 - older assessment and delta notes still reference pre-cleanup structure and
   could confuse a reader who mistakes them for canonical source
-- target-repo override behavior is now defined, but has not yet been exercised
-  through a real consuming repo that deviates from the default `docs/` surface
-- the repo has not yet been validated through a first real project using the
-  current surface end to end
+- the current validation method is still weak and may not reliably detect when
+  llm-os intent has only been partially met
+- portfolio/control-tower work could create a second source of truth if the
+  repo/Notion boundary is not kept explicit
 
 ## Required human decisions
-- whether to spend another pass reconciling historical background notes now, or
-  leave them clearly marked as historical and move to real-project validation
-- whether the next milestone should prioritize validation on a real project
-  before more core expansion
+None
 
 ## Recommended next step
-Treat the first-cut operating surface as conditionally ready, then either:
-1. do one bounded historical-doc cleanup pass, or
-2. validate the surface on a real project and use that to drive the next
-   milestone
+Start the minimal control-tower milestone: define the smallest useful
+cross-project schema and views, keep execution truth in repo docs, and add a
+lightweight checking method as a follow-on quality improvement.

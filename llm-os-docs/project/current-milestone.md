@@ -3,69 +3,69 @@
 ## Snapshot
 - Project: `llm-os`
 - Stage: `Prototype`
-- Milestone: stabilize the first-cut operating surface and self-host the repo
-  docs cleanly
+- Milestone: define the first minimal control-tower layer across projects
 - Owner: human maintainer with agent support
 - Status: `active`
-- Last updated: `2026-04-24`
+- Last updated: `2026-04-25`
 
 ## Why this milestone matters
-This milestone converts the repo from a strong conceptual core plus
-transitional scaffolding into a coherent operating surface that can be used and
-stress-tested on a real project.
+The first-cut operating surface has now been accepted as complete enough to
+advance. The next highest-value gap is not more repo-local cleanup. It is a
+minimal cross-project control layer that makes active work visible without
+turning Notion or portfolio docs into a second execution truth.
 
 If it succeeds:
-- the repo’s own project docs stop acting like placeholders
-- the first-cut operating model becomes internally consistent enough to test in
-  real use
-- remaining work becomes a bounded next-slice problem instead of general repo
-  drift
+- active projects can be seen and compared in one place
+- stale idea and project pages become easier to identify and retire
+- cross-project prioritization and human decisions become visible without
+  bloating repo-local execution surfaces
 
-Later work should largely wait for this because adding more slices on top of an
-unclean base would hide the real gaps.
+Later control-tower expansion should wait for this because a larger portfolio
+layer without a minimal working shape would create more coordination noise than
+clarity.
 
 ## In scope
-- finish the first-cut core surfaces that were still missing or implied
-- move live llm-os project docs into `llm-os-docs/project/` as an explicit
-  local override of the default consuming-repo `docs/` convention
-- keep `templates/` as the canonical reusable template layer
-- place deeper repo clarification docs in the right tier
-- run a consistency check and record residual gaps durably
+- define the smallest viable control-tower model for cross-project visibility
+- set the boundary between repo docs, `project-overview.yaml`, and Notion
+- define the minimum fields and views needed to track project state cleanly
+- include freshness and stale-state handling so old idea pages do not linger as
+  fake current work
+- test the control-tower slice against current active projects
+- record the minimum viable checking method that would improve future
+  validation confidence without turning review into bureaucracy
 
 ## Out of scope
-- Notion control-tower design
 - concurrency rules implementation
 - stage-skill expansion
-- machine-readable schemas beyond the minimum project overview input
-- tool compatibility outputs
+- machine-readable schemas beyond what the first control-tower slice actually
+  needs
+- broader tool compatibility outputs beyond the current minimal Claude shim
 - broad historical rewrites of every background note
 
 ## Acceptance criteria
-- the core operating layer includes the platform playbook, external-skills
-  boundary, freshness model, and decisions log
-- the lightweight human-input and human-topic skills exist and match the core
-  model
-- `templates/` is clearly canonical for reusable artifacts
-- `llm-os-docs/project/*.md` contains live llm-os project state while `docs/`
-  remains reserved for the default consuming-repo convention
-- deeper clarification docs are separated from background/reference docs
-- `llm-os-docs/project/review-report.md` records a current consistency review
-  with explicit residual gaps
+- the control tower has a clear minimum scope and does not become a second PM
+  system
+- project-level execution truth remains in repo docs once a repo exists
+- the cross-project layer has a clear canonical input shape and update path
+- freshness and stale handling are explicit enough to reduce zombie Notion docs
+- at least one usable project-overview/control-tower path exists for active
+  projects
+- a lightweight validation/checking method is defined as a follow-on
+  improvement, even if it is not fully automated yet
 
 ## Dependencies
-- human decisions about doc-surface boundaries and cleanup sequencing
-- time to reconcile the first-cut operating surface against older background
-  notes
-- willingness to leave some historical docs marked as historical instead of
-  rewriting all of them immediately
+- human decisions about minimum useful project fields and views
+- active project examples to test against
+- willingness to keep the first slice minimal instead of designing a full
+  portfolio system
 
 ## Blockers
 - none currently
-- residual risk remains around older background notes that still mention
-  pre-cleanup structure
+- residual risk remains around stale project metadata if the control-tower layer
+  expands before freshness rules are used consistently
 
 ## Open questions to clarify during active sessions
-- how aggressively should historical background analysis be rewritten now that
-  the first-cut cleanup is materially complete?
-- after this milestone closes, should the next validation step be a real
-  project onboarding pass before more core expansion?
+- what is the minimum useful control-tower schema that improves visibility
+  without creating another maintenance burden?
+- what is the minimum durable checking method for future validation passes once
+  control-tower work starts touching more active projects?

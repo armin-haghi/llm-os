@@ -9,9 +9,9 @@ small-context execution rules across tools.
 It exists to reduce chat drift and make serious project work durable,
 reviewable, and reusable instead of reconstructed from scratch in each tool.
 
-Right now the immediate need is to turn the first-cut operating model into a
-coherent self-hosting repo surface that can support a first real project
-without re-deciding the basics every session.
+Right now the immediate need is to define a coherent cross-project control
+layer that improves visibility and stale-state handling without creating a
+second execution truth on top of repo docs.
 
 ## Who
 - Primary users: humans operating serious project work with coding agents and
@@ -31,6 +31,8 @@ without re-deciding the basics every session.
   earlier design decision
 
 ## Success criteria
+- Active projects can be seen from one minimal control surface without losing
+  repo-local execution truth
 - A first real project can be onboarded without major ambiguity about read
   paths, write-back, template usage, or agent/human boundaries
 - The repo’s own live project-doc surface under `llm-os-docs/project/`
@@ -43,9 +45,8 @@ without re-deciding the basics every session.
 ## Current milestone
 - Current stage: `Prototype`
 - Active milestone: see `llm-os-docs/project/current-milestone.md`
-- If this milestone succeeds, the first-cut operating surface should be stable
-  enough to validate on a real project instead of continuing as repo-only
-  theory
+- The first-cut operating surface has been accepted as complete enough to
+  advance; the next slice is the minimal control tower
 
 ## Canonical links
 - Repo root
