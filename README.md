@@ -22,7 +22,7 @@ durable write-back in canonical project docs instead of chat.
 - `templates/open-questions.md`: unresolved decisions with owners and defaults
 - `templates/session-brief.md`: fastest durable reload point for the next session
 - `templates/review-report.md`: latest review outcome and required human decisions
-- `templates/project-overview.yaml`: minimum project overview input for cross-project status
+- `templates/project-overview.yaml`: minimum control-tower input for cross-project status
 
 ## Initialize or Retrofit a Consuming Repo
 Use the starter surfaces in this order:
@@ -71,6 +71,7 @@ stays reserved for the consuming-repo convention.
 
 ## Additional Repo Docs
 - `llm-os-docs/doc-surface-decision.md`: explains the boundary between `core/`, `templates/`, default consuming-repo `docs/`, this repo's `llm-os-docs/project/`, and deeper explanatory docs
+- `llm-os-docs/control-tower.md`: first-slice control-tower boundary, fields, views, and update rules
 - `llm-os-docs/framework-comparison.md`: reference on what `llm-os` borrows from adjacent approaches and what it rejects
 - `llm-os-docs/notion-first-ideation.md`: lightweight pre-repo Notion workflow for ideation, comments, and repo handoff
 - `llm-os-docs/background/`: historical notes, assessments, and time-scoped design material

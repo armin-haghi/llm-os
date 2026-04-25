@@ -103,11 +103,17 @@ Fill at least:
   - expected output from this session
 - `project-overview.yaml`
   - project
+  - status
   - stage
   - active_milestone
   - freshness
+  - last_reviewed
+  - owner
   - blocker
+  - next_decision
   - next_action
+  - canonical_repo
+  - execution_surface
   - commercial_signal
 
 The live `open-questions.md` and `review-report.md` may start sparse, but they

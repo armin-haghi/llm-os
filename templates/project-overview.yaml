@@ -1,12 +1,22 @@
-# Minimum project overview input for portfolio refresh and cross-project status.
+# Minimum project overview input for the first control-tower slice.
 #
-# Use one file per project when preparing a portfolio-level refresh.
-# Keep values short and current.
+# Use one file per project when preparing a portfolio-level refresh once a repo
+# exists. Before repo creation, the equivalent fields may live on one canonical
+# Notion page.
+#
+# Keep values short and current. This file is a rollup input, not the execution
+# source of truth.
 
 project: "[canonical project name]"
+status: "[idea|shaping|build-ready|active-build|parked|archived]"
 stage: "[canonical active stage]"
 active_milestone: "[exact active milestone]"
 freshness: "[current|stale|unknown]"
+last_reviewed: "[YYYY-MM-DD]"
+owner: "[human owner]"
 blocker: "[current blocker or none]"
+next_decision: "[current human decision or none]"
 next_action: "[next concrete action]"
+canonical_repo: "[repo URL/path or blank before repo exists]"
+execution_surface: "[Notion|repo]"
 commercial_signal: "[none|weak|moderate|strong]"
