@@ -13,6 +13,7 @@ durable write-back in canonical project docs instead of chat.
 - `core/decisions.md`: short record of load-bearing operating-model decisions
 - `core/platform-playbook.md`: practical read-path, write-back, and escalation guidance across tools
 - `templates/README.md`: template-layer overview
+- `orchestration/README.md`: single cross-interface path for project sweeps and agent orchestration
 
 ## Canonical templates
 - `templates/AGENTS.md`: starter entrypoint for a consuming repo
@@ -24,6 +25,15 @@ durable write-back in canonical project docs instead of chat.
 - `templates/review-report.md`: latest review outcome and required human decisions
 - `templates/project-overview.yaml`: minimum control-tower input for cross-project status
 - `templates/agent-run.yaml`: minimum run-queue input for bounded agent sessions
+
+## Orchestration Path
+Use `orchestration/README.md` when the human wants any assistant entrypoint to:
+1. refresh all project/control-tower state
+2. start orchestrating work on a chosen project
+
+The same path applies from OpenClaw, Codex, Claude, ChatGPT, or future
+interfaces. Notion is for portfolio and run dispatch, while repo docs stay the
+execution source of truth once a repo exists.
 
 ## Initialize or Retrofit a Consuming Repo
 Use the starter surfaces in this order:

@@ -23,12 +23,13 @@ llm-os intent was fully met in validation without relying on human judgment.
 The next highest-value slice is therefore the control tower plus Agent Run
 Queue: a minimal cross-project visibility and orchestration layer that helps
 with prioritization, stale-state handling, human decisions, and bounded agent
-handoffs without creating a second execution source of truth.
+handoffs without creating a second execution source of truth. The shared
+orchestration path should be the human-facing front door for this layer.
 
 ## Next action
-Test the Notion Project Control Tower and Agent Run Queue against current
-active projects, starting with `llm-os` and Costmind, without making Notion
-load-bearing for project execution.
+Test the shared orchestration path for the Notion Project Control Tower and
+Agent Run Queue: first sweep projects for freshness, then start work on one
+chosen project from a bounded run.
 
 ## Blocking question
 Is the first Agent Run Queue shape enough to let agents continue work without
@@ -59,6 +60,9 @@ the human manually reconstructing thread context?
   source of truth once a repo exists.
 - the first Notion Project Control Tower and Agent Run Queue databases now
   exist under the LLM-OS Notion page.
+- the shared orchestration path should be the interaction layer for project
+  sweeps and selected project orchestration, so the human does not manage
+  individual agent threads.
 
 ## Current risks
 - there is still no durable, lightweight validation rubric for checking whether

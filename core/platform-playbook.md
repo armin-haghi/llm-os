@@ -107,6 +107,14 @@ targets, and current human decision or blocker.
 The run queue may tell an agent what to pick up next, but repo-local docs remain
 the source of truth for project execution once a repo exists.
 
+For the shared human-facing orchestration path, route through:
+- `orchestration/prompts/project-sweep.md` for refreshing all projects
+- `orchestration/prompts/start-project-work.md` for orchestrating one selected
+  project
+
+Any assistant entrypoint should shield the human from thread management by
+reading Notion run handoffs and repo docs before asking for human input.
+
 Avoid using chat as the only place where important context lives.
 
 ## Escalation rules
@@ -155,6 +163,9 @@ for the human.
 
 Use `skills/agent-run/SKILL.md` when picking up a bounded run from the Agent
 Run Queue.
+
+Use `skills/orchestrator/SKILL.md` when the shared orchestration path is the
+intended interaction surface.
 
 ## Templates
 

@@ -21,6 +21,8 @@ If it succeeds:
   bloating repo-local execution surfaces
 - agents can pick up bounded runs without the human manually reconstructing
   thread context
+- one shared orchestration path can act as the human-facing front door for
+  project sweeps and selected-project orchestration
 
 Later control-tower expansion should wait for this because a larger portfolio
 layer without a minimal working shape would create more coordination noise than
@@ -34,6 +36,8 @@ clarity.
   handoffs
 - define the minimum fields and views needed to track project state cleanly
 - define the minimum fields and views needed to dispatch and close agent runs
+- define the shared prompts/workflow for project sweeps and selected-project
+  orchestration
 - include freshness and stale-state handling so old idea pages do not linger as
   fake current work
 - test the control-tower slice against current active projects
@@ -56,6 +60,8 @@ clarity.
 - the cross-project layer has a clear canonical input shape and update path
 - agent runs carry enough input, read-path, and write-back context for agents
   to continue work without human thread management
+- the shared orchestration path has a small workflow for refreshing all projects
+  and orchestrating a selected project
 - freshness and stale handling are explicit enough to reduce zombie Notion docs
 - at least one usable project-overview/control-tower path exists for active
   projects

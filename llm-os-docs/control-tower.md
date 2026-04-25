@@ -33,6 +33,12 @@ Use the agent run queue to answer:
 It exists to reduce manual thread management without turning Notion into a
 competing project execution surface.
 
+The shared orchestration path is the preferred human-facing front door for this
+layer.
+The human should be able to ask any supported assistant entrypoint to refresh
+project state or start work on a chosen project without personally managing
+separate agent threads.
+
 ## Boundary
 
 The first control-tower slice must keep these roles explicit:
@@ -44,6 +50,10 @@ The first control-tower slice must keep these roles explicit:
 - Notion
   - portfolio view, project summary, agent run queue, comments, ownership,
     blockers, priorities, and human decisions
+- orchestration path
+  - human-facing workflow that reads Notion and repo docs, creates or selects
+    bounded runs, and interacts with the human only where judgment or access is
+    required
 
 Rule:
 - before a repo exists, one canonical Notion page may be the working surface
@@ -53,6 +63,9 @@ Rule:
   carry competing milestone or implementation detail
 - agent runs may point to repo-local execution docs and write-back targets, but
   should not duplicate the full implementation plan in Notion
+- any assistant using the orchestration path may dispatch work from Notion run
+  records, but must write back to the run record and the repo-local project docs
+  when project state changes
 
 ## Unit of tracking
 
