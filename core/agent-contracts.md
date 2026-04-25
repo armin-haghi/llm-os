@@ -82,6 +82,23 @@ In the current repo:
 - Must escalate to the human: when portfolio priority requires business
   tradeoffs or resource decisions
 
+### `agent-run`
+- Purpose: execute or advance one bounded agent-run queue item.
+- Trigger: a Notion or repo-local run item is `ready`, `in-flight`,
+  `blocked`, or `waiting-human` and needs advancement or handoff.
+- Required inputs: the run record, declared input source, required read path,
+  write-back targets, and any project-level canonical docs named by the run
+- Required outputs: updated run status, result handoff, and any required
+  project-level write-back
+- May change: the run record, named write-back targets, and project-level
+  canonical docs when the run changes milestone state, blockers, next action,
+  or human decisions
+- May not change: project priority, milestone direction, or business tradeoffs
+  unless the run explicitly carries that human decision
+- Must escalate to the human: when the run is underspecified, requires
+  credentials/access, requires prioritization, or reaches a judgment decision
+  that cannot be resolved from the declared context
+
 ## Human-interface contracts
 
 ### `surface-uncertainty`

@@ -12,10 +12,12 @@ Use the smallest sufficient template:
 - `templates/session-brief.md`
 - `templates/review-report.md`
 - `templates/project-overview.yaml`
+- `templates/agent-run.yaml`
 
 These files are templates for project-level artifacts that typically live under
 `docs/` in a consuming project repo, except machine-readable overview/status
-artifacts such as `templates/project-overview.yaml`.
+and run-queue artifacts such as `templates/project-overview.yaml` and
+`templates/agent-run.yaml`.
 
 Typical initialization or retrofit path for a consuming repo:
 1. audit the repo's current entry surfaces and project docs

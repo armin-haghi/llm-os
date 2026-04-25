@@ -1,0 +1,19 @@
+# Minimum agent run input for the Notion Agent Run Queue.
+#
+# Use one record per bounded agent session or handoff. This is a dispatch and
+# handoff input, not the project execution source of truth.
+
+run: "[short action-oriented run name]"
+project: "[canonical project name]"
+status: "[ready|in-flight|waiting-human|blocked|done|stale]"
+priority: "[now|next|later]"
+agent_contract: "[project-refresh|review-gate|portfolio-refresh|build|debug|operating-model-update|ship]"
+goal: "[bounded outcome for this run]"
+input_source: "[repo path, Notion page, issue, PR, or handoff]"
+required_read_path: "[minimum context to load before acting]"
+write_back_targets: "[durable repo or Notion targets to update before closing]"
+human_decision_needed: "[current human decision or none]"
+result_handoff: "[completion summary, blocker, or next-run handoff]"
+thread_link: "[thread, PR, issue, or run link if available]"
+canonical_repo: "[repo URL/path or blank before repo creation]"
+last_touched: "[YYYY-MM-DD]"

@@ -3,8 +3,8 @@
 ## Snapshot
 - Project: `llm-os`
 - Current stage: `Prototype`
-- Active milestone: define the first minimal control-tower layer across
-  projects
+- Active milestone: define the first minimal control-tower and agent-run layer
+  across projects
 - Session contract: `project-refresh` plus `operating-model-update` when core
   files or operating surfaces are being changed
 - Last updated: `2026-04-25`
@@ -20,19 +20,19 @@ to advance. The main remaining gap is not whether the current surface basically
 works. It is that there is still no strong, durable way to check whether
 llm-os intent was fully met in validation without relying on human judgment.
 
-The next highest-value slice is therefore the control tower: a minimal
-cross-project visibility layer that helps with prioritization, stale-state
-handling, and human decisions without creating a second execution source of
-truth.
+The next highest-value slice is therefore the control tower plus Agent Run
+Queue: a minimal cross-project visibility and orchestration layer that helps
+with prioritization, stale-state handling, human decisions, and bounded agent
+handoffs without creating a second execution source of truth.
 
 ## Next action
-Define the minimum viable control-tower layer, then test it against current
-active projects without making Notion or portfolio tracking load-bearing for
-execution.
+Test the Notion Project Control Tower and Agent Run Queue against current
+active projects, starting with `llm-os` and Costmind, without making Notion
+load-bearing for project execution.
 
 ## Blocking question
-What is the minimum useful control-tower shape that improves visibility without
-becoming a second PM system?
+Is the first Agent Run Queue shape enough to let agents continue work without
+the human manually reconstructing thread context?
 
 ## Latest decisions
 - `templates/` is the canonical reusable artifact layer.
@@ -55,16 +55,22 @@ becoming a second PM system?
 - the current validation pass is accepted as complete enough for now even
   though the checking method remains weak.
 - the next highest-value slice is the control tower.
+- Notion can orchestrate bounded agent runs, but repo docs remain the execution
+  source of truth once a repo exists.
+- the first Notion Project Control Tower and Agent Run Queue databases now
+  exist under the LLM-OS Notion page.
 
 ## Current risks
 - there is still no durable, lightweight validation rubric for checking whether
   llm-os intent was fully satisfied in practice
 - a control tower can easily become a second source of truth if the repo/Notion
   boundary is not kept explicit
+- the Agent Run Queue can become a task backlog if runs are too small or too
+  vague
 - historical background docs still contain time-scoped analysis that can be
   mistaken for live source of truth if they are pulled into default context
 
 ## Expected output from this session
-A minimal control-tower milestone definition with clear repo/Notion boundaries,
-minimum project inputs, freshness handling, and a follow-on plan for improving
-validation checking.
+A tested control-tower plus Agent Run Queue slice with clear repo/Notion
+boundaries, seeded project and run records, and a follow-on validation/checking
+method.

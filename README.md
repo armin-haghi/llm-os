@@ -23,6 +23,7 @@ durable write-back in canonical project docs instead of chat.
 - `templates/session-brief.md`: fastest durable reload point for the next session
 - `templates/review-report.md`: latest review outcome and required human decisions
 - `templates/project-overview.yaml`: minimum control-tower input for cross-project status
+- `templates/agent-run.yaml`: minimum run-queue input for bounded agent sessions
 
 ## Initialize or Retrofit a Consuming Repo
 Use the starter surfaces in this order:

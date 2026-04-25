@@ -2,11 +2,13 @@
 
 Status: active
 
-This note defines the first control-tower slice for `llm-os`.
+This note defines the first control-tower and agent-run orchestration slice for
+`llm-os`.
 
 The control tower is a cross-project visibility layer.
-It is not a second execution surface, not a backlog system, and not a
-replacement for repo-local project docs.
+The agent run queue is a bounded session-orchestration layer.
+
+Neither is a replacement for repo-local project docs.
 
 ## Purpose
 
@@ -20,6 +22,17 @@ Use the control tower to answer:
 It exists to make portfolio state visible without moving execution out of the
 repo once a repo exists.
 
+Use the agent run queue to answer:
+- what an agent can pick up next
+- what context the agent must load
+- what the agent is allowed to change
+- where the agent must write back
+- what is blocked on human input
+- which thread or run owns the current work
+
+It exists to reduce manual thread management without turning Notion into a
+competing project execution surface.
+
 ## Boundary
 
 The first control-tower slice must keep these roles explicit:
@@ -29,8 +42,8 @@ The first control-tower slice must keep these roles explicit:
 - `project-overview.yaml`
   - minimum structured project input for cross-project rollups
 - Notion
-  - portfolio view, project summary, comments, ownership, blockers, priorities,
-    and human decisions
+  - portfolio view, project summary, agent run queue, comments, ownership,
+    blockers, priorities, and human decisions
 
 Rule:
 - before a repo exists, one canonical Notion page may be the working surface
@@ -38,6 +51,8 @@ Rule:
   source of truth
 - after that transition, the control tower should summarize project state, not
   carry competing milestone or implementation detail
+- agent runs may point to repo-local execution docs and write-back targets, but
+  should not duplicate the full implementation plan in Notion
 
 ## Unit of tracking
 
@@ -49,6 +64,16 @@ Do not create:
 - one record per idea iteration
 
 Use the same project record over time and keep its current state fresh.
+
+Track one agent-run record per bounded agent session or handoff.
+
+Do not create:
+- one record per tiny task
+- one record per chat message
+- one record per vague area of interest
+
+Create a run only when an agent can either execute it from declared inputs or
+surface a specific blocker/human decision.
 
 ## Minimum fields
 
@@ -113,6 +138,70 @@ The first control tower should support these views:
 4. `Parked / archived`
    - non-active work kept out of the default active view
 
+## Agent run queue
+
+The first run-queue slice should carry only the fields needed to let an agent
+continue work without the human manually reconstructing thread context:
+
+- `run`
+  - short action-oriented run name
+- `project`
+  - project name matching the control-tower project record
+- `status`
+  - `ready`
+  - `in-flight`
+  - `waiting-human`
+  - `blocked`
+  - `done`
+  - `stale`
+- `priority`
+  - `now`
+  - `next`
+  - `later`
+- `agent_contract`
+  - the narrow contract or workflow to apply
+- `goal`
+  - the bounded outcome for the run
+- `input_source`
+  - repo path, Notion page, issue, PR, or handoff source
+- `required_read_path`
+  - minimum context the agent must load before acting
+- `write_back_targets`
+  - durable repo or Notion targets that must be updated before closing
+- `human_decision_needed`
+  - current decision or `none`
+- `result_handoff`
+  - completion summary, blocker, or next-run handoff
+- `thread_link`
+  - chat, PR, issue, or run link when available
+- `canonical_repo`
+  - repo link or path
+- `last_touched`
+  - `YYYY-MM-DD`
+
+Minimum run-queue views:
+
+1. `Ready for agents`
+   - `status` is `ready`
+2. `In flight`
+   - `status` is `in-flight`
+3. `Waiting human`
+   - `status` is `waiting-human`
+4. `Blocked`
+   - `status` is `blocked`
+5. `Done`
+   - recent completed runs with result handoffs
+
+Rules:
+- a ready run must include enough input and read-path context for an agent to
+  start without asking the human to reconstruct the thread
+- an in-flight run should name the current thread or handoff when possible
+- a blocked or waiting-human run must say exactly what is needed
+- a done run must include a result handoff and any write-back that changed
+  project state
+- if a run changes active milestone, blocker, next action, or human decision,
+  update the project-level repo docs and the project control-tower record
+
 ## Freshness rule
 
 The control tower should help expose stale work, not hide it.
@@ -138,6 +227,16 @@ Update the control-tower record when:
 Do not update the control tower for minor implementation churn that does not
 change portfolio state.
 
+Update the agent run queue when:
+- a run is created, started, blocked, handed off, or completed
+- the owning thread changes
+- the required human decision changes
+- the write-back target changes
+- the result handoff changes
+
+Do not use the run queue as a task backlog.
+It is for bounded agent sessions and handoffs, not every implementation step.
+
 ## Input sources
 
 Use the same logical shape across tools:
@@ -155,7 +254,7 @@ The control-tower shape should not.
 ## First-slice non-goals
 
 Do not add:
-- task tracking
+- backlog-style task tracking
 - milestone histories
 - detailed meeting notes
 - per-session logs
@@ -169,9 +268,11 @@ first slice.
 
 The first useful implementation is:
 - one record per active project
+- one record per active agent run
 - one minimal schema
 - a small set of views
 - clear repo/Notion boundaries
 
-That is enough to reduce stale docs and improve prioritization without turning
-the control tower into a new operating system.
+That is enough to reduce stale docs, improve prioritization, and reduce manual
+thread management without turning the control tower into a new operating
+system.

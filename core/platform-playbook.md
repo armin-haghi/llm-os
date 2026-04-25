@@ -100,6 +100,13 @@ Once a repo exists and active build begins:
 - Notion becomes the summary, review, and feedback surface
 - avoid keeping a second competing execution doc in Notion
 
+For cross-project agent orchestration, a Notion Agent Run Queue may be used as
+the handoff and dispatch surface.
+Each run must point to the input source, required read path, allowed write-back
+targets, and current human decision or blocker.
+The run queue may tell an agent what to pick up next, but repo-local docs remain
+the source of truth for project execution once a repo exists.
+
 Avoid using chat as the only place where important context lives.
 
 ## Escalation rules
@@ -145,6 +152,9 @@ triggering a broad refresh by default.
 Use `skills/surface-human-topics/SKILL.md` when one project's active context
 contains decision-worthy uncertainty or risk that should be packaged cleanly
 for the human.
+
+Use `skills/agent-run/SKILL.md` when picking up a bounded run from the Agent
+Run Queue.
 
 ## Templates
 
