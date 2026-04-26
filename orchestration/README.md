@@ -5,6 +5,8 @@ This is the single human-facing path for multi-project agent work.
 It can be used from OpenClaw, Codex, Claude, ChatGPT, or any future assistant
 entrypoint. The interface may differ, but the workflow should not.
 
+For first-time setup, read `SETUP.md` before using this path.
+
 The human should be able to ask:
 
 1. "Go through my projects and make sure they are all up to date."

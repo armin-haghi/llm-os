@@ -5,6 +5,7 @@ It keeps execution anchored to one active stage, one current milestone, and
 durable write-back in canonical project docs instead of chat.
 
 ## Canonical files
+- `SETUP.md`: first setup for agents, Notion access, repo-backed work, and orchestration
 - `core/operating-model.md`: stages, lanes, agent contracts, and the serious session rule
 - `core/agent-contracts.md`: task-oriented contract definitions and human escalation boundaries
 - `core/change-policy.md`: how local patterns become operating standards
