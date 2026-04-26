@@ -36,11 +36,14 @@ human for the private surface links/access.
 
 For each project:
 1. Check whether the Project Control Tower has one current record.
-2. Check whether the repo has `project-overview.yaml`.
-3. Reconcile Notion from repo state when the repo exists.
-4. Mark freshness as `current`, `stale`, or `unknown`.
-5. Preserve repo docs as execution truth.
-6. Do not invent milestone intent from Notion if repo docs disagree.
+2. If the project is pre-repo, check that `Execution Surface` is `Notion` and
+   the `Notion Page` field points to the canonical concept page.
+3. If the project has a repo, check whether the repo has
+   `project-overview.yaml`.
+4. Reconcile Notion from repo state when the repo exists.
+5. Mark freshness as `current`, `stale`, or `unknown`.
+6. Preserve repo docs as execution truth.
+7. Do not invent milestone intent from Notion if repo docs disagree.
 
 For the Agent Run Queue:
 1. Remove ambiguity from existing ready/in-flight/blocked/waiting-human runs.

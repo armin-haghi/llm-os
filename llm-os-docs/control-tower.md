@@ -122,6 +122,8 @@ cross-project visibility:
   - next concrete move
 - `canonical_repo`
   - repo link or path, blank before repo creation
+- `notion_page`
+  - private Notion page link for pre-repo projects or summary/review pages
 - `execution_surface`
   - `Notion` before a repo exists
   - `repo` once active build begins
@@ -130,6 +132,9 @@ cross-project visibility:
   - `weak`
   - `moderate`
   - `strong`
+
+`notion_page` is a Notion-side/private field.
+Do not require public repo files to contain raw private Notion URLs.
 
 These fields are intentionally minimal.
 If a field does not improve portfolio visibility or prioritization, it probably
@@ -255,7 +260,8 @@ It is for bounded agent sessions and handoffs, not every implementation step.
 Use the same logical shape across tools:
 
 - before repo creation
-  - one canonical Notion page with the minimum fields
+  - one canonical Notion page with the minimum fields, linked from the control
+    tower's `Notion Page` field
 - after repo creation
   - `project-overview.yaml` in the repo
 - during portfolio refresh

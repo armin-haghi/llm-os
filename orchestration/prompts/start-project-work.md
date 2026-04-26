@@ -34,16 +34,21 @@ human for the private surface links/access.
 
 1. Load the project's control-tower record.
 2. Load open Agent Run Queue records for the project.
-3. If a `ready` run exists, pick the highest-priority ready run.
-4. If no ready run exists, derive one bounded run from the repo's current
-   milestone and next action.
-5. Refuse to start vague work. Convert vague work into a clarification or
+3. If the project is pre-repo, use the control-tower `Notion Page` field as
+   the canonical working surface.
+4. If a `ready` run exists, pick the highest-priority ready run.
+5. If no ready run exists and the project has a repo, derive one bounded run
+   from the repo's current milestone and next action.
+6. If no ready run exists and the project is pre-repo, derive one bounded run
+   from the canonical Notion page's next decision or next action.
+7. Refuse to start vague work. Convert vague work into a clarification or
    `waiting-human` run.
-6. Set the selected run to `in-flight`.
-7. Dispatch or execute using the run's required read path and write-back
+8. Set the selected run to `in-flight`.
+9. Dispatch or execute using the run's required read path and write-back
    targets.
-8. Update the run as `done`, `blocked`, or `waiting-human`.
-9. Update project docs and Project Control Tower if project state changed.
+10. Update the run as `done`, `blocked`, or `waiting-human`.
+11. Update the canonical Notion page or project docs, plus Project Control
+    Tower, if project state changed.
 
 ## Human Interaction
 

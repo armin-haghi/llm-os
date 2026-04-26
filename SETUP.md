@@ -69,6 +69,7 @@ Setup:
    - next decision
    - next action
    - canonical repo, blank until one exists
+   - Notion page link, stored in the private Project Control Tower when useful
    - execution surface, `Notion` before a repo exists
 
 Agent behavior:
