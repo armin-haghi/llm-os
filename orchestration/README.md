@@ -16,13 +16,17 @@ remain the execution source of truth once a repo exists.
 ## Surfaces
 
 - Project Control Tower:
-  `[private Notion link removed]`
+  private Notion database named `Project Control Tower`
 - Agent Run Queue:
-  `[private Notion link removed]`
+  private Notion database named `Agent Run Queue`
 - Project overview input:
   `templates/project-overview.yaml`
 - Agent run input:
   `templates/agent-run.yaml`
+
+If an assistant has Notion access, it should resolve the Notion surfaces by
+name. If it does not, use `.llm-os.local.yaml` locally or ask the human for
+access to the private Notion workspace.
 
 ## Workflow 1: Project Sweep
 

@@ -1,0 +1,6 @@
+# Copy to `.llm-os.local.yaml` and fill with private workspace URLs.
+# Do not commit `.llm-os.local.yaml`.
+
+notion:
+  project_control_tower: "[private Notion URL or page/database ID]"
+  agent_run_queue: "[private Notion URL or page/database ID]"

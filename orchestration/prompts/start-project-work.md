@@ -22,9 +22,13 @@ Required:
 
 Known Notion surfaces:
 - Project Control Tower:
-  `[private Notion link removed]`
+  private Notion database named `Project Control Tower`
 - Agent Run Queue:
-  `[private Notion link removed]`
+  private Notion database named `Agent Run Queue`
+
+Resolve Notion surfaces by name through the Notion connector when available.
+If Notion access is unavailable, use `.llm-os.local.yaml` locally or ask the
+human for the private surface links/access.
 
 ## Procedure
 

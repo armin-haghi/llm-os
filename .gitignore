@@ -1,0 +1,6 @@
+# Private local runtime config.
+.llm-os.local.yaml
+.llm-os.local.json
+
+# Local machine files.
+.DS_Store
