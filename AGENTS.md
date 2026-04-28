@@ -11,6 +11,7 @@ Read these first when entering or modifying the operating model itself:
 5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
 6. `templates/README.md` only when changing the template layer or initializing project docs
 7. `llm-os-docs/doc-surface-decision.md` when changing repo structure or read paths
+8. `orchestration/README.md` when refreshing projects, selecting queued work, or coordinating cross-interface agent runs
 
 ## Read paths
 
@@ -42,6 +43,23 @@ Read only if needed:
 5. `llm-os-docs/project/review-report.md`
 6. other directly relevant docs in `llm-os-docs/` only when the `project/` docs are not enough or deeper llm-os-specific clarification is needed
 
+### Orchestration path
+Use when the human asks to:
+- refresh projects or the control tower
+- go through projects and make sure they are up to date
+- start, continue, or pick up work on a chosen project
+- coordinate work through the Agent Run Queue
+
+Read:
+1. `orchestration/README.md`
+2. `orchestration/prompts/project-sweep.md` for portfolio refreshes
+3. `orchestration/prompts/start-project-work.md` for selected-project work
+4. `skills/orchestrator/SKILL.md` when the entrypoint supports skills
+5. the relevant Project Control Tower and Agent Run Queue records when Notion access exists
+6. the target project's local `AGENTS.md`, `project-overview.yaml`, current milestone, and session brief only as required by the orchestration prompt
+
+The orchestration path is an interaction and dispatch path. It is not a second execution source of truth. Once a project has a repo, repo-local docs remain canonical for execution state.
+
 Do not load by default:
 - anything in `llm-os-docs/background/` unless it is explicitly referenced for design,
   comparison, or operating-model work
@@ -67,6 +85,7 @@ Determine one mode before proceeding:
 - `existing-project`: load current docs, align context to the canonical surface, then execute; this can include a project that already exists but is not yet following the `llm-os` rules cleanly
 - `ongoing-session`: reload only the active milestone context and the smallest relevant references
 - `operating-model-update`: change llm-os itself, using the core files and change policy as the primary context
+- `orchestration`: refresh project/control-tower state or start selected-project work through the shared orchestration path
 
 If unclear, ask one short clarification question.
 
@@ -80,6 +99,7 @@ Apply it inside the selected mode:
 - `existing-project`: Think -> Plan, then execute against the canonical surface
 - `ongoing-session`: Think -> Build, with Review / Ship / Reflect only when the work calls for them
 - `operating-model-update`: Think -> Plan -> Build -> Review, followed by a consistency check across entry surfaces
+- `orchestration`: Think -> Plan, then run either project sweep or selected-project work from `orchestration/README.md`; Review / Reflect when state or source-of-truth drift is found
 
 Treat `Review`, `Ship`, and `Reflect` as explicit steps only when the current task
 actually reaches them.
@@ -89,6 +109,7 @@ actually reaches them.
 - prefer canonical docs over chat history
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while doing the work
+- route project sweeps and selected-project coordination through `orchestration/README.md`
 - treat `llm-os-docs/project/` as this repo's live project-doc surface
 - treat `docs/` as the default live project-doc surface only for consuming repos unless the local repo overrides it
 - keep `llm-os-docs/background/` out of the default working context
