@@ -3,85 +3,83 @@
 ## Snapshot
 - Project: `llm-os`
 - Stage: `Prototype`
-- Milestone: define the first minimal control-tower and agent-run layer across projects
+- Milestone: test and harden the minimal control-tower, Agent Run Queue, and shared orchestration path across active projects
 - Owner: human maintainer with agent support
 - Status: `active`
-- Last updated: `2026-04-25`
+- Last updated: `2026-04-28`
 
 ## Why this milestone matters
-The first-cut operating surface has now been accepted as complete enough to
-advance. The next highest-value gap is not more repo-local cleanup. It is a
-minimal cross-project control layer that makes active work and agent handoffs
-visible without turning Notion or portfolio docs into a second execution truth.
+
+The first control-tower and Agent Run Queue slice exists in both repo docs and
+Notion. The next highest-value gap is no longer defining the first shape. It is
+proving that the shape can drive real parallel product work without creating a
+second project-management system or second execution truth.
 
 If it succeeds:
-- active projects can be seen and compared in one place
-- stale idea and project pages become easier to identify and retire
-- cross-project prioritization and human decisions become visible without
-  bloating repo-local execution surfaces
+- active projects can be refreshed from one shared orchestration path
+- stale or contradictory Notion state can be detected and repaired
 - agents can pick up bounded runs without the human manually reconstructing
   thread context
-- one shared orchestration path can act as the human-facing front door for
-  project sweeps and selected-project orchestration
+- repo docs remain canonical for execution once a project has a repo
+- Notion remains the portfolio, run-dispatch, blocker, and human-decision layer
+- the system can support parallel product streams with clear write-back rules
 
-Later control-tower expansion should wait for this because a larger portfolio
-layer without a minimal working shape would create more coordination noise than
-clarity.
+Further expansion should wait until this path is tested against real active
+projects, because adding more schema or skills before validation would likely
+increase coordination noise.
 
 ## In scope
-- define the smallest viable control-tower model for cross-project visibility
-- define the smallest viable Agent Run Queue model for bounded agent sessions
-- set the boundary between repo docs, `project-overview.yaml`, and Notion
-- set the boundary between repo docs, Notion run records, and agent thread
-  handoffs
-- define the minimum fields and views needed to track project state cleanly
-- define the minimum fields and views needed to dispatch and close agent runs
-- define the shared prompts/workflow for project sweeps and selected-project
-  orchestration
-- include freshness and stale-state handling so old idea pages do not linger as
-  fake current work
-- test the control-tower slice against current active projects
-- record the minimum viable checking method that would improve future
-  validation confidence without turning review into bureaucracy
+
+- run a project sweep using the shared orchestration path
+- test selected-project work through the Agent Run Queue
+- verify that a bounded run can start from declared input, read path, and
+  write-back targets
+- reconcile Notion state from repo docs when repo docs are fresher
+- update project-level repo docs when project state changes
+- identify the smallest durable consistency check that prevents Notion/repo
+  drift without adding bureaucracy
+- decide whether parallel work streams need a first-class object or can remain
+  represented as project milestones plus bounded agent runs for now
 
 ## Out of scope
-- concurrency rules implementation
-- stage-skill expansion
-- machine-readable schemas beyond what the first control-tower slice actually
-  needs
-- broader tool compatibility outputs beyond the current minimal Claude shim
+
+- full task/backlog management
+- detailed milestone history tracking
+- heavy automation or concurrency implementation
+- stage-skill expansion before orchestration validation
 - broad historical rewrites of every background note
+- treating Notion as the execution source of truth after repo creation
 
 ## Acceptance criteria
-- the control tower has a clear minimum scope and does not become a second PM
-  system
-- the Agent Run Queue has a clear minimum scope and does not become a backlog
-- project-level execution truth remains in repo docs once a repo exists
-- the cross-project layer has a clear canonical input shape and update path
-- agent runs carry enough input, read-path, and write-back context for agents
-  to continue work without human thread management
-- the shared orchestration path has a small workflow for refreshing all projects
-  and orchestrating a selected project
-- freshness and stale handling are explicit enough to reduce zombie Notion docs
-- at least one usable project-overview/control-tower path exists for active
-  projects
-- at least one usable agent-run queue path exists for active project handoffs
-- a lightweight validation/checking method is defined as a follow-on
-  improvement, even if it is not fully automated yet
+
+- the Project Control Tower and Agent Run Queue can be used on `llm-os`,
+  Costmind, and one more active project without manual thread reconstruction
+- `AGENTS.md` routes agents to the orchestration path for project sweeps and
+  selected-project work
+- stale completed run handoffs do not masquerade as latest repo state
+- Notion views do not hide relevant active, commercial, waiting-human, blocked,
+  or done work
+- repo-local docs remain canonical after repo creation
+- a project sweep can identify and repair source-of-truth drift
+- the next roadmap decision is grounded in observed orchestration use, not only
+  conceptual design
 
 ## Dependencies
-- human decisions about minimum useful project fields and views
+
 - active project examples to test against
-- willingness to keep the first slice minimal instead of designing a full
-  portfolio system
+- Notion access for Project Control Tower and Agent Run Queue updates
+- repo access for `project-overview.yaml` and live project-doc updates
+- willingness to keep the orchestration slice minimal until it proves useful
 
 ## Blockers
+
 - none currently
-- residual risk remains around stale project metadata if the control-tower layer
-  expands before freshness rules are used consistently
+- residual risk remains around stale Notion records and hidden view filters if
+  project sweeps are not run consistently
 
 ## Open questions to clarify during active sessions
-- is the first control-tower plus Agent Run Queue schema enough once tested
-  against current active projects?
-- what is the minimum durable checking method for future validation passes once
-  control-tower work starts touching more active projects?
+
+- what is the smallest durable consistency check that prevents Notion/repo drift
+  without adding bureaucracy?
+- should parallel work streams become a first-class object, or should they
+  remain represented as project milestones plus bounded agent runs for now?
