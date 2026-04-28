@@ -3,78 +3,78 @@
 ## Snapshot
 - Project: `llm-os`
 - Current stage: `Prototype`
-- Active milestone: define the first minimal control-tower and agent-run layer
-  across projects
-- Session contract: `project-refresh` plus `operating-model-update` when core
+- Active milestone: test and harden the minimal control-tower, Agent Run Queue,
+  and shared orchestration path across active projects
+- Session contract: `orchestration` plus `operating-model-update` when core
   files or operating surfaces are being changed
-- Last updated: `2026-04-25`
+- Last updated: `2026-04-28`
 
 ## Project summary
-`llm-os` now has the core first-cut pieces in place: template split, playbook,
-external-skills boundary, freshness model, decisions log, lightweight human
-input skills, repo initialization, Notion-first ideation guidance, and thin
-Claude compatibility shims.
 
-The repo-level stabilization and validation pass is accepted as complete enough
-to advance. The main remaining gap is not whether the current surface basically
-works. It is that there is still no strong, durable way to check whether
-llm-os intent was fully met in validation without relying on human judgment.
+`llm-os` now has the core operating surface in place: root `AGENTS.md`, core
+operating docs, templates, live project docs under `llm-os-docs/project/`, the
+Project Control Tower, the Agent Run Queue, orchestration prompts, and an
+orchestrator skill.
 
-The next highest-value slice is therefore the control tower plus Agent Run
-Queue: a minimal cross-project visibility and orchestration layer that helps
-with prioritization, stale-state handling, human decisions, and bounded agent
-handoffs without creating a second execution source of truth. The shared
-orchestration path should be the human-facing front door for this layer.
+The first control-tower and Agent Run Queue shape has been defined. The next
+highest-value work is to test whether it actually drives parallel product work
+without forcing the human to reconstruct thread context or creating a second
+execution truth in Notion.
+
+The shared orchestration path is the human-facing front door for this layer. It
+should support two flows:
+- project sweep: refresh project/control-tower/run state and surface real human
+  decisions
+- selected-project work: choose or create one bounded run, execute or dispatch
+  it, and write back before closing
 
 ## Next action
-Test the shared orchestration path for the Notion Project Control Tower and
-Agent Run Queue: first sweep projects for freshness, then start work on one
-chosen project from a bounded run.
+
+Run a project sweep using the shared orchestration path, then start one selected
+project through the Agent Run Queue and verify that the run can be completed
+with durable write-back.
 
 ## Blocking question
-Is the first Agent Run Queue shape enough to let agents continue work without
-the human manually reconstructing thread context?
+
+What is the smallest durable consistency check that prevents Notion/repo drift
+without adding bureaucracy?
 
 ## Latest decisions
 - `templates/` is the canonical reusable artifact layer.
-- `docs/` is the live project-doc surface by default.
+- `docs/` is the live project-doc surface by default for consuming repos.
 - `llm-os` uses `llm-os-docs/project/` as an explicit local project-doc
   override.
-- `llm-os-docs/` is llm-os-specific explanation and deeper repo
-  documentation.
 - `llm-os-docs/background/` is non-default reference material.
 - local repo instructions can override llm-os defaults and should declare those
   overrides explicitly.
-- framework comparison belongs in `llm-os-docs/`, not in the live project-doc
-  surface.
-- `templates/AGENTS.md` plus `skills/repo-initialize/SKILL.md` are now the
-  bootstrap path for bringing a consuming repo into the working model.
 - before a repo exists, one canonical Notion page may be the live ideation and
-  review surface; after repo creation, the repo becomes the execution source of
-  truth and Notion becomes the summary and feedback surface.
-- broad historical cleanup stays deferred until after the next bulk of work.
-- the current validation pass is accepted as complete enough for now even
-  though the checking method remains weak.
-- the next highest-value slice is the control tower.
-- Notion can orchestrate bounded agent runs, but repo docs remain the execution
-  source of truth once a repo exists.
-- the first Notion Project Control Tower and Agent Run Queue databases now
-  exist under the LLM-OS Notion page.
-- the shared orchestration path should be the interaction layer for project
-  sweeps and selected project orchestration, so the human does not manage
-  individual agent threads.
+  review surface.
+- after repo creation, the repo becomes the execution source of truth and
+  Notion becomes the portfolio, summary, run-dispatch, blocker, and feedback
+  surface.
+- the Project Control Tower should track one current project record per
+  project, not one record per milestone or session.
+- the Agent Run Queue should track bounded agent sessions and handoffs, not a
+  backlog of tiny tasks.
+- `orchestration/README.md` is the shared cross-interface path for project
+  sweeps and selected-project work.
+- `AGENTS.md` now routes orchestration requests to the shared orchestration
+  path.
 
 ## Current risks
+- completed run handoffs can become stale if follow-on commits are not reflected
+  in Notion
+- Notion views can silently hide relevant work if their filters differ from
+  repo-defined semantics
+- the Agent Run Queue can become a backlog if runs are too small, vague, or
+  numerous
+- agents can regress to chat-memory reasoning if they do not start from
+  repo/Notion freshness checks
 - there is still no durable, lightweight validation rubric for checking whether
   llm-os intent was fully satisfied in practice
-- a control tower can easily become a second source of truth if the repo/Notion
-  boundary is not kept explicit
-- the Agent Run Queue can become a task backlog if runs are too small or too
-  vague
-- historical background docs still contain time-scoped analysis that can be
-  mistaken for live source of truth if they are pulled into default context
 
 ## Expected output from this session
-A tested control-tower plus Agent Run Queue slice with clear repo/Notion
-boundaries, seeded project and run records, and a follow-on validation/checking
-method.
+
+A validated control-tower plus Agent Run Queue path, with source-of-truth drift
+identified and repaired, and a follow-on consistency check that can be reused in
+future project sweeps.
