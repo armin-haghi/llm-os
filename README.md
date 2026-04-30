@@ -1,97 +1,128 @@
 # llm-os
 
-`llm-os` is the reusable operating standard for agent-driven product work.
-It keeps execution anchored to one active stage, one current milestone, and
-durable write-back in canonical project docs instead of chat.
+`llm-os` is a lightweight operating system for building products with multiple
+LLM tools, agents, and coding assistants without losing the thread.
 
-## Canonical files
-- `SETUP.md`: first setup for agents, Notion access, repo-backed work, and orchestration
-- `core/operating-model.md`: stages, lanes, agent contracts, and the serious session rule
-- `core/agent-contracts.md`: task-oriented contract definitions and human escalation boundaries
-- `core/change-policy.md`: how local patterns become operating standards
-- `core/external-skills.md`: boundary between core operating skills and capability-specific skills
-- `core/freshness-model.md`: rules for detecting stale project context and deciding when refresh is needed
-- `core/decisions.md`: short record of load-bearing operating-model decisions
-- `core/platform-playbook.md`: practical read-path, write-back, and escalation guidance across tools
-- `templates/README.md`: template-layer overview
-- `orchestration/README.md`: single cross-interface path for project sweeps and agent orchestration
+It is not a single app, coding agent, or project-management system. It is a
+shared way to keep product intent, project state, human decisions, agent
+handoffs, and repo write-backs aligned across tools such as ChatGPT, Claude,
+Codex, OpenClaw, local models, Notion, and GitHub.
 
-## Canonical templates
-- `templates/AGENTS.md`: starter entrypoint for a consuming repo
-- `templates/CLAUDE.md`: minimal Claude compatibility shim derived from `AGENTS.md`
-- `templates/project-spine.md`: stable project definition and success frame
-- `templates/current-milestone.md`: active milestone, scope, and acceptance criteria
-- `templates/open-questions.md`: unresolved decisions with owners and defaults
-- `templates/session-brief.md`: fastest durable reload point for the next session
-- `templates/review-report.md`: latest review outcome and required human decisions
-- `templates/project-overview.yaml`: minimum control-tower input for cross-project status
-- `templates/agent-run.yaml`: minimum run-queue input for bounded agent sessions
+For the fuller explanation, read `llm-os-docs/overview.md`.
+For agent instructions, read `AGENTS.md`.
 
-## Orchestration Path
-Use `orchestration/README.md` when the human wants any assistant entrypoint to:
-1. refresh all project/control-tower state
-2. start orchestrating work on a chosen project
+## Why this exists
 
-The same path applies from OpenClaw, Codex, Claude, ChatGPT, or future
-interfaces. Notion is for portfolio and run dispatch, while repo docs stay the
-execution source of truth once a repo exists.
+LLM-assisted work fragments easily:
 
-## Initialize or Retrofit a Consuming Repo
-Use the starter surfaces in this order:
-1. audit the repo's current entry surfaces and project docs
-2. create root `AGENTS.md` if missing
-3. keep `docs/` as the default live project-doc surface, or declare a repo-local override in `AGENTS.md`
-4. create only the missing canonical artifacts
-5. create `project-overview.yaml`
-6. fill the minimum working content before treating the repo as initialized
+- ideas stay trapped in chat threads
+- plans drift from implementation
+- different assistants see different context
+- repo docs go stale
+- Notion becomes a second plan instead of a control layer
+- coding agents finish work but do not update durable project state
+- the human has to reconstruct what happened before each next session
 
-Use `skills/repo-initialize/SKILL.md` when you want the concrete initialization workflow.
+That is manageable for one small task. It breaks when multiple projects or
+streams are moving in parallel.
 
-## Expected project docs in a consuming repo
-- `docs/project-spine.md`: stable project definition and success frame
-- `docs/current-milestone.md`: active milestone, scope, and acceptance criteria
-- `docs/open-questions.md`: unresolved decisions with owners and defaults
-- `docs/session-brief.md`: fastest durable reload point for the next session
-- `docs/review-report.md`: latest review outcome and required human decisions
+`llm-os` exists to make that work durable, visible, and easier to resume.
 
-`docs/` is the default live project-doc surface for consuming repos.
+## What it is trying to achieve
 
-If a target repo uses a different live project-doc location, that override
-should be declared in the target repo's local `AGENTS.md`, and local repo
-instructions should override the llm-os default.
+A good `llm-os` setup should let the human ask:
 
-If a consuming repo's local instructions are missing or ambiguous, agents
-should fall back to the canonical `llm-os` defaults rather than inventing repo
-behavior ad hoc. In practice, that means consulting the canonical `llm-os`
-`AGENTS.md`, `core/platform-playbook.md`, and only the directly relevant
-`core/` guidance.
+- What projects are active right now?
+- Which projects are stale or blocked?
+- Which project needs my decision?
+- Which work is ready for an agent?
+- What can a cheaper model handle?
+- What needs a stronger model or coding agent?
+- What changed since the last session?
+- Which repo or Notion page is the source of truth?
+- What is the next useful action?
 
-If a tool-specific compatibility file such as `CLAUDE.md` exists, it should be
-treated as a thin shim derived from `AGENTS.md`, not as a second source of
-truth.
+The answer should come from durable project state, not from memory of a chat.
 
-`llm-os` itself uses that override.
-Its live project-doc surface lives under `llm-os-docs/project/` so `docs/`
-stays reserved for the consuming-repo convention.
+## The core idea
 
-## This Repo's Live Project Docs
-- `llm-os-docs/project/project-spine.md`: live project definition for this repo
-- `llm-os-docs/project/current-milestone.md`: active milestone for this repo
-- `llm-os-docs/project/open-questions.md`: unresolved project questions and decisions
-- `llm-os-docs/project/session-brief.md`: fastest durable reload point for the next session in this repo
-- `llm-os-docs/project/review-report.md`: latest review outcome for this repo
+`llm-os` separates work into clear layers:
 
-## Additional Repo Docs
-- `llm-os-docs/doc-surface-decision.md`: explains the boundary between `core/`, `templates/`, default consuming-repo `docs/`, this repo's `llm-os-docs/project/`, and deeper explanatory docs
-- `llm-os-docs/control-tower.md`: first-slice control-tower boundary, fields, views, and update rules
-- `llm-os-docs/framework-comparison.md`: reference on what `llm-os` borrows from adjacent approaches and what it rejects
-- `llm-os-docs/notion-first-ideation.md`: lightweight pre-repo Notion workflow for ideation, comments, and repo handoff
-- `llm-os-docs/background/`: historical notes, assessments, and time-scoped design material
+1. Human intent
+   - the human owns direction, priority, tradeoffs, and risk decisions
+2. Project state
+   - each project keeps a small durable record of stage, milestone, blocker,
+     next action, next decision, freshness, and source of truth
+3. Control tower
+   - Notion shows portfolio state, blockers, priorities, human decisions, and
+     cross-project visibility
+4. Agent run queue
+   - bounded runs tell agents what to read, what to do, what they may change,
+     and where they must write back
+5. Repo execution truth
+   - once a project has a repo, repo-local docs own execution state
+
+The system should make it possible to move between assistants and still keep the
+same operating context.
+
+## How it should feel
+
+The human should be able to say:
+
+> Go through my projects and make sure they are up to date.
+
+An assistant should then refresh project state, detect stale docs, check whether
+Notion and repo state disagree, surface real human decisions, and recommend the
+next useful run.
+
+The human should also be able to say:
+
+> Start orchestrating work on AlphaGen.
+
+An assistant should then pick or create one bounded run, load only the required
+context, execute or dispatch the work, and write back before closing.
+
+## What this repo contains
+
+- `AGENTS.md` — the main operational entrypoint for agents and assistants
+- `llm-os-docs/overview.md` — user-facing explanation of the system
+- `orchestration/README.md` — shared path for project sweeps and selected-project work
+- `llm-os-docs/consistency-check.md` — rules for detecting repo/Notion/run-handoff drift
+- `llm-os-docs/version-log.md` — compatibility-impacting changes and migration guidance
+- `core/` — operating-model rules, contracts, decisions, and platform behavior
+- `templates/` — starter files for adopting `llm-os` in another repo
+- `skills/` — task-oriented skills such as initialization, refresh, review, and orchestration
+- `llm-os-docs/project/` — this repo's own live project docs
+
+## What it is not
+
+`llm-os` is not:
+
+- a replacement for Codex, Claude Code, OpenClaw, or other coding agents
+- a full project-management system
+- a task backlog
+- a multi-agent runtime
+- a prompt library only
+- a place to store every conversation
+- a heavy methodology that every project must follow in detail
+
+It is the coordination layer around those tools.
 
 ## Core rule
+
 A serious session should:
+
 1. load current context
 2. do the intended work
 3. reduce milestone uncertainty where possible
-4. update canonical docs when clarity improves
-5. escalate only residual human decisions
+4. update durable project state when clarity improves
+5. check source-of-truth and compatibility drift when working across repo and Notion
+6. escalate only residual human decisions
+
+## Start here
+
+- Human overview: `llm-os-docs/overview.md`
+- Agent entrypoint: `AGENTS.md`
+- Project orchestration: `orchestration/README.md`
+- Consistency checks: `llm-os-docs/consistency-check.md`
+- Version tracking: `llm-os-docs/version-log.md`
