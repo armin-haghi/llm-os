@@ -11,3 +11,8 @@ next_action: "run a project sweep using the shared orchestration path, then star
 canonical_repo: "https://github.com/armin-haghi/llm-os"
 execution_surface: "repo"
 commercial_signal: "none"
+llm_os_version: "0.3"
+llm_os_profile: "repo-backed-orchestration"
+llm_os_last_checked: "2026-04-28"
+llm_os_update_needed: "no"
+llm_os_update_reason: "none"
