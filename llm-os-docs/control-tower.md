@@ -18,6 +18,7 @@ Use the control tower to answer:
 - which projects are blocked
 - which projects need a human decision
 - which projects show commercialization signal
+- which projects need an `llm-os` compatibility update
 
 It exists to make portfolio state visible without moving execution out of the
 repo once a repo exists.
@@ -46,10 +47,11 @@ The first control-tower slice must keep these roles explicit:
 - repo docs
   - active execution source of truth once a repo exists
 - `project-overview.yaml`
-  - minimum structured project input for cross-project rollups
+  - minimum structured project input for cross-project rollups and `llm-os`
+    compatibility state
 - Notion
   - portfolio view, project summary, agent run queue, comments, ownership,
-    blockers, priorities, and human decisions
+    blockers, priorities, compatibility state, and human decisions
 - orchestration path
   - human-facing workflow that reads Notion and repo docs, creates or selects
     bounded runs, and interacts with the human only where judgment or access is
@@ -136,9 +138,34 @@ cross-project visibility:
 `notion_page` is a Notion-side/private field.
 Do not require public repo files to contain raw private Notion URLs.
 
+## Compatibility fields
+
+Add these fields when the control tower is used for projects that follow
+`llm-os`:
+
+- `llm_os_version`
+  - current adopted `llm-os` standard, for example `0.3`
+- `llm_os_profile`
+  - `repo-backed-orchestration`
+  - `repo-backed`
+  - `notion-only`
+  - `hybrid`
+- `llm_os_last_checked`
+  - date of last project sweep or compatibility check
+- `llm_os_update_needed`
+  - `yes`
+  - `no`
+  - `unknown`
+- `llm_os_update_reason`
+  - specific missing field, stale entrypoint, migration reason, or `none`
+
+The current standard is defined in `llm-os-docs/version-log.md`.
+Project sweeps should compare these fields against the current standard and
+create one bounded migration run when a project needs updating.
+
 These fields are intentionally minimal.
-If a field does not improve portfolio visibility or prioritization, it probably
-does not belong in the first slice.
+If a field does not improve portfolio visibility, prioritization, compatibility,
+or safe orchestration, it probably does not belong in the first slice.
 
 ## Minimum views
 
@@ -151,10 +178,13 @@ The first control tower should support these views:
    - stale projects
    - blocked projects
    - projects with a non-`none` `next_decision`
+   - projects where `llm_os_update_needed` is `yes` or `unknown`
 3. `Commercial candidates`
    - projects with `commercial_signal` of `moderate` or `strong`
 4. `Parked / archived`
    - non-active work kept out of the default active view
+5. `LLM-OS updates needed`
+   - projects that need a compatibility migration or review
 
 ## Agent run queue
 
@@ -219,6 +249,8 @@ Rules:
   project state
 - if a run changes active milestone, blocker, next action, or human decision,
   update the project-level repo docs and the project control-tower record
+- if a project needs an `llm-os` compatibility update, prefer one bounded
+  migration run over many small tasks
 
 ## Freshness rule
 
@@ -229,6 +261,8 @@ Practical default:
 - if the project has not been reviewed recently, set `freshness` to `stale`
 - if the next action or next decision is no longer real, the record is not
   current
+- if the project has not been checked against the current `llm-os` standard,
+  set compatibility status to `unknown`
 
 The control tower should not silently treat neglected projects as active.
 
@@ -241,6 +275,7 @@ Update the control-tower record when:
 - the next human decision changes
 - freshness changes
 - the execution surface changes from `Notion` to `repo`
+- the project's `llm-os` compatibility state changes
 
 Do not update the control tower for minor implementation churn that does not
 change portfolio state.
@@ -251,6 +286,7 @@ Update the agent run queue when:
 - the required human decision changes
 - the write-back target changes
 - the result handoff changes
+- compatibility drift requires a bounded migration run
 
 Do not use the run queue as a task backlog.
 It is for bounded agent sessions and handoffs, not every implementation step.
@@ -266,6 +302,8 @@ Use the same logical shape across tools:
   - `project-overview.yaml` in the repo
 - during portfolio refresh
   - one or more project-overview inputs plus any current portfolio summary
+- during compatibility checks
+  - `llm-os-docs/version-log.md` plus each project's `project-overview.yaml`
 
 The storage location may differ.
 The control-tower shape should not.
@@ -288,10 +326,11 @@ first slice.
 The first useful implementation is:
 - one record per active project
 - one record per active agent run
+- one minimal compatibility state per project
 - one minimal schema
 - a small set of views
 - clear repo/Notion boundaries
 
-That is enough to reduce stale docs, improve prioritization, and reduce manual
-thread management without turning the control tower into a new operating
-system.
+That is enough to reduce stale docs, improve prioritization, detect update
+needs, and reduce manual thread management without turning the control tower
+into a new operating system.
