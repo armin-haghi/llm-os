@@ -25,6 +25,8 @@ remain the execution source of truth once a repo exists.
   `templates/project-overview.yaml`
 - Agent run input:
   `templates/agent-run.yaml`
+- LLM-OS version standard:
+  `llm-os-docs/version-log.md`
 
 If an assistant has Notion access, it should resolve the Notion surfaces by
 name. If it does not, use `.llm-os.local.yaml` locally or ask the human for
@@ -37,6 +39,8 @@ Use `orchestration/prompts/project-sweep.md`.
 Purpose:
 - refresh all known project records
 - identify stale projects
+- classify repo/Notion source-of-truth alignment
+- check each project's `llm_os_version` against the current standard
 - update the Project Control Tower
 - create or update bounded Agent Run Queue records
 - surface only real human decisions
@@ -44,6 +48,8 @@ Purpose:
 Output:
 - updated Notion project records
 - updated run queue records
+- source-of-truth alignment summary
+- LLM-OS compatibility update summary
 - a short human summary of active, stale, blocked, waiting-human, and ready
   agent work
 
@@ -63,6 +69,35 @@ Output:
 - project docs updated if project state changes
 - result handoff written back before the run closes
 
+## Consistency rule
+
+Before reporting a project as current, classify it as one of:
+
+- `aligned`
+- `repo-newer-than-notion`
+- `notion-newer-than-repo`
+- `unknown`
+
+Repo docs decide execution state once a repo exists.
+Notion decides portfolio state, run dispatch, blockers, and human decisions.
+Completed run records are historical unless they explicitly say they are the
+latest state as of a commit.
+
+## Compatibility rule
+
+The current LLM-OS standard is declared in `llm-os-docs/version-log.md`.
+Project sweeps should compare each repo's `project-overview.yaml` against that
+standard using:
+
+- `llm_os_version`
+- `llm_os_profile`
+- `llm_os_last_checked`
+- `llm_os_update_needed`
+- `llm_os_update_reason`
+
+If a repo is behind the current standard, create or update one bounded migration
+run instead of scattering many small tasks.
+
 ## Rules
 
 - This is the interaction path, not the source of truth.
@@ -72,3 +107,4 @@ Output:
   bounded goal.
 - A blocked or waiting-human run must say exactly what is needed from the human.
 - A done run must include a result handoff and durable write-back status.
+- Do not treat version drift as an emergency unless it blocks the selected work.
