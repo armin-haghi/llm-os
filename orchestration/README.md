@@ -11,6 +11,7 @@ The human should be able to ask:
 
 1. "Go through my projects and make sure they are all up to date."
 2. "Start orchestrating work on this project."
+3. "Audit this project for LLM-OS gaps."
 
 Notion may be used as the portfolio and run-dispatch surface, but repo docs
 remain the execution source of truth once a repo exists.
@@ -69,6 +70,25 @@ Output:
 - project docs updated if project state changes
 - result handoff written back before the run closes
 
+## Workflow 3: Project Audit
+
+Use `orchestration/prompts/project-audit.md`.
+
+Purpose:
+- check whether one project is ready for `llm-os` orchestration
+- identify missing entrypoints, project state, milestone clarity, run readiness,
+  human-decision capture, source-of-truth boundaries, compatibility state, and
+  resume quality
+- classify the project as `ready`, `blocked`, `needs-sync`,
+  `needs-migration`, `not-ready`, or `unknown`
+
+Output:
+- one overall readiness classification
+- audit table with status, finding, and fix
+- compact YAML-style summary
+- recommended next action
+- whether to create or update an Agent Run Queue item
+
 ## Consistency rule
 
 Before reporting a project as current, classify it as one of:
@@ -86,8 +106,8 @@ latest state as of a commit.
 ## Compatibility rule
 
 The current LLM-OS standard is declared in `llm-os-docs/version-log.md`.
-Project sweeps should compare each repo's `project-overview.yaml` against that
-standard using:
+Project sweeps and audits should compare each repo's `project-overview.yaml`
+against that standard using:
 
 - `llm_os_version`
 - `llm_os_profile`
@@ -108,3 +128,4 @@ run instead of scattering many small tasks.
 - A blocked or waiting-human run must say exactly what is needed from the human.
 - A done run must include a result handoff and durable write-back status.
 - Do not treat version drift as an emergency unless it blocks the selected work.
+- Do not turn project audits into broad product critiques.
