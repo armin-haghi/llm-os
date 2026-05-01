@@ -11,7 +11,7 @@ Read these first when entering or modifying the operating model itself:
 5. `core/decisions.md` only when a load-bearing operating-model decision is relevant
 6. `templates/README.md` only when changing the template layer or initializing project docs
 7. `llm-os-docs/doc-surface-decision.md` when changing repo structure or read paths
-8. `orchestration/README.md` when refreshing projects, selecting queued work, or coordinating cross-interface agent runs
+8. `orchestration/README.md` when refreshing projects, selecting queued work, auditing readiness, or coordinating cross-interface agent runs
 9. `llm-os-docs/version-log.md` when checking whether a consuming repo needs an llm-os update
 10. `llm-os-docs/consistency-check.md` when comparing repo, Notion, and run-handoff state
 
@@ -51,17 +51,20 @@ Use when the human asks to:
 - refresh projects or the control tower
 - go through projects and make sure they are all up to date
 - start, continue, or pick up work on a chosen project
+- audit a project for `llm-os` gaps or readiness
 - coordinate work through the Agent Run Queue
 
 Read:
 1. `orchestration/README.md`
 2. `orchestration/prompts/project-sweep.md` for portfolio refreshes
 3. `orchestration/prompts/start-project-work.md` for selected-project work
-4. `llm-os-docs/version-log.md` for the current compatibility standard
-5. `llm-os-docs/consistency-check.md` for repo/Notion/run-handoff alignment rules
-6. `skills/orchestrator/SKILL.md` when the entrypoint supports skills
-7. the relevant Project Control Tower and Agent Run Queue records when Notion access exists
-8. the target project's local `AGENTS.md`, `project-overview.yaml`, current milestone, and session brief only as required by the orchestration prompt
+4. `orchestration/prompts/project-audit.md` for project readiness audits
+5. `llm-os-docs/version-log.md` for the current compatibility standard
+6. `llm-os-docs/consistency-check.md` for repo/Notion/run-handoff alignment rules
+7. `skills/orchestrator/SKILL.md` when the entrypoint supports skills
+8. `skills/project-audit/SKILL.md` when the entrypoint supports skills and the task is an audit
+9. the relevant Project Control Tower and Agent Run Queue records when Notion access exists
+10. the target project's local `AGENTS.md`, `project-overview.yaml`, current milestone, and session brief only as required by the orchestration prompt
 
 The orchestration path is an interaction and dispatch path. It is not a second execution source of truth. Once a project has a repo, repo-local docs remain canonical for execution state.
 
@@ -90,7 +93,7 @@ Determine one mode before proceeding:
 - `existing-project`: load current docs, align context to the canonical surface, then execute; this can include a project that already exists but is not yet following the `llm-os` rules cleanly
 - `ongoing-session`: reload only the active milestone context and the smallest relevant references
 - `operating-model-update`: change llm-os itself, using the core files and change policy as the primary context
-- `orchestration`: refresh project/control-tower state or start selected-project work through the shared orchestration path
+- `orchestration`: refresh project/control-tower state, audit project readiness, or start selected-project work through the shared orchestration path
 
 If unclear, ask one short clarification question.
 
@@ -104,7 +107,7 @@ Apply it inside the selected mode:
 - `existing-project`: Think -> Plan, then execute against the canonical surface
 - `ongoing-session`: Think -> Build, with Review / Ship / Reflect only when the work calls for them
 - `operating-model-update`: Think -> Plan -> Build -> Review, followed by a consistency check across entry surfaces
-- `orchestration`: Think -> Plan, then run either project sweep or selected-project work from `orchestration/README.md`; Review / Reflect when state, compatibility, or source-of-truth drift is found
+- `orchestration`: Think -> Plan, then run project sweep, project audit, or selected-project work from `orchestration/README.md`; Review / Reflect when state, compatibility, readiness, or source-of-truth drift is found
 
 Treat `Review`, `Ship`, and `Reflect` as explicit steps only when the current task
 actually reaches them.
@@ -114,8 +117,8 @@ actually reaches them.
 - prefer canonical docs over chat history
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while doing the work
-- route project sweeps and selected-project coordination through `orchestration/README.md`
-- check `llm_os_version` and update-needed state during project sweeps
+- route project sweeps, project audits, and selected-project coordination through `orchestration/README.md`
+- check `llm_os_version` and update-needed state during project sweeps and audits
 - use `llm-os-docs/consistency-check.md` before declaring repo and Notion state aligned
 - treat `llm-os-docs/project/` as this repo's live project-doc surface
 - treat `docs/` as the default live project-doc surface only for consuming repos unless the local repo overrides it
