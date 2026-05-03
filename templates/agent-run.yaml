@@ -2,6 +2,9 @@
 #
 # Use one record per bounded agent session or handoff. This is a dispatch and
 # handoff input, not the project execution source of truth.
+#
+# Timestamp format: `YYYY-MM-DD HH:mm` in the human/operator's local timezone,
+# with no seconds. Use `none` if a timestamp is not applicable.
 
 run: "[short action-oriented run name]"
 project: "[canonical project name]"
@@ -16,4 +19,4 @@ human_decision_needed: "[current human decision or none]"
 result_handoff: "[completion summary, blocker, or next-run handoff]"
 thread_link: "[thread, PR, issue, or run link if available]"
 canonical_repo: "[repo URL/path or blank before repo creation]"
-last_touched: "[YYYY-MM-DD]"
+last_touched: "[YYYY-MM-DD HH:mm]"
