@@ -8,8 +8,8 @@ Use this when the human says:
 
 You are the orchestration layer for multi-project agent work.
 
-Your job is to refresh portfolio, compatibility, repo-state, and run state so
-the human does not have to manage individual agent threads.
+Your job is to refresh portfolio, compatibility, repo-state, write-back, and run
+state so the human does not have to manage individual agent threads.
 
 ## Inputs
 
@@ -25,8 +25,8 @@ Read:
    standard, or its recorded commit is behind repo head
 7. each known project's session brief/current milestone only when needed to
    resolve stale or missing state
-8. recently completed Agent Run Queue records when they claim repo commits or
-   changed project state
+8. recently completed Agent Run Queue records when they claim repo commits,
+   changed project state, or mention failed/blocked Notion write-back
 
 Known Notion surfaces:
 - Project Control Tower:
@@ -52,8 +52,9 @@ For each project:
    - next action
    - next human decision
    - freshness
-   - last reviewed date
+   - last reviewed timestamp
    - recorded repo branch and latest commit
+   - Notion write-back status and last synced timestamp
 5. Reconcile Notion from repo state when the repo exists.
 6. Mark freshness as `current`, `stale`, or `unknown`.
 7. Preserve repo docs as execution truth.
@@ -81,6 +82,19 @@ Rules:
   Notion only for portfolio, run-dispatch, blocker, and human-decision state.
 - If the project has no repo yet, the canonical Notion page is allowed to be the
   working surface.
+
+## Timestamp rule
+
+Use `YYYY-MM-DD HH:mm` in the human/operator's local timezone for operational
+state timestamps. Do not include seconds.
+
+This applies to:
+
+- `last_reviewed`
+- `llm_os_last_checked`
+- `repo_state_checked`
+- `notion_last_synced`
+- Agent Run Queue `last_touched`
 
 ## Repo state and review-agent check
 
@@ -119,6 +133,36 @@ Rules:
 - Do not silently mark review as complete. A separate review/refresh action
   should clear `repo_review_needed`.
 
+## Notion write-back closeout check
+
+For each repo-backed project, read these fields from `project-overview.yaml`
+when present:
+
+- `notion_writeback_status`
+- `notion_writeback_reason`
+- `notion_last_synced`
+- `followup_run_needed`
+- `followup_run_reason`
+- `followup_agent`
+
+Classify write-back state:
+
+- `complete`: Notion write-back completed after the repo change
+- `blocked`: repo changed, but Notion write-back failed or could not be done
+- `not-applicable`: no Notion write-back was needed for this project/change
+- `unknown`: repo changed or project state is uncertain and write-back state is
+  not recorded
+
+Rules:
+- A run that changes repo files cannot be considered cleanly closed unless repo
+  state, review need, and Notion write-back status are recorded.
+- If `notion_writeback_status` is `blocked` or `unknown` after a repo change,
+  surface the project as needing `project-refresh`.
+- If Notion write-back is blocked, set `followup_run_needed: yes` and
+  `followup_agent: project-refresh`.
+- Do not invent Notion write-back completion. Only mark `complete` when the
+  Notion control layer was actually updated.
+
 ## LLM-OS compatibility check
 
 Read the current standard from `llm-os-docs/version-log.md`.
@@ -156,8 +200,8 @@ For the Agent Run Queue:
    - clear status
 4. Mark human-facing items `waiting-human` only when a real human judgment,
    access, priority, or risk decision is needed.
-5. Prefer one compatibility-migration or repo-review run per project over many
-   tiny migration tasks.
+5. Prefer one compatibility-migration, repo-review, or project-refresh run per
+   project over many tiny migration tasks.
 
 ## Human Interaction
 
@@ -180,6 +224,8 @@ Return a concise summary:
 - Source-of-truth alignment issues
 - LLM-OS compatibility update needed
 - Repo review/refresh needed
+- Notion write-back blocked or unknown
+- Follow-up runs needed
 - Blocked projects
 - Ready agent runs
 - In-flight runs
@@ -193,3 +239,5 @@ Write back:
   update
 - completed run handoffs when they are historical but being mistaken for latest
   state
+- follow-up run records when repo change closeout or Notion write-back is
+  blocked and the human has approved write-back
