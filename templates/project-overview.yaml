@@ -6,13 +6,16 @@
 #
 # Keep values short and current. This file is a rollup input, not the execution
 # source of truth.
+#
+# Timestamp format: `YYYY-MM-DD HH:mm` in the human/operator's local timezone,
+# with no seconds. Use `none` if a timestamp is not applicable.
 
 project: "[canonical project name]"
 status: "[idea|shaping|build-ready|active-build|parked|archived]"
 stage: "[canonical active stage]"
 active_milestone: "[exact active milestone]"
 freshness: "[current|stale|unknown]"
-last_reviewed: "[YYYY-MM-DD]"
+last_reviewed: "[YYYY-MM-DD HH:mm]"
 owner: "[human owner]"
 blocker: "[current blocker or none]"
 next_decision: "[current human decision or none]"
@@ -20,14 +23,20 @@ next_action: "[next concrete action]"
 canonical_repo: "[repo URL/path or blank before repo exists]"
 execution_surface: "[Notion|repo]"
 commercial_signal: "[none|weak|moderate|strong]"
-llm_os_version: "[current adopted llm-os version, e.g. 0.4]"
+llm_os_version: "[current adopted llm-os version, e.g. 0.5]"
 llm_os_profile: "[repo-backed-orchestration|repo-backed|notion-only|hybrid]"
-llm_os_last_checked: "[YYYY-MM-DD]"
+llm_os_last_checked: "[YYYY-MM-DD HH:mm]"
 llm_os_update_needed: "[yes|no|unknown]"
 llm_os_update_reason: "[specific missing field, stale entrypoint, migration reason, or none]"
 repo_branch: "[branch last checked, e.g. main, feature/foo, or none]"
 repo_latest_commit: "[latest known commit SHA or none]"
-repo_state_checked: "[YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ]"
+repo_state_checked: "[YYYY-MM-DD HH:mm]"
 repo_review_needed: "[yes|no|unknown]"
 repo_review_reason: "[why a review/refresh agent is needed, or none]"
 repo_review_agent: "[review-gate|project-refresh|none]"
+notion_writeback_status: "[complete|blocked|not-applicable|unknown]"
+notion_writeback_reason: "[why Notion write-back is blocked, or none]"
+notion_last_synced: "[YYYY-MM-DD HH:mm or none]"
+followup_run_needed: "[yes|no|unknown]"
+followup_run_reason: "[why a follow-up run is needed, or none]"
+followup_agent: "[project-refresh|review-gate|none]"
