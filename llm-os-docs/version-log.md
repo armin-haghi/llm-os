@@ -8,9 +8,22 @@ do not change how a consuming project should be structured or operated.
 
 ## Current standard
 
-- Current version: `0.4`
+- Current version: `0.5`
 - Current profile: `repo-backed-orchestration`
 - Date: `2026-05-03`
+
+## Timestamp format
+
+Use `YYYY-MM-DD HH:mm` in the human/operator's local timezone for operational
+state timestamps. Do not include seconds.
+
+Applies to fields such as:
+
+- `last_reviewed`
+- `llm_os_last_checked`
+- `repo_state_checked`
+- `notion_last_synced`
+- `last_touched`
 
 ## Version rules
 
@@ -32,6 +45,43 @@ Do not increment for:
 - background notes
 - historical analysis
 - internal-only explanation that does not affect consuming repos
+
+## 0.5 — Write-back closeout and minute timestamps
+
+Date: `2026-05-03`
+
+Impact: repo-changing runs must record whether Notion write-back completed or
+was blocked, and operational timestamps should include hour and minute.
+
+Migration required: yes, for repo-backed projects participating in Project
+Control Tower or Agent Run Queue orchestration.
+
+Affected surfaces:
+
+- `templates/project-overview.yaml`
+- `templates/agent-run.yaml`
+- `project-overview.yaml` in each consuming repo
+- Project Control Tower fields
+- Agent Run Queue closeout behavior
+- project sweep behavior
+- morning status behavior
+
+Migration checklist:
+
+- Convert operational date-only fields to `YYYY-MM-DD HH:mm` where supported.
+- Add `notion_writeback_status` as `complete`, `blocked`, `not-applicable`, or
+  `unknown`.
+- Add `notion_writeback_reason`.
+- Add `notion_last_synced`.
+- Add `followup_run_needed` as `yes`, `no`, or `unknown`.
+- Add `followup_run_reason`.
+- Add `followup_agent` as `project-refresh`, `review-gate`, or `none`.
+- A run that changes repo files cannot be considered cleanly closed unless repo
+  state, review need, and Notion write-back status are recorded.
+- If Notion write-back is blocked, set `followup_run_needed: yes` and
+  `followup_agent: project-refresh`.
+- Morning status must surface blocked or unknown Notion write-back after repo
+  changes.
 
 ## 0.4 — Repo state and review-agent tracking
 
