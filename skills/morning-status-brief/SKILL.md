@@ -53,6 +53,11 @@ accessible.
 If a tool cannot access one surface, report partial results and name the missing
 surface.
 
+## Timestamp rule
+
+Use `YYYY-MM-DD HH:mm` in the human/operator's local timezone for operational
+state timestamps. Do not include seconds.
+
 ## Read from Project Control Tower
 
 Read these fields when available:
@@ -77,6 +82,12 @@ Read these fields when available:
 - Repo Review Needed
 - Repo Review Reason
 - Repo Review Agent
+- Notion Writeback Status
+- Notion Writeback Reason
+- Notion Last Synced
+- Followup Run Needed
+- Followup Run Reason
+- Followup Agent
 
 Classify projects:
 
@@ -125,8 +136,10 @@ Use this order:
 5. In-flight runs
 6. Ready agent runs
 7. Repo review / refresh needed
-8. Parked projects
-9. Recommended starts today
+8. Notion write-back blocked or unknown
+9. Follow-up runs needed
+10. Parked projects
+11. Recommended starts today
 
 Only use an interactive widget if the current client explicitly supports one.
 The markdown brief must stand on its own.
@@ -145,6 +158,8 @@ Show compact counts:
 - ready runs
 - stale/unknown projects
 - repo review-needed projects
+- Notion write-back blocked/unknown projects
+- follow-up-needed projects
 
 ## Waiting-human decisions
 
@@ -186,6 +201,36 @@ Use:
 
 Do not clear review-needed state during the morning brief.
 
+## Notion write-back blocked or unknown
+
+Surface projects where:
+
+- `Notion Writeback Status` is `blocked` or `unknown` after repo changes
+- `Notion Last Synced` is older than the recorded repo state check
+- a run handoff says repo files changed but Notion write-back was not completed
+
+Default follow-up agent:
+
+- `project-refresh`
+
+Do not mark write-back complete during the morning brief.
+Only a write-enabled refresh action should clear it.
+
+## Follow-up runs needed
+
+Surface projects where:
+
+- `Followup Run Needed` is `yes` or `unknown`
+- `Followup Agent` is `project-refresh` or `review-gate`
+- a run handoff explicitly says follow-up is required
+
+Show:
+
+- project
+- follow-up agent
+- reason
+- suggested next command
+
 ## Recommended starts today
 
 Recommend at most three actions.
@@ -195,7 +240,8 @@ Default preference:
 1. Clear one decision that unlocks an active project.
 2. Start one ready agent run.
 3. Run one review/refresh agent if repo state changed.
-4. Review one stale or needs-sync project only if it blocks active work.
+4. Run one project-refresh if Notion write-back is blocked or unknown.
+5. Review one stale or needs-sync project only if it blocks active work.
 
 Do not recommend parked projects unless the human explicitly asks or the project
 has a concrete revisit trigger.
@@ -231,6 +277,7 @@ Only write back when the human explicitly asks, for example:
 - update next action
 - create a new Agent Run Queue item
 - update repo review-needed state after a separate review/refresh action
+- update Notion write-back status after a separate project-refresh action
 
 ## Failure handling
 
