@@ -46,9 +46,38 @@ human for the private surface links/access.
 8. Set the selected run to `in-flight`.
 9. Dispatch or execute using the run's required read path and write-back
    targets.
-10. Update the run as `done`, `blocked`, or `waiting-human`.
-11. Update the canonical Notion page or project docs, plus Project Control
+10. If repo files changed, update repo state fields before closing the run.
+11. Update the run as `done`, `blocked`, or `waiting-human`.
+12. Update the canonical Notion page or project docs, plus Project Control
     Tower, if project state changed.
+
+## Repo state closeout
+
+When a run changes repo files, the closing agent must update the repo's
+`project-overview.yaml` with:
+
+- `repo_branch`
+- `repo_latest_commit`
+- `repo_state_checked`
+- `repo_review_needed`
+- `repo_review_reason`
+- `repo_review_agent`
+
+Default rule:
+- if a build/coding/debug/ship run changed repo files, set `repo_review_needed`
+  to `yes` unless the run itself was explicitly a review-only run
+- use `repo_review_agent: review-gate` when correctness, quality, tests, safety,
+  or acceptance need independent review
+- use `repo_review_agent: project-refresh` when repo docs, Notion, and run state
+  need synchronization
+- use `repo_review_agent: none` only when no follow-up review or refresh is
+  needed
+
+The Agent Run Queue result handoff should also mention the branch and commit
+that were changed or observed.
+
+Do not silently clear `repo_review_needed` from `yes` to `no` in the same run
+that produced the change. A separate review/refresh action should clear it.
 
 ## Handoff surfaces
 
@@ -86,4 +115,6 @@ Return:
 - what was dispatched or completed
 - human decision needed, if any
 - write-back targets updated
+- repo branch/commit state if repo files changed
+- review/refresh agent needed, if any
 - next recommended run
