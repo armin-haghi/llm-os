@@ -16,6 +16,10 @@ The human should be able to ask:
 Notion may be used as the portfolio and run-dispatch surface, but repo docs
 remain the execution source of truth once a repo exists.
 
+GitHub issues are optional. Do not create or depend on GitHub issues for run
+tracking unless the project already uses issues as its execution surface or the
+human explicitly asks for issue-based tracking.
+
 ## Surfaces
 
 - Project Control Tower:
@@ -28,6 +32,10 @@ remain the execution source of truth once a repo exists.
   `templates/agent-run.yaml`
 - LLM-OS version standard:
   `llm-os-docs/version-log.md`
+
+Optional surfaces:
+- GitHub issues or PRs, only when the project already uses them for execution or
+  the human explicitly requests that workflow
 
 If an assistant has Notion access, it should resolve the Notion surfaces by
 name. If it does not, use `.llm-os.local.yaml` locally or ask the human for
@@ -118,11 +126,26 @@ against that standard using:
 If a repo is behind the current standard, create or update one bounded migration
 run instead of scattering many small tasks.
 
+## GitHub issue rule
+
+Default durable handoff surfaces are repo docs plus the Agent Run Queue.
+
+Use GitHub issues only when:
+
+- the project already uses issues as its execution surface,
+- a PR/code workflow needs an issue link,
+- or the human explicitly asks for issue-based tracking.
+
+Do not create GitHub issues merely because a run needs a coding-agent or local
+implementation handoff. Use repo docs such as `docs/handoffs/active-build.md`, a
+specific implementation note, or the Agent Run Queue instead.
+
 ## Rules
 
 - This is the interaction path, not the source of truth.
 - Do not make the human manage individual agent threads manually.
 - Do not create vague run records.
+- Do not create GitHub issues by default.
 - A ready run must include input source, read path, write-back targets, and a
   bounded goal.
 - A blocked or waiting-human run must say exactly what is needed from the human.
