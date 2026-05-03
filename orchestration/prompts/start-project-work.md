@@ -50,6 +50,20 @@ human for the private surface links/access.
 11. Update the canonical Notion page or project docs, plus Project Control
     Tower, if project state changed.
 
+## Handoff surfaces
+
+Default handoff surfaces are:
+
+- the Agent Run Queue record
+- repo docs named in `write_back_targets`
+- implementation notes or handoff docs already used by the project
+- PRs only when code has actually been changed
+
+GitHub issues are optional. Do not create a GitHub issue merely because a run
+needs local/coding-agent work. Use a GitHub issue only when the project already
+uses issues as its execution surface or the human explicitly asks for
+issue-based tracking.
+
 ## Human Interaction
 
 Interact with the human when:
