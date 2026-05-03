@@ -8,8 +8,8 @@ Use this when the human says:
 
 You are the orchestration layer for multi-project agent work.
 
-Your job is to refresh portfolio, compatibility, and run state so the human does
-not have to manage individual agent threads.
+Your job is to refresh portfolio, compatibility, repo-state, and run state so
+the human does not have to manage individual agent threads.
 
 ## Inputs
 
@@ -18,12 +18,14 @@ Read:
 2. Notion Agent Run Queue
 3. `llm-os-docs/version-log.md` from the canonical `llm-os` repo
 4. each known project's `project-overview.yaml` when a repo exists
-5. each known project's local `AGENTS.md` or equivalent entrypoint only when
-   the overview is missing, stale, contradictory, or behind the current
-   `llm-os` standard
-6. each known project's session brief/current milestone only when needed to
+5. each known project's current repo branch and latest commit when repo access
+   exists
+6. each known project's local `AGENTS.md` or equivalent entrypoint only when
+   the overview is missing, stale, contradictory, behind the current `llm-os`
+   standard, or its recorded commit is behind repo head
+7. each known project's session brief/current milestone only when needed to
    resolve stale or missing state
-7. recently completed Agent Run Queue records when they claim repo commits or
+8. recently completed Agent Run Queue records when they claim repo commits or
    changed project state
 
 Known Notion surfaces:
@@ -51,6 +53,7 @@ For each project:
    - next human decision
    - freshness
    - last reviewed date
+   - recorded repo branch and latest commit
 5. Reconcile Notion from repo state when the repo exists.
 6. Mark freshness as `current`, `stale`, or `unknown`.
 7. Preserve repo docs as execution truth.
@@ -78,6 +81,43 @@ Rules:
   Notion only for portfolio, run-dispatch, blocker, and human-decision state.
 - If the project has no repo yet, the canonical Notion page is allowed to be the
   working surface.
+
+## Repo state and review-agent check
+
+For each repo-backed project, read these fields from `project-overview.yaml`
+when present:
+
+- `repo_branch`
+- `repo_latest_commit`
+- `repo_state_checked`
+- `repo_review_needed`
+- `repo_review_reason`
+- `repo_review_agent`
+
+Compare the recorded branch/commit against the current repo branch/head when
+repo access exists.
+
+Classify repo review state:
+
+- `current`: recorded commit matches repo head and `repo_review_needed` is `no`
+- `review-needed`: a build/coding/change run updated the repo and no independent
+  review/refresh has checked the result yet
+- `behind-head`: repo head differs from `repo_latest_commit`
+- `unknown`: repo access or recorded fields are unavailable
+
+Rules:
+- When a run changes repo files, the run should update `project-overview.yaml`
+  with the branch and commit it produced or observed.
+- A build/coding agent should default `repo_review_needed` to `yes` after repo
+  changes unless that same run is explicitly a review-only run.
+- Use `review-gate` when the question is correctness, quality, safety, tests, or
+  whether to accept the change.
+- Use `project-refresh` when the question is whether repo docs, Notion, and run
+  state need synchronization.
+- During the morning/project sweep, surface any project whose recorded commit is
+  behind repo head or whose `repo_review_needed` is `yes` or `unknown`.
+- Do not silently mark review as complete. A separate review/refresh action
+  should clear `repo_review_needed`.
 
 ## LLM-OS compatibility check
 
@@ -116,8 +156,8 @@ For the Agent Run Queue:
    - clear status
 4. Mark human-facing items `waiting-human` only when a real human judgment,
    access, priority, or risk decision is needed.
-5. Prefer one compatibility-migration run per project over many tiny migration
-   tasks.
+5. Prefer one compatibility-migration or repo-review run per project over many
+   tiny migration tasks.
 
 ## Human Interaction
 
@@ -139,6 +179,7 @@ Return a concise summary:
 - Stale or unknown projects
 - Source-of-truth alignment issues
 - LLM-OS compatibility update needed
+- Repo review/refresh needed
 - Blocked projects
 - Ready agent runs
 - In-flight runs
