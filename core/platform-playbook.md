@@ -117,6 +117,34 @@ reading Notion run handoffs and repo docs before asking for human input.
 
 Avoid using chat as the only place where important context lives.
 
+## Private workspace identifiers
+
+Do not commit private workspace identifiers to tracked repo docs, templates, or
+skills.
+
+This includes:
+- private Notion URLs
+- Notion page IDs
+- Notion database IDs
+- Notion data-source IDs
+- connector-specific resource IDs
+- workspace-specific view IDs
+- private Slack/channel/thread IDs
+- any equivalent private SaaS object identifier
+
+Tracked docs should use stable human-readable surface names such as `Project
+Control Tower` and `Agent Run Queue`.
+
+Resolution order:
+1. use the connected tool or workspace search by canonical surface name
+2. use a link supplied by the human in the current session
+3. use `.llm-os.local.yaml` for local private workflows only
+4. ask the human for access or pasted content
+
+`.llm-os.local.yaml` and `.llm-os.local.json` must stay ignored by git.
+Example files may describe the shape of private config, but must not include
+real workspace IDs or URLs.
+
 ## Escalation rules
 
 Escalate to the human when:
