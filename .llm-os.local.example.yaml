@@ -1,6 +1,14 @@
-# Copy to `.llm-os.local.yaml` and fill with private workspace URLs.
+# Copy to `.llm-os.local.yaml` only for private local workflows.
 # Do not commit `.llm-os.local.yaml`.
+#
+# Tracked repo docs and skills should use stable surface names such as
+# "Project Control Tower" and "Agent Run Queue" rather than private Notion IDs
+# or URLs. Put workspace-specific IDs/URLs only in the ignored local file.
 
 notion:
-  project_control_tower: "[private Notion URL or page/database ID]"
-  agent_run_queue: "[private Notion URL or page/database ID]"
+  project_control_tower:
+    name: "Project Control Tower"
+    private_lookup: "[optional private Notion URL, page ID, database ID, or data-source ID]"
+  agent_run_queue:
+    name: "Agent Run Queue"
+    private_lookup: "[optional private Notion URL, page ID, database ID, or data-source ID]"
