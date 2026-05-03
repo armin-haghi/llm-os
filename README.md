@@ -9,6 +9,7 @@ handoffs, and repo write-backs aligned across tools such as ChatGPT, Claude,
 Codex, OpenClaw, local models, Notion, and GitHub.
 
 For the fuller explanation, read `llm-os-docs/overview.md`.
+For the roadmap, read `llm-os-docs/roadmap.md`.
 For agent instructions, read `AGENTS.md`.
 
 ## Why this exists
@@ -86,6 +87,7 @@ context, execute or dispatch the work, and write back before closing.
 
 - `AGENTS.md` — the main operational entrypoint for agents and assistants
 - `llm-os-docs/overview.md` — user-facing explanation of the system
+- `llm-os-docs/roadmap.md` — canonical roadmap and design reference summary
 - `orchestration/README.md` — shared path for project sweeps and selected-project work
 - `llm-os-docs/consistency-check.md` — rules for detecting repo/Notion/run-handoff drift
 - `llm-os-docs/version-log.md` — compatibility-impacting changes and migration guidance
@@ -122,6 +124,7 @@ A serious session should:
 ## Start here
 
 - Human overview: `llm-os-docs/overview.md`
+- Roadmap: `llm-os-docs/roadmap.md`
 - Agent entrypoint: `AGENTS.md`
 - Project orchestration: `orchestration/README.md`
 - Consistency checks: `llm-os-docs/consistency-check.md`
