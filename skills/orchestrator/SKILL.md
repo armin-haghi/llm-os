@@ -50,4 +50,7 @@ Output:
 - Repo docs remain the execution source of truth after repo creation.
 - Avoid making the human reconstruct thread context.
 - Do not create backlog-style run records.
+- Do not create GitHub issues by default; issues are optional only when the
+  project already uses them as its execution surface or the human explicitly
+  asks for issue-based tracking.
 - A run is ready only when an agent can start from declared inputs.
