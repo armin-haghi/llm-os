@@ -50,3 +50,6 @@ Return:
   required.
 - Mark projects as `needs-migration` when they are structurally usable but behind
   the current `llm-os` standard.
+- Do not recommend or create GitHub issues by default. Use issues only when the
+  project already uses them as its execution surface or the human explicitly
+  asks for issue-based tracking.
