@@ -74,6 +74,59 @@ If a target repo uses a non-default live project-doc location, its local
 `AGENTS.md` should declare that explicitly. Local repo instructions override
 llm-os defaults.
 
+## Local override contract
+
+Local overrides are allowed, but they must preserve the `llm-os` operating
+contract. A sweep or audit should not require every repo to match the current
+templates exactly. It should check whether the repo satisfies the same contract
+through either default files or explicit local replacements.
+
+Default rule:
+
+- if a repo follows the default layout, check the default files
+- if a repo declares a local override, check whether the override satisfies the
+  same contract
+- if a repo has neither the default layout nor an explicit override, mark it
+  `needs-migration` or `needs-sync`
+
+A valid local override must declare:
+
+1. what differs from the `llm-os` default
+2. why it differs, if not obvious
+3. what the local replacement surface is
+4. whether repo docs or Notion are the current execution surface
+5. where agents should read before starting
+6. where agents must write back before closing
+
+The required contract is:
+
+- agent entrypoint exists, usually root `AGENTS.md` or a declared equivalent
+- project rollup exists as `project-overview.yaml` for repo-backed projects
+- active milestone is declared
+- reload context or session brief is declared
+- open decisions have a durable home or declared source
+- write-back targets are explicit
+- repo/Notion source-of-truth boundary is explicit
+- `llm_os_*` compatibility metadata exists for repo-backed projects
+- repo branch/commit/review tracking exists for repo-backed projects
+- Notion write-back/follow-up tracking exists for repo-backed projects that use
+  the control tower or run queue
+
+Examples:
+
+- `docs/current-milestone.md` is the default active milestone file.
+- `current-milestone.md` at repo root is valid only if the repo entrypoint
+  declares it as the active milestone surface.
+- `docs/open-questions.md` is the default open-decision file.
+- `docs/planning/open-questions.md` or a named Notion page is valid only if the
+  repo entrypoint declares it as the open-decision surface.
+- A tool-specific file such as `CLAUDE.md` may be a thin compatibility shim, but
+  should not silently become a second source of truth.
+
+Do not flag a repo as stale merely because it does not match the latest template
+word-for-word. Flag it when it lacks the required contract or when its override
+is implicit, ambiguous, or contradicted by current project state.
+
 ## Write-back expectations
 
 A serious session should leave durable state behind when clarity or outcome
