@@ -18,14 +18,59 @@ durable project memory.
 - The human remains explicit as the decision endpoint for unresolved judgment.
 
 ## Stages
-1. Opportunity framing
-2. Solution shaping
-3. Prototype
-4. MVP build
-5. Pilot / connected MVP
-6. Operational hardening
-7. Commercialization
-8. Live iteration
+
+Stages describe the project's current lifecycle context.
+They should be assigned based on the dominant uncertainty, not the amount of
+code that exists.
+
+A project can have a repo, a deployed preview, real data, or working automation
+and still be in `Prototype` if the main uncertainty is whether the product shape
+works.
+
+Ordered stages:
+
+1. `Opportunity framing`
+   - Main question: is this a real opportunity worth pursuing?
+   - Use when problem, user, value, urgency, or strategic reason are still
+     unclear.
+2. `Solution shaping`
+   - Main question: what should the first useful solution be?
+   - Use when the opportunity seems worth exploring but product shape, scope,
+     or wedge is still being chosen.
+3. `Prototype`
+   - Main question: does this product shape work?
+   - Use when building or testing proof through code, demos, data, workflows,
+     or early deployments, while core product shape is still being learned.
+4. `MVP build`
+   - Main question: can we build the agreed first usable product?
+   - Use only when the target user/workflow is clear, first product scope is
+     chosen, and the main work is execution rather than discovery.
+5. `Pilot / connected MVP`
+   - Main question: can a real or near-real workflow use this?
+   - Use when the product is connected to actual users, data, integrations, or
+     operational workflows and feedback from use matters.
+6. `Operational hardening`
+   - Main question: can this run reliably?
+   - Use when the product basically works and the focus is reliability,
+     observability, security, deployment, maintainability, or support.
+7. `Commercialization`
+   - Main question: can this be packaged, sold, distributed, or positioned?
+   - Use when the main work is pricing, packaging, go-to-market, sales,
+     distribution, or commercial proof.
+8. `Live iteration`
+   - Main question: how should this improve based on live use?
+   - Use when the product is already live and the main loop is ongoing
+     improvement.
+
+Stage assignment rules:
+
+- Pick the stage by dominant uncertainty, not implementation progress.
+- When unsure between `Prototype` and `MVP build`, prefer `Prototype`.
+- Do not use `MVP build` merely because code exists or a preview is deployed.
+- Use `MVP build` only when the first usable product scope is chosen and the
+  target user/workflow is clear.
+- A project has one active stage at a time.
+- A milestone belongs to one primary stage.
 
 ## Lanes
 - Review lane
