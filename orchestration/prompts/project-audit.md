@@ -33,7 +33,8 @@ Required:
 Optional:
 - open questions or decisions file
 - review report
-- active PR or issue only if referenced by the run or milestone
+- active PR or issue only if the project already uses PRs/issues as its
+  execution surface or the run explicitly references one
 
 Known Notion surfaces:
 - Project Control Tower:
@@ -215,6 +216,11 @@ such as:
 For larger fixes, create or recommend one bounded Agent Run Queue item instead
 of editing many surfaces at once.
 
+Default durable handoff surfaces are repo docs plus the Agent Run Queue.
+Do not create GitHub issues by default. Use issues only when the project already
+uses them as its execution surface or the human explicitly asks for issue-based
+tracking.
+
 ## Rules
 
 - Do not turn the audit into a product critique.
@@ -224,3 +230,4 @@ of editing many surfaces at once.
 - Do not mark a project ready if there is no explicit next action or run.
 - Do not treat missing compatibility fields as a fatal project issue; classify
   it as migration or sync work.
+- Do not recommend GitHub issues as the default tracking surface.
