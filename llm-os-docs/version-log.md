@@ -8,9 +8,9 @@ do not change how a consuming project should be structured or operated.
 
 ## Current standard
 
-- Current version: `0.3`
+- Current version: `0.4`
 - Current profile: `repo-backed-orchestration`
-- Date: `2026-04-28`
+- Date: `2026-05-03`
 
 ## Version rules
 
@@ -32,6 +32,38 @@ Do not increment for:
 - background notes
 - historical analysis
 - internal-only explanation that does not affect consuming repos
+
+## 0.4 — Repo state and review-agent tracking
+
+Date: `2026-05-03`
+
+Impact: repo-backed projects should expose the last branch/commit known to the
+control layer and whether a review or refresh agent is needed after repo changes.
+
+Migration required: yes, for repo-backed projects that participate in Project
+Control Tower or Agent Run Queue orchestration.
+
+Affected surfaces:
+
+- `templates/project-overview.yaml`
+- `project-overview.yaml` in each consuming repo
+- Project Control Tower fields
+- Agent Run Queue closeout behavior
+- project sweep behavior
+
+Migration checklist:
+
+- Add `repo_branch` to the repo's `project-overview.yaml`.
+- Add `repo_latest_commit`.
+- Add `repo_state_checked`.
+- Add `repo_review_needed` as `yes`, `no`, or `unknown`.
+- Add `repo_review_reason`.
+- Add `repo_review_agent` as `review-gate`, `project-refresh`, or `none`.
+- When a run changes repo files, update these fields before closing the run.
+- If a coding/build agent changed repo state, default `repo_review_needed` to
+  `yes` unless the run itself was a review-only run.
+- During project sweep, compare the recorded commit against the current repo
+  head and surface projects that need review or refresh.
 
 ## 0.3 — Consistency and compatibility tracking
 
