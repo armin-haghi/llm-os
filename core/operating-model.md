@@ -5,6 +5,40 @@
 It keeps project execution grounded in a clear stage, a bounded milestone, and
 durable project memory.
 
+## Methodology / runtime / product boundary
+
+`llm-os` is a build and operating methodology. It is not itself a runtime
+platform, orchestration service, agent framework, product architecture, or
+execution control plane.
+
+Always keep these layers separate:
+
+1. Operating methodology
+   - examples: `llm-os`, review process, milestone structure, freshness rules,
+     human decision routing
+   - purpose: define how projects are structured, reviewed, refreshed, and
+     handed off
+2. Runtime or orchestration systems
+   - examples: OpenClaw, Claude Code, Codex, Conduit, automation systems,
+     deployed services
+   - purpose: execute workflows, run agents, invoke tools, or operate software
+3. Product capabilities
+   - examples: ContextHub, AlphaGen, Discount Tracker, project-specific apps
+   - purpose: deliver the actual user-facing or system capability being built
+
+Do not infer runtime responsibilities from `llm-os` language such as agents,
+contracts, lanes, workflows, or control tower. In `llm-os`, those terms describe
+how work is organized and handed off unless a consuming project explicitly says
+otherwise.
+
+When working on a project, state whether a boundary belongs to:
+- the `llm-os` operating process
+- a runtime/orchestration tool
+- the product being built
+
+A product may be built using `llm-os` principles without embedding `llm-os` into
+its runtime architecture.
+
 ## Canonical homes
 - Notion: portfolio state, ownership, blockers, priorities, human decisions
 - Project repo: code and project-specific durable context
@@ -16,6 +50,8 @@ durable project memory.
 - A contract is selected because the task matches it, not because a stable
   team-member role exists.
 - The human remains explicit as the decision endpoint for unresolved judgment.
+- Agent contracts describe work boundaries and handoff expectations; they do
+  not imply that `llm-os` is a runtime agent platform.
 
 ## Stages
 
@@ -93,6 +129,8 @@ Rules:
 - lanes can operate inside any stage or milestone without becoming the stage
 - agent contracts should stay narrow and task-specific
 - the human is the decision endpoint when default assumptions stop being safe
+- do not promote operating-model concepts into product/runtime architecture
+  unless the project explicitly chooses that architecture
 
 Relationship summary:
 - stage = lifecycle location
@@ -108,7 +146,8 @@ A serious session should:
 2. do the intended work
 3. reduce milestone uncertainty where possible
 4. update canonical docs when clarity improves
-5. escalate only residual human decisions
+5. preserve the methodology / runtime / product boundary when defining architecture or responsibilities
+6. escalate only residual human decisions
 
 ## Write-back expectation
 A serious session is not complete until durable changes are written back to
@@ -142,5 +181,7 @@ This operating model is not:
 - a backlog-heavy task management framework
 - a coding-only assistant setup
 - a chat transcript archive
+- a runtime orchestration platform
+- a product architecture or deployed control plane
 
 It is a lightweight operating standard for agent-driven product work with durable context, bounded milestones, and explicit human decision routing.
