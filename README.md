@@ -3,10 +3,15 @@
 `llm-os` is a lightweight operating system for building products with multiple
 LLM tools, agents, and coding assistants without losing the thread.
 
-It is not a single app, coding agent, or project-management system. It is a
-shared way to keep product intent, project state, human decisions, agent
-handoffs, and repo write-backs aligned across tools such as ChatGPT, Claude,
-Codex, OpenClaw, local models, Notion, and GitHub.
+It is not a single app, coding agent, runtime framework, orchestration service,
+or deployed multi-agent platform.
+It is a shared way to keep product intent, project state, human decisions,
+agent handoffs, and repo write-backs aligned across tools such as ChatGPT,
+Claude, Codex, OpenClaw, local models, Notion, and GitHub.
+
+`llm-os` defines how projects are structured, reviewed, refreshed, and handed
+off.
+It does not define the runtime architecture of the products built using it.
 
 For the fuller explanation, read `llm-os-docs/overview.md`.
 For the roadmap, read `llm-os-docs/roadmap.md`.
@@ -66,6 +71,23 @@ The answer should come from durable project state, not from memory of a chat.
 The system should make it possible to move between assistants and still keep the
 same operating context.
 
+## Methodology / runtime / product separation
+
+Always distinguish:
+
+1. Operating methodology
+   - examples: `llm-os`, review process, milestone structure, freshness rules
+2. Runtime or orchestration systems
+   - examples: OpenClaw, Claude Code, Conduit, automation systems
+3. Product capabilities
+   - examples: ContextHub, AlphaGen, Discount Tracker
+
+`llm-os` belongs to the first category.
+Projects built using `llm-os` may use any runtime systems or architectures.
+
+Do not implicitly convert operating-model concepts such as lanes, contracts,
+control towers, or workflows into runtime platform assumptions.
+
 ## How it should feel
 
 The human should be able to say:
@@ -104,6 +126,9 @@ context, execute or dispatch the work, and write back before closing.
 - a full project-management system
 - a task backlog
 - a multi-agent runtime
+- a runtime orchestration platform
+- a product architecture
+- a deployed control plane
 - a prompt library only
 - a place to store every conversation
 - a heavy methodology that every project must follow in detail
@@ -119,7 +144,8 @@ A serious session should:
 3. reduce milestone uncertainty where possible
 4. update durable project state when clarity improves
 5. check source-of-truth and compatibility drift when working across repo and Notion
-6. escalate only residual human decisions
+6. preserve methodology / runtime / product boundaries
+7. escalate only residual human decisions
 
 ## Start here
 
