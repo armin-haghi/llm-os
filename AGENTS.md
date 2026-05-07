@@ -2,6 +2,34 @@
 
 This is the single entrypoint for working with `llm-os`.
 
+## Methodology / runtime / product boundary
+
+Before defining architecture, responsibilities, permissions, or escalation
+behavior, explicitly distinguish:
+
+1. Operating methodology
+   - `llm-os`, review process, freshness rules, milestone structure,
+     orchestration rules
+2. Runtime or orchestration systems
+   - OpenClaw, Claude Code, Conduit, automation systems, deployed services
+3. Product capabilities
+   - ContextHub, AlphaGen, Discount Tracker, or other built systems
+
+`llm-os` belongs to the operating-methodology layer.
+Do not implicitly promote `llm-os` concepts into runtime architecture unless a
+project explicitly chooses that design.
+
+Terms such as:
+- agents
+- contracts
+- orchestration
+- control tower
+- workflows
+- lanes
+
+normally describe operating-model structure and handoff behavior, not runtime
+system topology.
+
 ## Canonical core
 Read these first when entering or modifying the operating model itself:
 1. `core/operating-model.md`
@@ -119,6 +147,7 @@ actually reaches them.
 - prefer canonical docs over chat history
 - invoke the narrow agent contract that matches the task
 - improve milestone clarity while doing the work
+- preserve methodology / runtime / product boundaries when describing systems
 - route project sweeps, project audits, morning status, and selected-project coordination through `orchestration/README.md`
 - keep morning status read-only unless the human explicitly asks for write-back
 - check `llm_os_version` and update-needed state during project sweeps and audits
