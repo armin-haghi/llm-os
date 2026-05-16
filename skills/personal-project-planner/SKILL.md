@@ -19,15 +19,17 @@ This skill should bias toward simplicity and actual shipping.
 
 ## Output modes
 
-Choose one output mode before writing back:
+Choose one output mode before writing back.
 
-### `Notion-first`
+### `Status-surface`
 Use when:
 - there is no repo yet
 - the user wants comments and lightweight feedback
 - the project is still being scoped
 
-Write to one canonical Notion concept page.
+Write to one canonical status surface. That surface may be Notion, Confluence,
+markdown, a tracker record, or another durable workspace. Do not treat the tool
+choice as the operating model.
 
 Minimum top block:
 - `Status`
@@ -39,7 +41,7 @@ Minimum top block:
 - `Canonical repo`
 - `Execution surface`
 
-Recommended Notion page sections:
+Recommended sections:
 1. `Summary`
 2. `What this is`
 3. `Who it is for`
@@ -51,8 +53,8 @@ Recommended Notion page sections:
 9. `Next decision`
 10. `Next action`
 
-If Notion tools are unavailable, produce Notion-ready structured markdown so it
-can be pasted into the canonical concept page.
+If the chosen status-surface tool is unavailable, produce structured markdown so
+it can be pasted into the canonical concept surface.
 
 ### `Repo-writeback`
 Use when:
@@ -60,8 +62,9 @@ Use when:
 - a bounded first build slice exists
 - implementation is starting
 
-Write to the repo's live project-doc surface and keep Notion as the summary,
-review, and comment surface rather than a second execution surface.
+Write to the repo's live project-doc surface and keep the external status
+surface as summary, review, comment, run-dispatch, and human-decision support
+rather than a second execution surface.
 
 ## Read path
 
@@ -77,8 +80,8 @@ Read only the smallest sufficient context:
 
 If the repo is not yet initialized:
 - use the user's prompt as the working source
-- prefer `Notion-first` output mode
-- switch to `repo-writeback` once the repo exists
+- prefer `Status-surface` output mode
+- switch to `Repo-writeback` once the repo exists
 
 ## Goal
 
@@ -150,17 +153,17 @@ At every phase:
 
 Choose the smallest correct durable artifact for the selected output mode.
 
-In `Notion-first` mode:
-- update one canonical Notion concept page
+In `Status-surface` mode:
+- update one canonical concept surface
 - keep `Status`, `Stage`, `Freshness`, `Last reviewed`, and `Next decision`
   current
-- avoid creating multiple parallel concept pages
+- avoid creating multiple parallel concept pages or documents
 
 In `Repo-writeback` mode:
 - write to the live project-doc surface
-- keep Notion as the summary and review surface only
+- keep the external status surface as summary and review support only
 
-Typical targets:
+Typical repo targets:
 - `project-spine.md`
   - when the actual tool definition, user, constraints, or success criteria become clearer
 - `current-milestone.md`
@@ -172,11 +175,11 @@ Typical targets:
 - `project-overview.yaml`
   - when `stage`, `active_milestone`, `blocker`, or `next_action` becomes clearer
 
-When moving from `Notion-first` to `Repo-writeback`:
+When moving from `Status-surface` to `Repo-writeback`:
 1. initialize or retrofit the repo
 2. port the durable concept definition into the canonical repo docs
-3. link the repo from the Notion page
-4. stop using Notion as a parallel build surface
+3. link the repo from the status surface
+4. stop using the external status surface as a parallel build surface
 
 ## Escalation
 
