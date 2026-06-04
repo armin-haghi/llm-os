@@ -76,18 +76,15 @@ otherwise.
 
 ## Current repo note
 
-The current repo skills are still core-facing because they primarily support:
+Many repo skills are core-facing because they primarily support:
 - project refresh
 - review gating
 - portfolio refresh
 - lightweight human input
 - human-topic surfacing
 
-If future skills become provider-, domain-, or product-specific, keep them
-outside the core operating layer and treat them as external integrations.
-
-Early-stage shaping skills can still live in this repo without becoming core.
-Examples include opportunity-analysis or personal-project planning skills.
-When they are present, treat them as external or candidate stage skills that
-plug into the `llm-os` operating model and write back into the canonical
-project docs.
+Capability-specific skills can still live in this repo without becoming core.
+Examples include business-case analysis, personal-project planning, or pitch
+deck building. Treat them as external or candidate stage skills that plug into
+the `llm-os` operating model and write back into the canonical project docs
+when their work changes durable project state.
