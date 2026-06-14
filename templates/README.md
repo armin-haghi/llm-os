@@ -13,6 +13,7 @@ Use the smallest sufficient template:
 - `templates/review-report.md`
 - `templates/project-overview.yaml`
 - `templates/agent-run.yaml`
+- `templates/build-brief.md`
 
 These files are templates for project-level artifacts that typically live under
 `docs/` in a consuming project repo, except machine-readable overview/status
